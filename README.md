@@ -7,3 +7,4 @@ svn也是版本控制系统
 git是分布式的
 
 buy thing
+buy a pen
