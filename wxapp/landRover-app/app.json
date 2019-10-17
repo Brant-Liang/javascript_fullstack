@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/storys/index",
+    "pages/carDetail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#13D0B4",
+    "navigationBarTitleText": "偶嬲尼麻麻别咧",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "iconPath": "assets/icons/home.png",
+        "selectedIconPath": "assets/icons/home-active.png",
+        "pagePath": "pages/index/index"
+      },
+      {
+        "text": "故事",
+        "iconPath": "assets/icons/event.png",
+        "selectedIconPath": "assets/icons/event-active.png",
+        "pagePath": "pages/storys/index"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
