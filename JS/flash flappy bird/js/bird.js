@@ -34,7 +34,7 @@ var bird = {
      }
    },
  
-   wingWave: function() {
+   wingWave: function() { //翅膀扇动
      var up = ["url(img/up_bird0.png)", "url(img/up_bird1.png)"]
      var down = ["url(img/down_bird0.png)", "url(img/down_bird1.png)"]
      var i = 0, j = 0
