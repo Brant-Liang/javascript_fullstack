@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#00C777",
+    "navigationBarTitleText": "牛逼英语",
+    "navigationBarTextStyle": "white",
+    "navigationBarFontSize": "25px"
+  },
+  "sitemapLocation": "sitemap.json"
+}
