@@ -54,3 +54,8 @@ swiper{
 .newest-box .newest-list .newest-text{
    font-size: 32rpx;
 }
+.newest-title{
+  text-align: center;
+  color: #ab956d;
+  margin: 15px 0;
+}

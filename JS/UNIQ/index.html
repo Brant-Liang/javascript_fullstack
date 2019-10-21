@@ -11,9 +11,9 @@
    <!-- [1, 2, 3, 2, 3, 5] -->
    <!-- [1, 2, 3, 5] -->
    <script>
-      // function uniq(arr){
-      //    return[...new Set(arr)];
-      // }
+      function uniq(arr){
+         return[...new Set(arr)];
+      }
      
       // function uniq(arr){
       //    let result = [];
@@ -36,9 +36,9 @@
       //    return result;
       // }      
 
-      function uniq(arr){
-         return arr.reduce((prev, cur) => prev.includes(cur) ? prev : [...prev, cur], [])
-      }
+      // function uniq(arr){
+      //    return arr.reduce((prev, cur) => prev.includes(cur) ? prev : [...prev, cur], [])
+      // }
       console.log(uniq([1, 2, 3, 2, 3, 5]));
    </script>
 </body>

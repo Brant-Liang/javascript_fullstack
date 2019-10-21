@@ -10,17 +10,95 @@ Page({
     selectAllStatus: true,
     totalPrice: ''
   },
-  getTotalPrice(){
+  selectList(e) {
+    console.log(e);
+    let index = e.currentTarget.dataset.index;
+    let selected = `carts.[${index}].selected`;
+    this.setData({
+      [selected]: !this.data.carts[index].selected
+    })
+    let selectAllStatus = this.data.selectAllStatus;
+    let carts = this.data.carts;
+    this.getTotalPrice()
+    for (let i = 0; i < carts.length; i++) {
+      if (!carts[i].selected) {
+        this.setData({ 
+          selectAllStatus: false 
+        })
+        return
+      }
+      else {
+        this.setData({
+          selectAllStatus: true
+        })
+      }
+    }
+    
+  },
+  selectAll(e) {
+    let selectAllStatus = this.data.selectAllStatus;
+    selectAllStatus = !selectAllStatus;
+    let carts = this.data.carts
+    for (let i = 0; i < carts.length; i++) {
+      carts[i].selected = selectAllStatus;
+    }
+    this.setData({
+      selectAllStatus: selectAllStatus,
+      carts: carts
+    })
+    this.getTotalPrice()
+  },
+  getTotalPrice() {
     let carts = this.data.carts;
     let total = 0;
-    for(let i=0; i<carts.length; i++){
-      if(carts[i].selected){
-        total += carts[i].num *carts[i].price;      
+    for (let i = 0; i < carts.length; i++) {
+      if (carts[i].selected) {
+        total += carts[i].num * carts[i].price;
       }
     }
     this.setData({
       totalPrice: total.toFixed(2)
     })
+  },
+  addCount(e){
+    let index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    let num = carts[index].num;
+    num++;
+    carts[index].num = num
+    this.setData({
+      carts: carts
+    })
+    this.getTotalPrice()
+  },
+  minusCount(e){
+    let index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    let num = carts[index].num;
+    num--;
+    if(num < 0){
+      num = 0;
+    }
+    carts[index].num = num
+    this.setData({
+      carts: carts
+    })
+    this.getTotalPrice()
+  },
+  deleteList(e){
+    let index = e.currentTarget.dataset.index;
+    let carts = this.data.carts;
+    carts.splice(index,1);
+    this.setData({
+      carts: carts
+    })
+    if(!carts.length){
+      this.setData({
+        hasList: false
+      })
+    }else{
+      this.getTotalPrice();
+    }
   },
 
   /**
