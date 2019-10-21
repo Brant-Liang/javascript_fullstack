@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/catagory/catagory",
     "pages/index/index",
     "pages/user/user",
     "pages/cart/cart",
-    "pages/catagory/catagory",
     "pages/address/address"
   ],
   "window": {

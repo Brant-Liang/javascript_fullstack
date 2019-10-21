@@ -155,17 +155,36 @@ Page({
         ]
       }
     ],
-
+    curDataset: ''
   },
-  switchTab(e){
+  switchTab(e) {
+    console.log(e);
+
     this.setData({
       curIndex: e.currentTarget.dataset.index,
       toView: e.currentTarget.dataset.id
     })
   },
+  scrollingSwitch(e) {
+    //console.log(e);
+    var arr = [];
+    for (let i = 0; i <this.data.catagory.length; i++) { 
+      arr[i] = i * 624;
+    }
+    var scrollTop = e.detail.scrollTop;  // 624 一页
+    arr.forEach((item,index) => {
+      if(scrollTop < arr[index + 1] && scrollTop >= arr[index]){
+        this.setData({
+          curIndex: index
+        })
+      }
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
+
   onLoad: function (options) {
 
   },
