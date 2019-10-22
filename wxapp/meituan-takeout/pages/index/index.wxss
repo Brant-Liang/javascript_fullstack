@@ -1,0 +1,48 @@
+/* pages/index/index.wxss */
+.navigation{
+   width: 100%;
+   height: 100rpx;
+   position: fixed;
+   top: 0;
+   background-color: #0097ff;
+   font-size: 17px;
+   text-align: center;
+   padding-top: 36rpx;
+}
+.navigation text{
+   padding-top: 56rpx;
+   color: #ffffff;
+   font: bold;
+}
+.navigation .arrow{
+   position: relative;
+   left: 20rpx;
+   top: 30rpx;
+   width: 20rpx;
+   height: 20rpx;
+   border: 5rpx solid #ffffff;
+   border-top: transparent;
+   border-right: transparent;
+   transform: rotateZ(45deg);
+}
+.main{
+   position: absolute;
+   left: 0;
+   top: 134rpx;
+}
+.left{
+   float: left;
+   width: 160rpx;
+   height: 100%;
+}
+.left-list{
+   font-size: 26rpx;
+   text-align: center;
+   background-color: #fff;
+   padding: 30rpx 20rpx;
+   color: #777777;
+   background-color: #f8f8f8;
+}
+.left-list.active{
+   background-color: #fff;
+}

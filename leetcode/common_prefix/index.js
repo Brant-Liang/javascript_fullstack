@@ -1,7 +1,8 @@
+
 /**
  *  @author Brant-Liang
  *  @func 返回最长公共子串
- *  @param strs 字符串数组
+ *  @param strs 字符串数组.4
  *  @return 字符中
  */
 /* 判断是否为公共子串函数 */
