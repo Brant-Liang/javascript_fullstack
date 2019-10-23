@@ -46,3 +46,8 @@
 .left-list.active{
    background-color: #fff;
 }
+.right{
+   float: right;
+   width: 390rpx;
+   height: 100%;
+}

@@ -9,4 +9,8 @@
    <view class="left">
       <view class="left-list {{curIndex === index ? 'active' : ''}}" data-index="{{index}}" wx:for="{{category}}" wx:key="{{item.id}}" bind:tap="switchTab" >{{item.name}}</view>
    </view>
+   <scroll-view class="right" scroll-y="{{true}}">
+      <view class="right-title" wx:for="{{category}}" wx:for-item="{{cate}}">{{cate.name}}</view>
+      <view class="right-container"></view>
+   </scroll-view>
 </view>

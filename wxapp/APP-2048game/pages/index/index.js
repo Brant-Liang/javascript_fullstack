@@ -58,7 +58,7 @@ Page({
   },
   combine: () => {
     //数字滑动 把数字靠边
-    let res = this.SlideNumber(['',2, '',2]);
+    let res = this.SlideNumber(['', 2, '', 2]);
     console.log('靠边',res);
 
     //this.SlideNumber();
