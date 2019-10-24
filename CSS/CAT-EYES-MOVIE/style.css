@@ -27,7 +27,7 @@ body {
   font-size: 18px;
   text-align: center;
   line-height: 1.067rem;
-  background-color: #e54847;
+  background-color: #0a0a0a;
 }
 .nav .arrow-left {
   float: left;
@@ -296,6 +296,19 @@ body {
   width: 100%;
   height: 100%;
 }
+.movie-photo{
+  margin-bottom: 56px !important;
+}
 #toast {
   display: none;
+}
+.footer{
+  background-color: #e54847;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  height: 1.467rem;
+  line-height: 1.467rem;
+  width: 100%;
+  text-align: center;
 }

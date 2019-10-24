@@ -14,7 +14,7 @@ Page({
       { name: '淡饭', id: 'danfan' }
     ],
     curIndex: 0,
-    toView: 'cucha',
+    toView: 'guowei',
     detail: [
       {
         banner: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1346789120,1908407508&fm=26&gp=0.jpg',
@@ -166,14 +166,22 @@ Page({
     })
   },
   scrollingSwitch(e) {
-    //console.log(e);
+    console.log(e);
     var arr = [];
-    for (let i = 0; i <this.data.catagory.length; i++) { 
-      arr[i] = i * 624;
+    for (let i = 0; i < this.data.catagory.length + 1; i++) { 
+      arr[i] = i * 624 - 312; //-312 312 936  1560 2184 2808
     }
     var scrollTop = e.detail.scrollTop;  // 624 一页
     arr.forEach((item,index) => {
       if(scrollTop < arr[index + 1] && scrollTop >= arr[index]){
+        /* 
+        0    -312 - 312
+        1     312   936
+        2     936   1560
+        3     1560  2184 
+        4     2184  2808
+        5     2808  3432
+        */
         this.setData({
           curIndex: index
         })
