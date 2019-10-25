@@ -2,7 +2,7 @@
   一切皆资源
   DOM + CSS + JS
   URL Universal Resource Location
-   htp://www.taobao.com/shop/1/good/2
+   http://www.taobao.com/shop/1/good/2
    明确的表达 它的资源是什么意思
 
 - npm init -y 从前端项目，加入后端
