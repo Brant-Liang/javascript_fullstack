@@ -31,14 +31,13 @@ const mostFiles = (arrFiles, C) => {
 var myArrFiles = [11, 5, 7, 22, 21, 9, 1];  // 1 5 7 9 11 21 22
 console.log('最多存入的文件数量为 ' + mostFiles(myArrFiles, 40));
 
-//(2) 存入后的剩余空间最小 min(C - sum)要达到最小值 最后存最小值
-// var leastSpace = function(arrFiles, C){
-//    var sum = 0;
-//    for(let i = 0; i < arrFiles.length; i++){
-//       sum += arrFiles[i];
-//       if(sum > C){
-//          sum -= arrFiles[i];
-//          arr.unshift(arrFiles[i]);
-//       }
-//    }
-// }
+//(2) 
+
+function leastSpace(){
+   var resArr = [];
+   for(let i = 0; i < myArrFiles.length; i++){
+      for(let j = 0; j < myArrFiles.length; j++){
+         
+      }
+   }
+}

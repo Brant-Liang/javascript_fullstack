@@ -8,14 +8,12 @@ function leastCoins(coinsValues, yTotalValue) {
             remain -= coinsValues[i];
             arr.unshift(coinsValues[i]);
          }
-         if (remain == 0) {
-            return arr;
-         }
+      }
+      if (remain == 0) {
+         return arr;
       }
    }
 }
-
-
 function inputPN(arr, p, n) { //输入p 和 n 返回币值数组
    if (p <= 1) {
       return false;
@@ -26,7 +24,7 @@ function inputPN(arr, p, n) { //输入p 和 n 返回币值数组
    return arr;
 }
 var coinsVales = [];
-var myCoinsVales = inputPN(coinsVales, 3, 10);
+var myCoinsVales = inputPN(coinsVales, 2, 10);
 console.log(myCoinsVales);
 var myTotalValue = 4000;
 console.log(leastCoins(myCoinsVales, myTotalValue));
