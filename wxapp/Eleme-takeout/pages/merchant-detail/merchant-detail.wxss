@@ -37,7 +37,7 @@
 }
 .left-list{
    font-size: 26rpx;
-   text-align: center;
+   text-align: left;
    background-color: #fff;
    padding: 30rpx 20rpx;
    color: #777777;

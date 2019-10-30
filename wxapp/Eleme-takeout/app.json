@@ -2,13 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/order-form/order-form",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/merchant-detail/merchant-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0097FF",
     "navigationBarTitleText": "饿了么",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#aaaaaa",

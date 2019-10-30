@@ -11,7 +11,9 @@ Page({
       { name: '美味汉堡/卷', id: 'hanbao' },
       { name: 'K记饭桶', id: 'KJ' },
       { name: '鸡翅/鸡排', id: 'jichi' },
-      { name: '小食', id: 'xiaoshi' }
+      { name: '炸鸡啤酒', id: 'xiaoshi' },
+      { name: '甜品/冰淇淋', id: 'xiaoshi' },
+      { name: '缤纷饮料', id: 'xiaoshi' },
     ],
     curIndex: 0
   },
