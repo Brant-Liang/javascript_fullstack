@@ -1,15 +1,11 @@
-// pages/index/index.js
+// pages/order-form/order-form.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    imgUrl: [
-      '../../images/image1.jfif',
-      '../../images/image2.jfif',
-      '../../images/image3.jpg'
-    ]
+
   },
 
   /**

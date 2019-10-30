@@ -1,16 +1,17 @@
 <!-- pages/index/index.wxml -->
-<view class="main">
-   <view class="navigation">
-      <view class="arrow"></view>
-      <view class="nav-name">
-         <text>肯德基宅急送</text>
+<view class="page">
+   <view class="header">
+      <view class="search">
+         <text>🔍搜索商家、商品名称</text>
       </view>
    </view>
-   <view class="left">
-      <view class="left-list {{curIndex === index ? 'active' : ''}}" data-index="{{index}}" wx:for="{{category}}" wx:key="{{item.id}}" bind:tap="switchTab" >{{item.name}}</view>
-   </view>
-   <scroll-view class="right" scroll-y="{{true}}">
-      <view class="right-title" wx:for="{{category}}" wx:for-item="{{cate}}">{{cate.name}}</view>
-      <view class="right-container"></view>
-   </scroll-view>
+   <swiper class="banner" indicator-dots="{{true}}" autoplay="{{true}}" 
+   interval="3000" circular="{{true}}">
+      <block wx:for="{{imgUrl}}" wx:key="{{index}}" >
+         <swiper-item class="banner-images" item-id="">
+            <image src="{{item}}" />
+         </swiper-item>
+      </block>
+        
+   </swiper>
 </view>

@@ -5,18 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrl: [
-      '../../images/image1.jfif',
-      '../../images/image2.jfif',
-      '../../images/image3.jpg'
-    ]
+    category: [
+      { name: '优惠', id: 'youhui' },
+      { name: '新品上市', id: 'xinping' },
+      { name: '美味汉堡/卷', id: 'hanbao' },
+      { name: 'K记饭桶', id: 'KJ' },
+      { name: '鸡翅/鸡排', id: 'jichi' },
+      { name: '小食', id: 'xiaoshi' }
+    ],
+    curIndex: 0
   },
-
+  switchTab(e){
+    console.log(e);
+    this.setData({
+      curIndex: e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**

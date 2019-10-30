@@ -1,53 +1,33 @@
 /* pages/index/index.wxss */
-.navigation{
+.page{
    width: 100%;
-   height: 100rpx;
-   position: fixed;
-   top: 0;
+}
+.header{
+   text-align: center;
+   width: 100%;
+   height: 80rpx;
    background-color: #0097ff;
-   font-size: 17px;
-   text-align: center;
-   padding-top: 36rpx;
+   padding: 20rpx;
 }
-.navigation text{
-   padding-top: 56rpx;
-   color: #ffffff;
-   font: bold;
+.search{
+   width: 96%;
+   height: 80rpx;
+   background-color: #ffffff;
+   border-radius: 40rpx;
+
 }
-.navigation .arrow{
+.search text{
+   font-family: Microsoft JhengHei;
+   font-size: 32rpx;
+   color: #999999;
    position: relative;
-   left: 20rpx;
-   top: 30rpx;
-   width: 20rpx;
-   height: 20rpx;
-   border: 5rpx solid #ffffff;
-   border-top: transparent;
-   border-right: transparent;
-   transform: rotateZ(45deg);
+   top: 15rpx;
 }
-.main{
-   position: absolute;
-   left: 0;
-   top: 134rpx;
+swiper{
+   width: 100%;
+   height: 280rpx;
 }
-.left{
-   float: left;
-   width: 160rpx;
+swiper-item image{
    height: 100%;
-}
-.left-list{
-   font-size: 26rpx;
-   text-align: center;
-   background-color: #fff;
-   padding: 30rpx 20rpx;
-   color: #777777;
-   background-color: #f8f8f8;
-}
-.left-list.active{
-   background-color: #fff;
-}
-.right{
-   float: right;
-   width: 390rpx;
-   height: 100%;
+   width: 100%;
 }
