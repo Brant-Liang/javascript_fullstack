@@ -32,6 +32,33 @@ Page({
         ]
       }
     ],
+    merchant: [
+      {
+        headImg: './images/KFC.jpeg',
+        name: '肯德基宅急送(经开店)',
+        star: 4.6,
+        mouthSale: 684,
+        upToSend: 0,
+        shippingFee: 9,
+        foodList:[
+          {
+            title:'香辣鸡腿堡(汉堡)ST',
+            foodImg: './images/hanbao.jepg.jpeg',
+            price: '19'
+          },
+          {
+            title: '二块新奥尔良烤翅T',
+            foodImg: './images/jichi.jpeg',
+            price: '12.5'
+          },
+          {
+            title: '双味双杯热拿铁T',
+            foodImg: './images/coffee.jpeg',
+            price: '33'
+          }
+        ]
+      }
+    ],
   },
   goToDetail() {
     wx.navigateTo({

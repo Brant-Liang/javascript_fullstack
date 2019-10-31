@@ -44,6 +44,11 @@
          <text class="screen">筛选</text>
          <image src="../../images/shiaxuan.png" />
       </view>
-      <view class="merchant-list"></view>
+      <view class="merchant-list" wx:for="{{merchant}}">
+         <view class="main">
+            <image src="{{item.headImg}}" />
+            <text>{{item.name}}</text>
+         </view>
+      </view>
    </view>
 </view>

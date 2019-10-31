@@ -129,3 +129,7 @@ swiper-item image{
    width: 40rpx;
    height: 40rpx;
 }
+.merchant-list image{
+   width: 160rpx;
+   height: 160rpx;
+}
