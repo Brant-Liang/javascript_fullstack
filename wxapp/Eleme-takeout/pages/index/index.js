@@ -6,22 +6,34 @@ Page({
    */
   data: {
     imgUrl: [
-      '../../images/image1.jfif',
-      '../../images/image2.jfif',
+      '../../images/image1.jpg',
+      '../../images/image2.jpg',
       '../../images/image3.jpg'
     ],
     menu: [
-      {name: '美食', iconUrl: '../../images/meishi.png'},
-      {name: '商超便利', iconUrl: '../../images/chaoshi.png'},
-      {name: '水果', iconUrl: '../../images/shuiguo.png'},
-      {name: '全球美食', iconUrl: '../../images/quanqiumeishi.png'},
-      {name: '地方小吃', iconUrl: '../../images/difangxiaochi.png'},
-      {name: '速食简餐', iconUrl: '../../images/sushijiancan.png'},
-      {name: '大牌惠吃', iconUrl: '../../images/dapaihuichi.png'},
-      {name: '汉堡披萨', iconUrl: '../../images/hanbaopisha.png'},
-    ]
+      {
+        id: 'first',
+        list: [
+          { name: '美食', iconUrl: '../../images/meishi.png' },
+          { name: '商超便利', iconUrl: '../../images/chaoshi.png' },
+          { name: '水果', iconUrl: '../../images/shuiguo.png' },
+          { name: '全球美食', iconUrl: '../../images/quanqiumeishi.png' },
+          { name: '地方小吃', iconUrl: '../../images/difangxiaochi.png' },
+          { name: '速食简餐', iconUrl: '../../images/sushijiancan.png' },
+          { name: '大牌惠吃', iconUrl: '../../images/dapaihuichi.png' },
+          { name: '汉堡披萨', iconUrl: '../../images/hanbaopisha.png' }
+        ]
+      },
+      {
+        id: 'second',
+        list: [
+          { name: '包子粥店', iconUrl: '../../images/baozizhoudian.png' },
+          { name: '米粉面馆', iconUrl: '../../images/mifenmianguan.png' }
+        ]
+      }
+    ],
   },
-  goToDetail(){
+  goToDetail() {
     wx.navigateTo({
       url: '../merchant-detail/merchant-detail'
     })

@@ -1,7 +1,7 @@
 /* pages/index/index.wxss */
 .page{
    width: 100%;
-   color: #f4f4f4;
+   background-color: #eeeeee;
 }
 .navigation{
    width: 100%;
@@ -9,54 +9,70 @@
    position: fixed;
    top: 0;
    background-color: #0097ff;
-   font-size: 17px;
-   text-align: left;
+   font-size: 32rpx;
+   text-align: center;
    padding-top: 36rpx;
 }
+.nav-name{
+   width: 100%;
+   margin-top: 35rpx;
+}
 .navigation text{
-   position: relative;
-   left: 60rpx;
-   padding-top: 56rpx;
    color: #ffffff;
    font: bold;
-}
-.navigation .arrow{
-   position: relative;
-   left: 20rpx;
-   top: 40rpx;
-   width: 20rpx;
-   height: 20rpx;
-   border: 5rpx solid #ffffff;
-   border-top: transparent;
-   border-right: transparent;
-   transform: rotateZ(45deg);
 }
 .header{
    position: relative;
    top: 120rpx;
    text-align: center;
    width: 100%;
-   height: 100rpx;
+   height: 140rpx;
    background-color: #0097ff;
    padding: 20rpx;
 }
+.getLocation{
+   width: 50%;
+   text-align: left;
+   color: #ffffff;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   overflow: hidden;
+}
+.getLocation text{
+   font-family:  NSimSun;
+   font-weight: bold;
+   font-size: 40rpx;
+   line-height: 40rpx;
+}
+.getLocation image{
+   width: 35rpx;
+   height: 35rpx;
+}
 .search{
+   margin-top: 15rpx;
    width: 96%;
    height: 80rpx;
    background-color: #ffffff;
    border-radius: 40rpx;
-
+}
+.search image{
+   position: relative;
+   top: 20rpx;
+   width: 32rpx;
+   height: 32rpx;
+   padding-right: 10rpx;
 }
 .search text{
    font-family: Microsoft JhengHei;
-   font-size: 32rpx;
+   font-size: 26rpx;
    color: #999999;
    position: relative;
    top: 15rpx;
 }
 swiper{
+   background-color: #fff;
    position: relative;
-   top:100rpx;
+   top:140rpx;
    width: 100%;
    height: 240rpx;
 }
@@ -71,13 +87,14 @@ swiper-item image{
    width: 100%;
    height: 360rpx;
 }
-.menu-list{
+
+.menu-list .oneMenu{
    display: inline-block;
    text-align: center;
-   width: 24%;
+   width: 25%;
    height: 160rpx;
 }
-navigator image{
+.menu-list image{
    width: 150rpx;
    height: 70rpx;
    margin-top: 0;
@@ -85,4 +102,30 @@ navigator image{
 .menu-names text{
    font-size: 26rpx;
    color: #aaaaaa;
+}
+.merchant{
+   position: relative;
+   top: 130rpx;
+}
+.merchant-header{
+   font-size: 30rpx;
+   color: #888888;
+}
+.merchant-header .sort{
+   margin-left: 30rpx;
+}
+.merchant-header .distance{
+   margin-left: 80rpx;
+}
+.merchant-header .lengend{
+   margin-left: 40rpx;
+}
+.merchant-header .screen{
+   margin-left: 150rpx;
+}
+.merchant-header image{
+   position: relative;
+   top: 14rpx;
+   width: 40rpx;
+   height: 40rpx;
 }

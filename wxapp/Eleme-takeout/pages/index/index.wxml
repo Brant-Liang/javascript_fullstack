@@ -1,38 +1,48 @@
 <!-- pages/index/index.wxml -->
 <view class="page">
-    <view class="navigation">
-      <view class="arrow"></view>
+   <view class="navigation">
       <view class="nav-name">
          <text>饿了么</text>
       </view>
    </view>
    <view class="header">
+      <view class="getLocation">
+         <image src="../../images/dingwei.png" />
+         <text>敬业大道江西财经大学</text>
+      </view>
       <view class="search">
-         <text>🔍搜索商家、商品名称</text>
+         <image src="../../images/sousuo.png" />
+         <text>搜索商家、商品名称</text>
       </view>
    </view>
-   <swiper class="banner" indicator-dots="{{true}}" autoplay="{{true}}" interval="3000" circular="{{true}}">
+   <swiper class="banner" indicator-dots="{{true}}" indicator-active-color="#aaaaaa" indicator-color="#dddddd" autoplay="{{true}}" interval="3000" circular="{{true}}">
       <block wx:for="{{imgUrl}}" wx:key="{{index}}">
-         <swiper-item class="banner-images" >
+         <swiper-item class="banner-images">
             <image src="{{item}}" />
          </swiper-item>
       </block>
    </swiper>
-   <scroll-view class="menu" scroll-x="true" scroll-with-animation="{{true}}">
-      <view class="menu-list" wx:for="{{menu}}" wx:for-item="one" bind:tap="goToDetail">
-         <navigator target="self" url="#" class="">
-               <image src="{{one.iconUrl}}" />
-            <view class="menu-names">
-               <text>{{one.name}}</text>
-            </view>
-         </navigator>
-      </view>
-   </scroll-view>
-
+   <swiper class="menu" indicator-dots="{{true}}" duration="500" indicator-active-color="#aaaaaa" indicator-color="#dddddd">
+      <block wx:for="{{menu}}" wx:key="{{index2}}" wx:for-item="oneBlock">
+         <swiper-item class="menu-list" bindtap="goToDetail">
+            <block c wx:for="{{oneBlock.list}}" wx:key="{{index3}}" wx:for-item="oneItem">
+               <view class="oneMenu">
+                  <image src="{{oneItem.iconUrl}}" />
+                  <view class="menu-names">
+                     <text>{{oneItem.name}}</text>
+                  </view>
+               </view>
+            </block>
+         </swiper-item>
+      </block>
+   </swiper>
    <view class="merchant">
       <view class="merchant-header">
          <text class="sort">综合排序</text>
          <text class="distance">离我最近</text>
+         <text class="lengend">品质联盟</text>
+         <text class="screen">筛选</text>
+         <image src="../../images/shiaxuan.png" />
       </view>
       <view class="merchant-list"></view>
    </view>

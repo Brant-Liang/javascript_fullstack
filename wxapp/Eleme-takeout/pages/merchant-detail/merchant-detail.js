@@ -15,12 +15,44 @@ Page({
       { name: '甜品/冰淇淋', id: 'xiaoshi' },
       { name: '缤纷饮料', id: 'xiaoshi' },
     ],
+    merchant: [
+      {
+        headImg: '',
+        name: '肯德基宅急送(经开店)',
+        star: 4.6,
+        mouthSale: 684,
+        upToSend: 0,
+        shippingFee: 9,
+        foodList:[
+          {
+            title:'',
+            foodImg: '',
+            price: ''
+          },
+          {
+            title: '',
+            foodImg: '',
+            price: ''
+          },
+          {
+            title: '',
+            foodImg: '',
+            price: ''
+          }
+        ]
+      }
+    ],
     curIndex: 0
   },
   switchTab(e){
     console.log(e);
     this.setData({
       curIndex: e.currentTarget.dataset.index
+    })
+  },
+  goToIndex(){
+    wx.reLaunch({
+      url: '../index/index'
     })
   },
   /**

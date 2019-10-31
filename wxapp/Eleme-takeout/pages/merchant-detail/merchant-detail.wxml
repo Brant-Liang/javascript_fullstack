@@ -1,7 +1,7 @@
 <!-- pages/index/index.wxml -->
 <view class="main">
    <view class="navigation">
-      <view class="arrow"></view>
+      <view class="arrow" bind:tap="goToIndex"></view>
       <view class="nav-name">
          <text>肯德基宅急送</text>
       </view>
