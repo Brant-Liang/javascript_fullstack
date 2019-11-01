@@ -46,8 +46,15 @@
       </view>
       <view class="merchant-list" wx:for="{{merchant}}">
          <view class="main">
-            <image src="{{item.headImg}}" />
-            <text>{{item.name}}</text>
+            <view class="headImg">
+               <image src="{{item.headImg}}" />
+            </view>
+            <view class="name">
+               <text class="title">{{item.name}}</text>
+            </view>
+            <view class="mouth">
+               <text class="mouthSale">月销售{{item.mouthSale}}单</text>
+            </view>
          </view>
       </view>
    </view>

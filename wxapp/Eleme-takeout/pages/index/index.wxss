@@ -2,6 +2,7 @@
 .page{
    width: 100%;
    background-color: #eeeeee;
+   color: #888888
 }
 .navigation{
    width: 100%;
@@ -72,7 +73,7 @@
 swiper{
    background-color: #fff;
    position: relative;
-   top:140rpx;
+   top:120rpx;
    width: 100%;
    height: 240rpx;
 }
@@ -82,7 +83,7 @@ swiper-item image{
 }
 .menu{
    position: relative;
-   top: 100rpx;
+   top: 120rpx;
    margin-top: 20rpx;
    width: 100%;
    height: 360rpx;
@@ -106,16 +107,20 @@ swiper-item image{
 .merchant{
    position: relative;
    top: 130rpx;
+   background-color: #fff;
 }
 .merchant-header{
    font-size: 30rpx;
    color: #888888;
+   height: 70rpx;
 }
 .merchant-header .sort{
+   color: #000000;
+   font-weight: bold;
    margin-left: 30rpx;
 }
 .merchant-header .distance{
-   margin-left: 80rpx;
+   margin-left: 100rpx;
 }
 .merchant-header .lengend{
    margin-left: 40rpx;
@@ -129,7 +134,15 @@ swiper-item image{
    width: 40rpx;
    height: 40rpx;
 }
+.merchant-list{
+   float: left;
+   margin: 30rpx 0 0 30rpx;
+}
 .merchant-list image{
-   width: 160rpx;
-   height: 160rpx;
+   width: 140rpx;
+   height: 140rpx;
+}
+.merchant-list title{
+   text-align: left;
+   font-weight: bold;
 }
