@@ -30,6 +30,8 @@ class Events {
   }
   emit(key) {
     //console.log(this.listener);
+    console.log(this.listener[key].length);
+    
     for (let i = 0; i < this.listener[key].length; i++) {
       console.log('---', this.listener[key][i]);
       this.listener[key][i]();
