@@ -13,12 +13,14 @@
         <router-link to="seller">商家</router-link>
       </div>
     </div>
+    
     <router-view/>
   </div>
 </template>
 
 <script>
 import header from '@/components/header/header.vue'
+
 export default {
   name: 'App',
   data () {
@@ -27,7 +29,7 @@ export default {
     }
   },
   components: {
-    'v-header': header
+    'v-header': header,
   },
   created () {
     this.$http.get('http://localhost:8080/static/seller.json', {})
