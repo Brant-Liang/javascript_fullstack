@@ -3,9 +3,15 @@
     <div class="goods">
       <div class="menu-wrapper" ref="menuWrapper">
         <ul>
-          <li v-for="(item,index) in goods" :class="{'current': curIndex === index}" :key="index" class="menu-item" @click="selectMenu(index)">
+          <li
+          v-for="(item, index) in goods"
+          :key="index"
+          class="menu-item"
+          @click="selectMenu(index)"
+          :class="{'current' : currentIndex === index}"
+          >
             <span class="text border-1px">
-              <span v-if="item.type > 0" class="icon" :class="classMap[item.type]" ></span>
+              <span v-if="item.type > 0" class="icon" :class="classMap[item.type]"></span>
               {{item.name}}
             </span>
           </li>
@@ -13,10 +19,19 @@
       </div>
       <div class="foods-wrapper" ref="foodsWrapper">
         <ul>
-          <li class="food-list" v-for="(item,index) in goods" :key="index" ref="foodList">
+          <li
+          class="food-list"
+          v-for="(item, index) in goods"
+          :key="index"
+          ref="foodList"
+          >
             <h1 class="title">{{item.name}}</h1>
             <ul>
-              <li class="food-item border-1px"  v-for="(food,index) in item.foods" :key="index" >
+              <li
+              class="food-item border-1px"
+              v-for="(food, index) in item.foods"
+              :key="index"
+              >
                 <div class="icon">
                   <img :src="food.icon" alt="">
                 </div>
@@ -28,8 +43,12 @@
                     <span>好评率{{food.rating}}%</span>
                   </div>
                   <div class="price">
-                    <span class="now">￥{{food.price}}</span>
-                    <span class="old" v-if="food.oldPrice">￥{{food.oldPrice}}</span>
+                    <span class="now">¥{{food.price}}</span>
+                    <span class="old" v-if="food.oldPrice">¥{{food.oldPrice}}</span>
+                  </div>
+                  <div class="cartcontrol-wrapper">
+                    <!-- + -->
+                    <cartcontrol :food="food" @add="addFood"></cartcontrol>
                   </div>
                 </div>
               </li>
@@ -38,86 +57,116 @@
         </ul>
       </div>
     </div>
-    <shopcart></shopcart>
+    <!-- 购物车 -->
+    <shopcart
+      :selectFoods = "selectFoods"
+      :deliveryPrice = "seller.deliveryPrice"
+      :minPrice = "seller.minPrice"
+    ></shopcart>
   </div>
 </template>
 
 <script>
 import BScroll from 'better-scroll'
-import shopcart from '@/components/shopcart/shopcart.vue'
+import shopcart from '@/components/shopcart/shopcart'
+import cartcontrol from '@/components/cartcontrol/cartcontrol'
 export default {
   name: 'Goods',
+  props: {
+    seller: {
+      type: Object
+    }
+  },
   data () {
     return {
+      goods: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
-      goods: {},
       listHeight: [],
       scrollY: 0
     }
   },
   components: {
-    'shopcart': shopcart
+    shopcart,
+    cartcontrol
   },
   created () {
     this.$http.get('http://localhost:8080/static/goods.json')
       .then((res) => {
         console.log(res)
-        if(res.data.errno == 0){
-        this.goods =  res.data.data
-        this.$nextTick(()=>{ //在html已经渲染完成之后执行
-            this._initScroll() 
-            this._caculateHeight()
-        })
-      }
-    })
-  },
-  computed: {
-    curIndex () {
-      this.listHeight.forEach((item, index) => {
-        if(!this.listHeight[index + 1] || (this.scrollY >= this.listHeight[index] && this.scrollY < this.listHeight[index + 1])){
-          return index;
+        if (res.data.errno === 0) {
+          this.goods = res.data.data
+          this.$nextTick(() => {
+            this._initScroll()
+            this._calculateHeight()
+          })
         }
       })
-      return 0;
+  },
+  computed: {
+    currentIndex () {
+      for (let i = 0; i < this.listHeight.length; i++) {
+        let height1 = this.listHeight[i]
+        let height2 = this.listHeight[i + 1]
+        if (!height2 || (this.scrollY >= height1 && this.scrollY < height2)) {
+          return i
+        }
+      }
+      return 0
+    },
+    selectFoods () {
+      let foods = []
+      for (let good of this.goods) {
+        if (good.foods) {
+          for (let food of good.foods) {
+            if (food.count) {
+              foods.push(food)
+            }
+          }
+        }
+      }
+      return foods
     }
   },
   methods: {
     _initScroll () {
       this.menuScroll = new BScroll(this.$refs.menuWrapper, {
         click: true
-      }),
+      })
       this.foodsScroll = new BScroll(this.$refs.foodsWrapper, {
         click: true,
         probeType: 3
-      }),
-      this.foodsScroll.on("scroll", pos => {
+      })
+      this.foodsScroll.on('scroll', pos => {
+        // console.log(pos)
         this.scrollY = Math.abs(Math.round(pos.y))
-        console.log(this.scrollY)
       })
     },
     selectMenu (idx) {
-      this.curIndex = idx
+      console.log(idx)
+      // this.currentIndex = idx
       let foodList = this.$refs.foodList
       let el = foodList[idx]
       this.foodsScroll.scrollToElement(el, 300)
     },
-    _caculateHeight () {
+    _calculateHeight () {
       let foodList = this.$refs.foodList
       let height = 0
       this.listHeight.push(height)
-      for (let i in foodList) {
+      for (let i = 0; i < foodList.length; i++) {
         let item = foodList[i]
         height += item.clientHeight
         this.listHeight.push(height)
       }
-      console.log(this.listHeight)
+    },
+    addFood () {
+
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-@import '../../common/stylus/mixin'
+@import '../../common/stylus/mixin.styl'
 .goods
   display flex
   position absolute
@@ -169,7 +218,7 @@ export default {
         font-size 12px
   .foods-wrapper
     flex 1
-    //overflow hidden
+    // overflow scroll
     .title
       padding-left 14px
       height 26px
