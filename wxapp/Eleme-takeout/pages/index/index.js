@@ -38,8 +38,28 @@ Page({
         name: '肯德基宅急送(经开店)',
         star: 4.6,
         mouthSale: 684,
-        upToSend: 0,
+        upToSend: 15,
         shippingFee: 9,
+        distance: 2.4,
+        time: 30,
+        nums: 3,
+        actList:[
+          {
+            url: '../../images/decrease_3@2x.png',
+            decList:[
+              {money: 59, dec:8},
+              {money: 85, dec:15}
+            ]
+          },
+          {
+            url:'../../images/special_3@2x.png',
+            money: 8
+          },
+          {
+            url: '../../images/guarantee_3@2x.png',
+            money: 17
+          }
+        ],
         foodList:[
           {
             title:'香辣鸡腿堡(汉堡)ST',

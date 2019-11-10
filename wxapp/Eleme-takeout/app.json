@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/order-form/order-form",
     "pages/mine/mine",
-    "pages/merchant-detail/merchant-detail"
+    "pages/merchant-detail/merchant-detail",
+    "pages/chooseAdress/chooseAdress"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -39,7 +40,5 @@
       }
     ]
   },
-  
-    
   "sitemapLocation": "sitemap.json"
 }
