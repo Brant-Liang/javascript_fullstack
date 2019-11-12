@@ -79,7 +79,7 @@ export default {
   },
   data () {
     return {
-      goods: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      goods: [],
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       listHeight: [],
       scrollY: 0
