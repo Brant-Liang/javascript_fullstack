@@ -85,6 +85,11 @@ Page({
       url: '../merchant-detail/merchant-detail'
     })
   },
+  toChooseAddress() {
+    wx.navigateTo({
+      url: '../chooseAdress/chooseAdress'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

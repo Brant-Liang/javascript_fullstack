@@ -29,6 +29,11 @@
    background-color: #0097ff;
    padding: 20rpx;
 }
+.location{
+   display: flex;
+   width: 100%;
+   align-items: center;
+}
 .getLocation{
    width: 50%;
    text-align: left;
@@ -46,6 +51,14 @@
 .getLocation image{
    width: 35rpx;
    height: 35rpx;
+}
+.location .arrow{
+   width: 0;
+   height: 0;
+   border: 10rpx solid white;
+   border-color: white transparent transparent;
+   margin-top: 5rpx; 
+   margin-left: 10rpx;
 }
 .search{
    margin-top: 15rpx;
@@ -169,10 +182,12 @@ swiper-item image{
 .merchant-list .general-desc .star-month-sell image{
    width: 24rpx;
    height: 24rpx;
+   position: relative;
+   top: 3rpx;
 }
 .merchant-list .general-desc .star-month-sell .rate{
    color: #FFAA0C;
-   padding-right: 15rpx;
+   padding: 0 15rpx;
 }
 .merchant-list .general-desc .cost-distance-time{
    line-height: 24rpx;

@@ -1,1 +1,64 @@
 /* pages/chooseAdress/chooseAdress.wxss */
+.page{
+   background-color: #aaaaaa;
+   color: #888888
+}
+.navigation{
+   width: 100%;
+   height: 100rpx;
+   position: fixed;
+   top: 0;
+   background-color: #0097ff;
+   font-size: 32rpx;
+   text-align: left;
+   padding-top: 36rpx;
+   display: flex;
+}
+.navigation .arrow{
+   position: relative;
+   top: 30rpx;
+   left: 10rpx;
+   width: 20rpx;
+   height: 20rpx;
+   border: 4rpx solid #fff;
+   border-color: transparent transparent #fff #fff;
+   transform: rotate(45deg);
+}
+.nav-name{
+   padding-left: 20rpx;
+   margin-top: 25rpx;
+}
+.navigation text{
+   color: #ffffff;
+   font: bold;
+}
+.chooseAd {
+   display: flex;
+   align-items: center;
+   background-color: #0097ff;
+   position: absolute;
+   top: 136rpx;
+   width: 100%;
+   font-size: 26rpx;
+}
+.chooseAd text{
+   color: #ffffff;
+   padding: 20rpx;
+}
+.chooseAd .arrow2{
+   width: 0;
+   height: 0;
+   border: 10rpx solid white;
+   border-color: white transparent transparent;
+   margin-top: 5rpx; 
+   margin-left: 10rpx;
+}
+.chooseAd input{
+   flex: 1;
+   background-color: #fff;
+   border-radius: 6rpx;
+   text-align: center;
+   color: #888888;
+   padding: 10rpx 0;
+   margin: 0 10rpx;
+}

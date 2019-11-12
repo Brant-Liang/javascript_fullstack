@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/chooseAdress/chooseAdress",
     "pages/index/index",
     "pages/order-form/order-form",
     "pages/mine/mine",
-    "pages/merchant-detail/merchant-detail",
-    "pages/chooseAdress/chooseAdress"
+    "pages/merchant-detail/merchant-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
