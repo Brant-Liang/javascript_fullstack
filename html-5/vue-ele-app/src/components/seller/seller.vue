@@ -1,138 +1,144 @@
 <template>
-  <div class="seller-content">
-    <div class="overview">
-      <h1 class="title">粥品香坊（回龙观）</h1>
-      <div class="desc border-bottom-1px">
-        <div class="star star-36">
-          <span class="star-item on"></span>
-          <span class="star-item on"></span>
-          <span class="star-item on"></span>
-          <span class="star-item on"></span>
-          <span class="star-item off"></span>
+  <div class="seller" ref="sellerContent">
+    <div class="seller-content">
+      <div class="overview">
+        <h1 class="title">{{seller.name}}</h1>
+        <div class="desc">
+          <div class="stars">
+            <span class="star-on"></span>
+            <span class="star-on"></span>
+            <span class="star-on"></span>
+            <span class="star-on"></span>
+            <span class="star-off"></span>
+          </div>
+          <span class="text">({{seller.ratingCount}})</span>
+          <span class="text">月售{{seller.sellCount}}单</span>
         </div>
-        <span class="text">(24)</span>
-        <span class="text">月售90单</span>
+        <ul class="remark">
+          <li class="block">
+            <h2>起送价</h2>
+            <div class="content">
+              <span class="stress">{{seller.minPrice}}</span>元
+            </div>
+          </li>
+          <li class="block">
+            <h2>商家配送</h2>
+            <div class="content">
+              <span class="stress">{{seller.deliveryPrice}}</span>元
+            </div>
+          </li>
+          <li class="block">
+            <h2>平均配送时间</h2>
+            <div class="content">
+              <span class="stress">{{seller.deliveryTime}}</span>分钟
+            </div>
+          </li>
+        </ul>
+        <div class="favorite">
+          <span class="icon-favorite" :class=" act ? 'active' : ''" @click="actives"></span>
+          <span class="text">{{act? "已收藏":"收藏"}}</span>
+        </div>
       </div>
-      <ul class="remark">
-        <li class="block">
-          <h2>起送价</h2>
-          <div class="content">
-            <span class="stress">20</span>元
-          </div>
-        </li>
-        <li class="block">
-          <h2>商家配送</h2>
-          <div class="content">
-            <span class="stress">4</span>元
-          </div>
-        </li>
-        <li class="block">
-          <h2>平均配送时间</h2>
-          <div class="content">
-            <span class="stress">38</span>分钟
-          </div>
-        </li>
-      </ul>
-      <div class="favorite">
-        <span class="icon-favorite"></span>
-        <span class="text">收藏</span>
+      <div class="split"></div>
+      <div class="bulletin">
+        <h1 class="title">公告与活动</h1>
+        <div class="content-wrapper">
+          <p
+            class="content"
+          >{{seller.bulletin}}</p>
+        </div>
+        <ul class="supports">
+          <li class="support-item" v-for="(item, index) in seller.supports" :key="index">
+            <span class="support-ico icon-4" :class="classMap[item.type]">
+              <img :src="item.url" alt="">
+            </span>
+            <span class="text">{{item.description}}</span>
+          </li>
+        </ul>
       </div>
-    </div>
-    <div class="split"></div>
-    <div class="bulletin">
-      <h1 class="title">公告与活动</h1>
-      <div class="content-wrapper border-bottom-1px">
-        <p class="content">粥品香坊其烹饪粥料的秘方源于中国千年古法，在融和现代制作工艺，由世界烹饪大师屈浩先生领衔研发。坚守纯天然、0添加的良心品质深得消费者青睐，发展至今成为粥类的引领品牌。是2008年奥运会和2013年园博会指定餐饮服务商。</p>
-      </div>
-      <ul class="supports">
-        <li class="support-item border-bottom-1px">
-          <span class="support-ico icon-4 decrease"></span>
-          <span class="text">在线支付满28减5</span>
-        </li>
-        <li class="support-item border-bottom-1px">
-          <span class="support-ico icon-4 discount"></span>
-          <span class="text">VC无限橙果汁全场8折</span>
-        </li>
-        <li class="support-item border-bottom-1px">
-          <span class="support-ico icon-4 special"></span>
-          <span class="text">单人精彩套餐</span>
-        </li>
-        <li class="support-item border-bottom-1px">
-          <span class="support-ico icon-4 invoice"></span>
-          <span class="text">该商家支持发票,请下单写好发票抬头</span>
-        </li>
-        <li class="support-item border-bottom-1px">
-          <span class="support-ico icon-4 guarantee"></span>
-          <span class="text">已加入“外卖保”计划,食品安全保障</span>
-        </li>
-      </ul>
-    </div>
-    <div data-v-7395898e class="split"></div>
-    <div class="pics">
-      <h1 class="title">商家实景</h1>
-      <div class="cube-scroll-wrapper pic-wrapper">
-        <div
-          class="cube-scroll-content"
-          style="transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); transition-duration: 0ms; transform: translate(0px, 0px) scale(1) translateZ(0px);"
-        >
-          <div class="cube-scroll-list-wrapper" style="min-height: 0px;">
-            <ul class="pic-list">
-              <li class="pic-item">
-                <img
-                  src="http://fuss10.elemecdn.com/8/71/c5cf5715740998d5040dda6e66abfjpeg.jpeg?imageView2/1/w/180/h/180"
-                  width="120"
-                  height="90"
-                />
-              </li>
-              <li class="pic-item">
-                <img
-                  src="http://fuss10.elemecdn.com/b/6c/75bd250e5ba69868f3b1178afbda3jpeg.jpeg?imageView2/1/w/180/h/180"
-                  width="120"
-                  height="90"
-                />
-              </li>
-              <li class="pic-item">
-                <img
-                  src="http://fuss10.elemecdn.com/f/96/3d608c5811bc2d902fc9ab9a5baa7jpeg.jpeg?imageView2/1/w/180/h/180"
-                  width="120"
-                  height="90"
-                />
-              </li>
-              <li class="pic-item">
-                <img
-                  src="http://fuss10.elemecdn.com/6/ad/779f8620ff49f701cd4c58f6448b6jpeg.jpeg?imageView2/1/w/180/h/180"
-                  width="120"
-                  height="90"
-                />
-              </li>
-            </ul>
+      <div class="split"></div>
+      <div class="pics">
+        <h1 class="title">商家实景</h1>
+        <div class="cube-scroll-wrapper pic-wrapper" ref="cubeScroll" >
+          <div
+            class="cube-scroll-content" 
+          >
+            <div class="cube-scroll-list-wrapper" style="min-height: 0px;">
+              <ul class="pic-list">
+                <li class="pic-item" v-for="(img, index) in seller.pics" :key="index">
+                  <img
+                    :src="img"
+                    width="120"
+                    height="90"
+                  />
+                </li>
+              </ul>
+            </div>
+            <!---->
           </div>
           <!---->
         </div>
-        <!---->
       </div>
-    </div>
-    <div class="split"></div>
-    <div class="info">
-      <h1 class="title border-bottom-1px">商家信息</h1>
-      <ul>
-        <li class="info-item border-bottom-1px">该商家支持发票,请下单写好发票抬头</li>
-        <li class="info-item border-bottom-1px">品类:其他菜系,包子粥店</li>
-        <li class="info-item border-bottom-1px">北京市昌平区回龙观西大街龙观置业大厦底商B座102单元1340</li>
-        <li class="info-item border-bottom-1px">营业时间:10:00-20:30</li>
-      </ul>
+      <div class="split"></div>
+      <div class="info">
+        <h1 class="title">商家信息</h1>
+        <ul>
+          <li class="info-item" v-for="(infos, index) in seller.infos" :key="index">{{infos}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
-
-}
+  data() {
+    return {
+      classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
+      seller: [],
+      act: false
+    }
+  },
+  methods: {
+    actives(){
+      this.act = !this.act
+    }
+  },
+  created () {
+    this.$http.get('http://localhost:8080/static/seller.json')
+      .then((res) => {
+        if (res.data.errno === 0) {
+          this.seller = res.data.data
+          this.$nextTick(() => {
+            if(!this.scroll){
+              this.sellerScroll = new BScroll(this.$refs.sellerContent, {
+                click: true
+              })
+                let width = 4 * 140;
+                this.$refs.cubeScroll.style.width = width + "px";
+                this.cubeScrollWrapper = new BScroll(this.$refs.cubeScroll,{
+                click: true,
+                startX: 0,
+                scrollX: true,
+                scrollY: false
+              })
+            }
+            else{
+              this.scroll.refresh()
+            }
+          })
+        }
+      })
+  },
+};
 </script>
 
 <style lang="stylus">
-.seller-content
+@import '../../common/stylus/mixin.styl'
+@import url("https://at.alicdn.com/t/font_1495810_tz7yh0nquy.css")
+.seller
+  font-weight 500
   position absolute
   top 174px
   bottom 0
@@ -151,6 +157,17 @@ export default {
       padding-bottom 18px
       position relative
       font-size 0
+      display flex
+      .stars
+        font-family 'iconfont'
+        font-size 15px
+        padding-right 10px
+        .star-on::after
+          content '\e709'
+          color #ffa822
+        .star-off::after
+          content '\e709'
+          color #999999
       .text
         display inline-block
         margin-right 12px
@@ -158,12 +175,116 @@ export default {
         vertical-align top
         font-size 10px
         color #4d555d
+    .remark
+      display flex
+      padding-top 18px
+      .block
+        flex 1
+        border-right 1px solid #d9dde1;
+        text-align center
+        h2
+          color #999
+          font-size 10px
+          line-height 10px
+          margin-bottom 4px
+        .content
+          color #333
+          font-size 10px
+          line-height 24px
+          .stress
+            font-size 24px
+    .favorite
+      position:absolute
+      right 11px
+      text-align center
+      top 18px
+      width 50px
+      .icon-favorite
+        color #ccc
+        display block
+        font-size 24px
+        line-height 24px
+        margin-bottom 4px
+        &:before
+          content "\e904"
+        &.active
+          color #f01414
+      .text
+        color #666
+        font-size 10px
+        line-height 10px
   .split
     width 100%
     height 16px
-    border-top 1px solid rgba(7,17,27,.1)
-    border-bottom 1px solid rgba(7,17,27,.1)
+    border-top 1px solid rgba(7, 17, 27, 0.1)
+    border-bottom 1px solid rgba(7, 17, 27, 0.1)
     background #f3f5f7
-
-
+  .bulletin
+    padding 18px 18px 0
+    white-space normal
+    .title
+      color #333
+      font-size 14px
+      line-height 14px
+      margin-bottom 8px
+    .content-wrapper
+      padding 0 12px 16px
+      .content
+        color red
+        font-size 12px
+        line-height 24px
+    .supports
+      .support-item
+        align-items center
+        display flex
+        padding 16px 12px
+        .support-ico
+          background-repeat: no-repeat;
+          display: inline-block;
+          &.icon-4
+            margin-right 6px
+            background-size 16px 16px
+            height 16px
+            width 16px
+            img
+              width 16px
+              height 16px
+        .text
+          color #333
+          font-size 12px
+          line-height 16px
+  .pics
+    padding 18px
+    .cube-scroll-wrapper
+      .cube-scroll-content 
+        position relative
+        z-index 1
+        .cube-scroll-list-wrapper
+          overflow hidden
+    .title
+      color #333
+      font-size 14px
+      line-height 14px
+      margin-bottom 12px
+    .pic-wrapper
+      align-items center
+      display flex
+      .pic-list 
+        .pic-item
+          display inline-block
+          height 90px
+          margin-right 6px
+          width 120px
+  .info
+    color #333
+    padding 18px 18px 0
+    .title
+      font-size 14px
+      line-height 14px
+      padding-bottom 12px
+    .info-item
+      font-size 12px
+      line-height 16px
+      padding 16px 12px
+      border-top 1px solid rgba(7,17,27,.1)
 </style>

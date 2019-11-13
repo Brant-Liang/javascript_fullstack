@@ -35,6 +35,11 @@
             <h1 class="name">{{seller.name}}</h1>
             <div class="star-wrapper">
               <!-- 星星 -->
+                <span class="star-on"></span>
+                <span class="star-on"></span>
+                <span class="star-on"></span>
+                <span class="star-on"></span>
+                <span class="star-off"></span>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -94,6 +99,7 @@ export default {
 
 <style lang='stylus' scoped>
 @import '../../common/stylus/mixin'
+@import url("https://at.alicdn.com/t/font_1495810_tz7yh0nquy.css")
 .header
   position relative
   color #ffffff
@@ -235,6 +241,18 @@ export default {
           font-size 16px
           text-align center
           font-weight 700
+        .star-wrapper
+          font-family 'iconfont'
+          font-size 25px
+          padding-right 10px
+          text-align center
+          margin-top 20px
+          .star-on::after
+            content '\e709'
+            color #ffa822
+          .star-off::after
+            content '\e709'
+            color #999999
         .title
           display flex
           width 80%

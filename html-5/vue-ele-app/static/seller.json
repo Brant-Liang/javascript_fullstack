@@ -16,22 +16,27 @@
       "supports": [
         {
           "type": 0,
+          "url": "../static/img/decrease_1@2x.png",
           "description": "在线支付满28减5"
         },
         {
           "type": 1,
+          "url": "../static/img/discount_1@2x.png",
           "description": "VC无限橙果汁全场8折"
         },
         {
           "type": 2,
+          "url": "../static/img/special_1@2x.png",
           "description": "单人精彩套餐"
         },
         {
           "type": 3,
+          "url": "../static/img/invoice_1@2x.png",
           "description": "该商家支持发票,请下单写好发票抬头"
         },
         {
           "type": 4,
+          "url": "../static/img/guarantee_1@2x.png",
           "description": "已加入“外卖保”计划,食品安全保障"
         }
       ],

@@ -20,19 +20,9 @@ export default new Router({
       component: Goods
     },
     {
-      path: '/',
-      name: 'ratings',
-      component: Ratings
-    },
-    {
       path: '/ratings',
       name: 'ratings',
       component: Ratings
-    },
-    {
-      path: '/',
-      name: 'seller',
-      component: Seller
     },
     {
       path: '/seller',

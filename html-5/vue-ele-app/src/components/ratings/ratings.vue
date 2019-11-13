@@ -66,11 +66,13 @@
             <div class="content">
               <h1 class="name">{{item.username}}</h1>
               <div class="star-wrapper">
-                <span class="star-on"></span>
-                <span class="star-on"></span>
-                <span class="star-on"></span>
-                <span class="star-on"></span>
-                <span class="star-off"></span>
+                <div class="stars">
+                  <span class="star-on"></span>
+                  <span class="star-on"></span>
+                  <span class="star-on"></span>
+                  <span class="star-on"></span>
+                  <span class="star-off"></span>
+                </div>
                 <span class="delivery" v-if="item.deliveryTime">{{item.deliveryTime}}</span>
               </div>
               <p class="text">{{item.text}}</p>
@@ -197,6 +199,7 @@ export default {
 @import '../../common/stylus/mixin.styl'
 @import url("https://at.alicdn.com/t/font_1495810_tz7yh0nquy.css")
 .ratings
+  font-weight 500
   position absolute
   top 174px
   bottom 0
@@ -340,6 +343,16 @@ export default {
             display flex
             align-items center
             margin-bottom 6px
+            .stars
+              font-family 'iconfont'
+              font-size 10px
+              padding-right 10px
+              .star-on::after
+                content '\e709'
+                color #ffa822
+              .star-off::after
+                content '\e709'
+                color #999999
             .delivery
               font-size 10px
               color #999
