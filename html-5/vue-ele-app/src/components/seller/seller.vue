@@ -131,5 +131,39 @@ export default {
 }
 </script>
 
-<style>
+<style lang="stylus">
+.seller-content
+  position absolute
+  top 174px
+  bottom 0
+  left 0
+  width 100%
+  overflow hidden
+  .overview
+    position relative
+    padding 18px
+    .title
+      margin-bottom 8px
+      line-height 14px
+      color #07111b
+      font-size 14px
+    .desc
+      padding-bottom 18px
+      position relative
+      font-size 0
+      .text
+        display inline-block
+        margin-right 12px
+        line-height 18px
+        vertical-align top
+        font-size 10px
+        color #4d555d
+  .split
+    width 100%
+    height 16px
+    border-top 1px solid rgba(7,17,27,.1)
+    border-bottom 1px solid rgba(7,17,27,.1)
+    background #f3f5f7
+
+
 </style>

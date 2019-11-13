@@ -1,6 +1,6 @@
 <template>
-  <div class="ratings">
-    <div class="ratings-content" ref="ratingsContent">
+  <div class="ratings" ref="ratingsContent">
+    <div class="ratings-content">
       <div class="overview">
         <div class="overview-left">
           <h2>4.2</h2>
@@ -41,15 +41,15 @@
         <div class="rating-type border-1px">
           <span class="block positive" @click="acts1" :class="act1 ? 'active': ''">
             全部
-            <span class="count"></span>
+            <span class="count">{{ratings.length}}</span>
           </span>
           <span class="block positive" @click="acts2" :class="act2 ? 'active': ''">
             满意
-            <span class="count"></span>
+            <span class="count">{{goodNum}}</span>
           </span>
           <span class="block negative" @click="acts3" :class="act3 ? 'active': ''">
             不满意
-            <span class="count"></span>
+            <span class="count">{{ratings.length - goodNum}}</span>
           </span>
         </div>
         <div class="switch">
@@ -59,13 +59,27 @@
       </div>
       <div class="rating-wrapper">
         <ul>
-          <li class="rating-item" v-for="(item, index) in ratings" :key="index">
+          <li class="rating-item" v-for="(item, index) in SelectedRating" :key="index" >
             <div class="avatar">
               <img :src="item.avatar" />
             </div>
             <div class="content">
               <h1 class="name">{{item.username}}</h1>
-              <span class="delivery" v-if="item.deliveryTime">{{item.deliveryTime}}</span>
+              <div class="star-wrapper">
+                <span class="star-on"></span>
+                <span class="star-on"></span>
+                <span class="star-on"></span>
+                <span class="star-on"></span>
+                <span class="star-off"></span>
+                <span class="delivery" v-if="item.deliveryTime">{{item.deliveryTime}}</span>
+              </div>
+              <p class="text">{{item.text}}</p>
+              <div class="recommend" v-if="item.recommend.length>0">
+                <span class="icon-thumb_up"></span>
+                <span class="item" v-for="(item2, index) in item.recommend" :key="index">
+                  {{item2}}
+                </span>
+              </div>
             </div>
           </li>
         </ul>
@@ -83,7 +97,8 @@ export default {
       act1: true,
       act2: false,
       act3: false,
-      act4: true
+      act4: true,
+      selected: true,
     }
   },
   methods: {
@@ -104,7 +119,63 @@ export default {
     },
     acts4 () {
       this.act4 = !this.act4
+      this.selected = !this.selected
     }
+  },
+  computed: {
+    goodNum () {
+      let total = 0
+      for(let i = 0; i < this.ratings.length; i++){
+        if(this.ratings[i].rateType === 0){
+          total++
+        }
+      }
+      return total
+    },
+    SelectedRating () {
+      let selectedTextRating = []
+      let selectedGoodRating = []
+      let selectedBadRating = []
+      for(let i = 0;  i < this.ratings.length; i++){
+        if(this.ratings[i].text != ""){
+          selectedTextRating.push(this.ratings[i])
+        }
+        if(this.ratings[i].rateType === 0){
+          selectedGoodRating.push(this.ratings[i])
+        }
+        if(this.ratings[i].rateType === 1){
+          selectedBadRating.push(this.ratings[i])
+        }
+      }
+      if(this.selected && this.act1){
+        return selectedTextRating
+      }
+      else if(this.selected && this.act2){
+        let goodSelectRatings = [];
+        for(let i = 0;  i < selectedGoodRating.length; i++){
+          if(selectedGoodRating[i].text != ""){
+            goodSelectRatings.push(selectedGoodRating[i])
+          }
+        }
+        return goodSelectRatings
+      }
+      else if(this.selected && this.act3){
+        let badSelectRatings = [];
+        for(let i = 0;  i < selectedBadRating.length; i++){
+          if(selectedBadRating[i].text != ""){
+            badSelectRatings.push(selectedBadRating[i])
+          }
+        }
+        return badSelectRatings
+      }
+      else if(this.act2){
+        return selectedGoodRating
+      }
+      else if(this.act3){
+        return selectedBadRating
+      }
+      return this.ratings
+      }
   },
   created () {
     this.$http.get('http://localhost:8080/static/ratings.json')
@@ -264,4 +335,33 @@ export default {
             line-height 12px
             font-size 10px
             color #07111b
+          .star-wrapper
+            font-size 15px
+            display flex
+            align-items center
+            margin-bottom 6px
+            .delivery
+              font-size 10px
+              color #999
+          .text
+            color: #333;
+            font-size: 12px;
+            line-height: 18px;
+            margin-bottom: 8px;
+          .recommend
+            align-items center
+            display flex
+            flex-wrap wrap
+            line-height 16px
+            font-size 10px
+            .item
+              background-color #fff
+              border 1px solid rgba(7, 17, 27, .1)
+              color #999
+              padding 0 6px
+            .icon-thumb_up
+              font-family 'iconfont'
+              &::before
+                content '\E901'
+                color #00a0dc
 </style>
