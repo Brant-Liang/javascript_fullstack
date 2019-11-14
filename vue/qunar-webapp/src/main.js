@@ -7,9 +7,7 @@ import router from './router'
 import './assets/styles/reset.css'
 // require styles
 import 'swiper/dist/css/swiper.css'
-import axios from 'axios'
 
-Vue.prototype.$http = axios
 Vue.use(VueAwesomeSwiper)
 Vue.config.productionTip = false
 

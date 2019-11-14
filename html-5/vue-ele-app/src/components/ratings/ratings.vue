@@ -138,46 +138,46 @@ export default {
       let selectedTextRating = []
       let selectedGoodRating = []
       let selectedBadRating = []
-      for(let i = 0;  i < this.ratings.length; i++){
-        if(this.ratings[i].text != ""){
+      for (let i = 0;  i < this.ratings.length; i++){
+        if (this.ratings[i].text !== '') {
           selectedTextRating.push(this.ratings[i])
         }
-        if(this.ratings[i].rateType === 0){
+        if (this.ratings[i].rateType === 0) {
           selectedGoodRating.push(this.ratings[i])
         }
-        if(this.ratings[i].rateType === 1){
+        if (this.ratings[i].rateType === 1) {
           selectedBadRating.push(this.ratings[i])
         }
       }
-      if(this.selected && this.act1){
+      if (this.selected && this.act1) {
         return selectedTextRating
       }
-      else if(this.selected && this.act2){
+      else if (this.selected && this.act2) {
         let goodSelectRatings = [];
-        for(let i = 0;  i < selectedGoodRating.length; i++){
-          if(selectedGoodRating[i].text != ""){
+        for (let i = 0;  i < selectedGoodRating.length; i++) {
+          if (selectedGoodRating[i].text !== '') {
             goodSelectRatings.push(selectedGoodRating[i])
-          }
+       }
         }
         return goodSelectRatings
       }
-      else if(this.selected && this.act3){
+      else if (this.selected && this.act3) {
         let badSelectRatings = [];
-        for(let i = 0;  i < selectedBadRating.length; i++){
-          if(selectedBadRating[i].text != ""){
+        for (let i = 0; i < selectedBadRating.length; i++) {
+          if (selectedBadRating[i].text !== '') {
             badSelectRatings.push(selectedBadRating[i])
           }
         }
         return badSelectRatings
-      }
-      else if(this.act2){
+    }
+      else if (this.act2) {
         return selectedGoodRating
       }
-      else if(this.act3){
+      else if (this.act3) {
         return selectedBadRating
       }
       return this.ratings
-      }
+    }
   },
   created () {
     this.$http.get('http://localhost:8080/static/ratings.json')

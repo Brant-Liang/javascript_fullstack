@@ -59,6 +59,7 @@
     </div>
     <!-- 购物车 -->
     <shopcart
+      ref="shopcart"
       :selectFoods = "selectFoods"
       :deliveryPrice = "seller.deliveryPrice"
       :minPrice = "seller.minPrice"
@@ -79,7 +80,7 @@ export default {
   },
   data () {
     return {
-      goods: [],
+      goods: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       listHeight: [],
       scrollY: 0
@@ -158,8 +159,15 @@ export default {
         this.listHeight.push(height)
       }
     },
-    addFood () {
-
+    addFood (target) {
+      // console.log(target)
+      this._drop(target)
+    },
+    _drop (target) {
+      // 体验优化，异步执行下落动画
+      this.$nextTick(() => {
+        this.$refs.shopcart.drop(target)
+      })
     }
   }
 }

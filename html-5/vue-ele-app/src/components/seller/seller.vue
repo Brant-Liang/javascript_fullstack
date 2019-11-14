@@ -59,22 +59,17 @@
       <div class="split"></div>
       <div class="pics">
         <h1 class="title">商家实景</h1>
-        <div class="cube-scroll-wrapper pic-wrapper" ref="cubeScroll" >
-          <div
-            class="cube-scroll-content" 
-          >
-            <div class="cube-scroll-list-wrapper" style="min-height: 0px;">
-              <ul class="pic-list">
-                <li class="pic-item" v-for="(img, index) in seller.pics" :key="index">
-                  <img
-                    :src="img"
-                    width="120"
-                    height="90"
-                  />
-                </li>
-              </ul>
-            </div>
-            <!---->
+        <div class="cube-scroll-wrapper pic-wrapper" >
+          <div class="cube-scroll-list-wrapper">
+            <ul class="pic-list">
+              <li class="pic-item" v-for="(img, index) in seller.pics" :key="index">
+                <img
+                  :src="img"
+                  width="120"
+                  height="90"
+                />
+              </li>
+            </ul>
           </div>
           <!---->
         </div>
@@ -93,7 +88,7 @@
 <script>
 import BScroll from 'better-scroll'
 export default {
-  data() {
+  data () {
     return {
       classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee'],
       seller: [],
@@ -101,7 +96,7 @@ export default {
     }
   },
   methods: {
-    actives(){
+    actives () {
       this.act = !this.act
     }
   },
@@ -111,27 +106,28 @@ export default {
         if (res.data.errno === 0) {
           this.seller = res.data.data
           this.$nextTick(() => {
-            if(!this.scroll){
+            if (!this.scroll) {
               this.sellerScroll = new BScroll(this.$refs.sellerContent, {
                 click: true
               })
-                let width = 4 * 140;
-                this.$refs.cubeScroll.style.width = width + "px";
-                this.cubeScrollWrapper = new BScroll(this.$refs.cubeScroll,{
-                click: true,
-                startX: 0,
-                scrollX: true,
-                scrollY: false
-              })
+              // let width = this.seller.pics.length * 126;
+              // this.$refs.cubeScroll.style.width = width + "px";
+              // this.cubeScrollWrapper = new BScroll(this.$refs.cubeScroll,{
+              //   //lick: true,
+              //   startX: 0,
+              //   scrollX: true,
+              //   scrollY: false,
+              //   eventPassthrough: 'vertical'
+              // })
             }
-            else{
+            else {
               this.scroll.refresh()
             }
           })
         }
       })
-  },
-};
+  }
+}
 </script>
 
 <style lang="stylus">
@@ -256,25 +252,25 @@ export default {
   .pics
     padding 18px
     .cube-scroll-wrapper
-      .cube-scroll-content 
-        position relative
-        z-index 1
-        .cube-scroll-list-wrapper
-          overflow hidden
+      width 100%
+      height 100%
+      position absolute
+      .cube-scroll-list-wrapper
+        white-space nowrap
+        overflow-x scroll
+        -webkit-overflow-scrolling touch
+        box-sizing border-box
+        .pic-list
+          .pic-item
+            display inline-block
+            height 90px
+            margin-right 6px
+            width 120px
     .title
       color #333
       font-size 14px
       line-height 14px
       margin-bottom 12px
-    .pic-wrapper
-      align-items center
-      display flex
-      .pic-list 
-        .pic-item
-          display inline-block
-          height 90px
-          margin-right 6px
-          width 120px
   .info
     color #333
     padding 18px 18px 0
