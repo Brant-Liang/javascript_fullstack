@@ -202,7 +202,6 @@ export default {
 };
 </script>
 
-
 <style>
 .loading {
   width: 100%;
