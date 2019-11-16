@@ -2,7 +2,7 @@
   <div class="contaner">
     <div class="bg"></div>
     <div class="address">
-      <span class="change-city">切换城市</span>
+      <span class="change-city" @click="changeCity">切换城市</span>
       <p style="height: 21px">{{localTime}}</p>
       <div class="city-info">
         <dl>
@@ -52,8 +52,8 @@
         </div>
       </div>
     </div>
-    <div class="select-city-box">
-      <van-area :area-list="areaList" :columns-num="2" title="选择城市"/>
+    <div class="select-city-box" v-show="cityBox">
+      <van-area :area-list="areaList" :columns-num="2" title="选择城市" @cancel="cancel" @confirm="confirm"/>
     </div>
   </div>
 </template>
@@ -68,7 +68,8 @@ export default {
       mapData: {},
       futureTem: [],
       seriesData: [],
-      areaList: AreaList
+      areaList: AreaList,
+      cityBox: false
     };
   },
   created() {
@@ -183,6 +184,19 @@ export default {
         ]
       };
       myChart.setOption(option, true)
+    },
+    changeCity (){
+      this.cityBox = true
+    },
+    cancel () {
+      this.cityBox = false
+    },
+    confirm (val) {
+      console.log(val);
+      this.seriesData = []
+      this.getCurrentCityData(val[1].name)
+      this.cancel()
+      //val[1].name
     }
   }
 };
