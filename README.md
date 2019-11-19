@@ -6,7 +6,4 @@ git 是版本控制系统
 svn也是版本控制系统
 git是分布式的
 
-buy things
-buy a pen
-bay a apple
 
