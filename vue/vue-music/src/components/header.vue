@@ -1,6 +1,6 @@
 <template>
   <div class="header">
-    <div class="header-icon">
+    <div class="header-icon" @click="leftEvent">
       <slot name="left-icon"></slot>
     </div>
     <div class="header-cont">
@@ -13,12 +13,16 @@
 </template>
 
 <script>
-
 export default {
   name: 'hd',
-  data() {
+  data () {
     return {
         
+    }
+  },
+  methods: { 
+    leftEvent () {
+      this.$store.dispatch('setShowSidebar', true)
     }
   }
 }
@@ -27,8 +31,10 @@ export default {
 <style lang="stylus">
 @import "../assets/css/function"
 .header
+  font-family KaiTi
   height px2rem(88px)
   line-height px2rem(88px)
+  background-color #0196E6
   text-align center
   display flex
   align-items center

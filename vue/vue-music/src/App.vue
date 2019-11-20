@@ -3,21 +3,28 @@
     <!-- header -->
     <v-header>
       <i class="icon" slot="left-icon">&#xe692;</i>
-      <span slot="content">我的音乐</span>
+      <span slot="content">酷猫音乐</span>
       <router-link to="/user" slot="right-icon">
         <i class="icon">&#xe63c;</i>
       </router-link>
     </v-header>
-    <!-- <router-view/> -->
+    <!-- tab -->
+    <v-tab></v-tab>
+    <v-sidebar></v-sidebar>
+    <router-view/>
   </div>
 </template>
 
 <script>
 import header from '@/components/header'
+import sidebar from '@/components/sidebar'
+import tab from '@/components/tab'
 export default {
   name: 'App',
   components: {
-    'v-header': header
+    'v-header': header,
+    'v-sidebar': sidebar,
+    'v-tab': tab
   }
 }
 </script>
@@ -41,7 +48,6 @@ html,body
   font-family PingFang SC, STHeitiSC-Light, Helvetica-Light, arial, sans-serif
   user-select none
   -webkit-tap-highlight-color transparent
-  background rgba(8, 5, 58, 0.9)
+  background rgba(255, 255, 255, 0.9)
   color #fff
-
 </style>
