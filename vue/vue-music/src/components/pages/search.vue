@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <div class="search-box-wrapper">
-      <v-search-box @query="onQueryChange"></v-search-box>
+      <v-search-box @query="onQueryChange" ref="searchBox" ></v-search-box>
     </div>
     <!-- 热门搜索 和 搜索历史 -->
     <div class="shortcut-wrapper">
@@ -20,15 +20,19 @@
           <div class="search-history">
             <h1 class="title">
               <span class="text">搜索历史</span>
-              <span class="clear">
+              <span class="clear" @click="deleteAll">
                 <i class="icon">&#xe612;</i>
               </span>
             </h1>
             <!-- 搜索历史 列表-->
-            <v-search-list :searches="searchHistory"></v-search-list>
+            <v-search-list :searches="searchHistory" @select="saveSearch" @delete="deleteSearchHistory"></v-search-list>
           </div>
         </div>
       </v-scroll>
+    </div>
+    <!-- 搜索result -->
+    <div class="search-result">
+      <v-suggest :query='query'></v-suggest>
     </div>
   </div>
 </template>
@@ -39,6 +43,8 @@ import scroll from '@/components/scroll'
 import api from '@/api/index.js'
 import searchList from '@/components/searchList'
 import { mapGetters } from 'vuex'
+import { searchMixin } from '@/common/mixin'
+import suggest from '@/components/suggest'
 export default {
   data() {
     return {
@@ -49,17 +55,16 @@ export default {
   components: {
     'v-search-box': searchBox,
     'v-scroll': scroll,
-    'v-search-list': searchList
+    'v-search-list': searchList,
+    'v-suggest': suggest
   },
   computed: {
     ...mapGetters([
       'searchHistory'
     ])
   },
+  mixins: [searchMixin],
   methods: {
-    onQueryChange (e) {
-      console.log(e)
-    },
     _getHotKey() {
       api.HotSearchKey().then((res) => {
         if(res.code === 200) {
@@ -100,8 +105,8 @@ export default {
           margin 0 px2rem(20px) px2rem(20px) 0
           border-radius 6px
           font-size 14px
-          color #fff
-          background #0196E6
+          color #878787
+          background #F6F6F6
       .search-history
         position relative
         margin 0 px2rem(40px)
@@ -117,6 +122,9 @@ export default {
             .icon
               font-size 18px
               color #000
-
-
+  .search-result
+    position fixed
+    width 100%
+    top px2rem(360px)
+    bottom 0
 </style>

@@ -25,7 +25,6 @@ export default {
 @import '../assets/css/function.styl'
 .tab
   display flex
-  
   height px2rem(88px)
   line-height px2rem(88px)
   font-size 14px
@@ -38,6 +37,6 @@ export default {
       color #aaaaaa
     &.router-link-active
       .tab-link
-        color #0196E6
-        border-bottom 2px solid #0196E6
+        color #33A6FF
+        border-bottom 2px solid #33A6FF
 </style>
