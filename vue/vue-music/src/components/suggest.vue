@@ -114,6 +114,7 @@ export default {
       display flex
       align-items center
       line-height px2rem(80px)
+      border-bottom 1px solid #eeaaaa
       .icon 
         flex 0 0 px2rem(60px)
         width px2rem(60px)
