@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from '../types'
 
 // types: { COM_SHOW_SIDE_BAR }
 const state = {
@@ -10,7 +10,7 @@ const mutations = {
   [types.COM_SHOW_SIDE_BAR] (state, status) {
     state.showSidebar = status
   },
-  [types.COM_SAVE_SEARCH_HISTORY] (state, status) {
+  [types.COM_SAVE_SEARCH_HISTORY] (state, status) {   
     state.searchHistory = status
   },
   [types.COM_DELETE_SEARCH_HISTOEY] (state, index) {
