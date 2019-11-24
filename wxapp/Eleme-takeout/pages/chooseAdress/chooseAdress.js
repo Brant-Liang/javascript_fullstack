@@ -5,6 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    nowAddress: ''
+  },
+  reLocation () {
+    wx.getLocation({
+      type: 'wgs84',
+      success (res) {
+        console.log(res);
+      }
+     })
 
   },
 
