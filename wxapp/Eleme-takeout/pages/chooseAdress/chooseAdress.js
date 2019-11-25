@@ -5,16 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    nowAddress: ''
+    nowAddress: '',
+    lon: '',
+    lat: ''
   },
   reLocation () {
     wx.getLocation({
       type: 'wgs84',
       success (res) {
         console.log(res);
+        lon = res.longitude,
+        lat = res.latitude
       }
      })
-
+      // 构造成 LngLat 对象后传入
+      var lnglat = new AMap.LngLat(lon, lat);
+      var pixel = map.lngLatToContainer(lnglat);  // 获得 Pixel 对象
   },
 
   /**
