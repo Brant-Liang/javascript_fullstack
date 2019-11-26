@@ -9,6 +9,11 @@ Page({
     lon: '',
     lat: ''
   },
+  back() {
+    wx.navigateBack({
+      
+    })
+  },
   reLocation () {
     wx.getLocation({
       type: 'wgs84',
@@ -18,9 +23,6 @@ Page({
         lat = res.latitude
       }
      })
-      // 构造成 LngLat 对象后传入
-      var lnglat = new AMap.LngLat(lon, lat);
-      var pixel = map.lngLatToContainer(lnglat);  // 获得 Pixel 对象
   },
 
   /**

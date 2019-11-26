@@ -1,7 +1,7 @@
 <!-- pages/chooseAdress/chooseAdress.wxml -->
 <view class="page">
   <view class="navigation">
-    <view class="arrow"></view>
+    <view class="arrow" bind:tap="back"></view>
     <view class="nav-name">选择收获地址</view>
   </view>
   <view class="chooseAd">
