@@ -3,7 +3,7 @@ var fs = require('fs'); //引入文件库
 var path = require('path'); //路径
 // console.log(http);
 // web服务本质是  有n人来访问网站 request 
-// 网站的开发者， 响应用户的请求 res 问答  
+// 网站的开发者， 响应用户的请求 respose 问答  
 http.createServer(function (req, res) {
   console.log(req.url);
   if(req.url == '/images/sloth.png'){
