@@ -1,6 +1,7 @@
 const router = require('koa-router')()
-const userServies = require('../controllers/mySqlConfig')
-router.prefix('/users') // 路由前缀
+const userService = require('../controllers/mySqlConfig')
+
+router.prefix('/users') //路由前缀
 
 router.get('/', function (ctx, next) {
   ctx.body = 'this is a users response!'
@@ -11,8 +12,9 @@ router.get('/bar', function (ctx, next) {
 })
 
 router.get('/all', async(ctx, next) => {
-  await userServies.getAllusers().then((res) => {
-    console.log('打印结果 ' + JSON.stringify(res));
+  await userService.getAllUsers()
+  .then((res) => {
+    console.log('打印结果' + JSON.stringify(res))
     ctx.body = res
   })
 })
