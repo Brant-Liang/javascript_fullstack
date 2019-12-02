@@ -9,23 +9,19 @@
 </head>
 <body>
   <div id="app">
-    {{message}}
-    {{messageReverse}}
+    <h2 :class="{active: isActive, line: isLine }">hello world</h2>
   </div>
   <script>
     var vm = new Vue({
       el: '#app',
       data() {
         return {
-          message: 'hello vue!'
+          message: 'hello vue!',
+          isActive: true,
+          isLine: false
         }
       },
       //计算属性
-      computed: {
-        messageReverse: function () {
-          return this.message.split('').reverse().join('');
-        }
-      }
     })
   </script>
 </body>
