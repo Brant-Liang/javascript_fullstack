@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button @click="btnClick1()">按钮1</button>
+    <button @click="btnClick2(123, $event)">按钮2</button>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          
+        }
+      },
+      methods: {
+        btnClick1 (e) {
+          console.log('...',e);
+        },
+        btnClick2 (val, e) {
+          console.log(val, e);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
