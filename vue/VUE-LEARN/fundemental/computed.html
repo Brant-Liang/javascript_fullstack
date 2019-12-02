@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="vue.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2 :class="{active: true, line: true }">{{totalPrice}}</h2>
+    <h2>{{fullName}}</h2>
+  </div>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          message: 'hello vue!',
+          firstName: 'Brant',
+          lastName: 'Liang',
+          books: [
+            { id: 1, price: 90 },
+            { id: 2, price: 70 },
+            { id: 3, price: 99 },
+            { id: 4, price: 120 },
+            { id: 5, price: 65 }
+          ]
+        }
+      },
+      //计算属性
+      computed: {
+        totalPrice() {
+          let result = 0
+          // for(let i in this.books){ i 为每一项下标
+          //   result += this.books[i].price
+          // }
+          for (let book of this.books) { // book 代表每一项
+            result += book.price
+          }
+          return result
+        },
+        fullName: {
+          get: function () {
+            return this.firstName + '' + this.lastName
+          },
+          set: function (newVal) {
+            console.log(newVal);
+
+            this.lastName = newVal
+          }
+        }
+        //} 
+      }
+    })
+  </script>
+</body>
+
+</html>
