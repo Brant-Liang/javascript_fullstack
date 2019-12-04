@@ -1,15 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>图书购物车</title>
+  <style>
+    table {
+      margin: 0 auto;
+      border: 1px solid #eeeeee;
+    }
+
+    th,
+    td {
+      border: 1px solid #eeeeee;
+    }
+  </style>
 </head>
+
 <body>
-  <table>
-    
-  </table>
+  <div id="app">
+    <table v-if="bookList.length">
+      <thead>
+        <tr>
+          <td></td>
+          <td>书籍名称</td>
+          <td>出版日期</td>
+          <td>价格</td>
+          <td>购买数量</td>
+          <td>操作</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item, index) in bookList" :key="index">
+          <th>{{item.id}}</th>
+          <th>{{item.name}}</th>
+          <th>{{item.data}}</th>
+          <th>{{item.price | showPrice}}</th>
+          <th>
+            <button @click="minus(index)">-</button>
+            {{item.count}}
+            <button @click="add(index)">+</button>
+          </th>
+          <th>
+            <button @click="remove(index)">移除</button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <h2 v-if="bookList.length">总价格: {{totalPrice | showPrice}}</h2>
+    <h2 v-else>购物车为空</h2>
+  </div>
   <script src="./vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        bookList: [
+          {
+            id: 1,
+            name: '《算法导论》',
+            data: '2006-9',
+            price: 85.00,
+            count: 1
+          },
+          {
+            id: 2,
+            name: '《算法导论》',
+            data: '2006-9',
+            price: 85.00,
+            count: 1
+          },
+          {
+            id: 3,
+            name: '《算法导论》',
+            data: '2006-9',
+            price: 125.00,
+            count: 1
+          },
+          {
+            id: 4,
+            name: '《算法导论》',
+            data: '2006-9',
+            price: 80.00,
+            count: 1
+          }
+        ]
+      },
+      methods: {
+        add (idx) {
+          this.bookList[idx].count++
+        },
+        minus (idx) {
+          if(this.bookList[idx].count > 0)
+            this.bookList[idx].count--
+        },
+        remove (idx) {
+          this.bookList.splice(idx, 1)
+        }
+      },
+      filters: {
+        showPrice(price){
+          return '￥' + price.toFixed(2)
+        }
+      },
+      computed: {
+        totalPrice() {
+          let tPrice = 0;
+          for(let item of this.bookList){
+            tPrice += item.price * item.count
+          }
+          return tPrice
+        }
+      }
+    })
+  </script>
 </body>
+
 </html>
