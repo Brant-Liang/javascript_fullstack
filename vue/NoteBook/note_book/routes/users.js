@@ -10,9 +10,16 @@ router.get('/', function (ctx, next) {
 router.get('/bar', function (ctx, next) {
   ctx.body = 'this is a users/bar response'
 })
-
 router.get('/all', async(ctx, next) => {
   await userService.getAllUsers()
+  .then((res) => {
+    console.log('打印结果' + JSON.stringify(res))
+    ctx.body = res
+  })
+})
+// note
+router.get('/note', async(ctx, next) => {
+  await userService.getNotes()
   .then((res) => {
     console.log('打印结果' + JSON.stringify(res))
     ctx.body = res
@@ -56,4 +63,97 @@ router.post('/userLogin', async (ctx, next) => {
     }
   })
 })
+// 注册
+router.post('/userRegister', async (ctx, next) => {
+  let username = ctx.request.body.username;
+  let userpwd = ctx.request.body.userpwd;
+  let nickname = ctx.request.body.nickname;
+  if (!username || !userpwd || !nickname) {
+    ctx.body = {
+      code: '80000',
+      mess: '账号、密码和昵称不能为空'
+    }
+  }
+  let user = {
+    username: username,
+    userpwd: userpwd,
+    nickname: nickname
+  }
+  await userService.findUser(user.username).then(async (res) => {
+    // console.log(res);
+    if (res.length) {
+      try {
+        throw Error('用户名已存在')
+      }catch(error) {
+        console.log(error)
+      }
+      ctx.body = {
+        code: '80003',
+        data: 'err',
+        mess: '用户名已存在'
+      }
+    }else {
+      await userService.insertUser([user.username, user.userpwd, user.nickname])
+      .then( res => {
+        console.log(res)
+        let r = '';
+        if (res.affectedRows !==0) {
+          r = 'ok',
+          ctx.body = {
+            code: '200',
+            data: r,
+            mess: '注册成功'
+          }
+        }
+        else {
+          r = 'error'
+          ctx.body = {
+            code: '500',
+            data: r,
+            mess: '发生了意料之外的错误，注册失败'
+          }
+        }
+      })
+      .catch((err) => {
+        ctx.body = {
+          code: '500',
+          data: err
+        }
+      })
+    }
+  })
+})
+
+// 根据分类名称查找笔记列表 
+router.post('/findNoteListByType', async (ctx, next) => {
+  let note_type = ctx.request.body.note_type
+  console.log(note_type);
+  await userService.findNoteListByType(note_type)
+  .then(async (res) => {
+    console.log(res);
+    let r = ''
+    if (res.length) {
+      r = 'ok',
+      ctx.body = {
+        code: '200',
+        data: res,
+        mess: '查询成功'
+      }
+    } else {
+      r = 'error',
+      ctx.body = {
+        code: '404',
+        data: r,
+        mess: '技能冷却中'
+      }
+    }
+  })
+  .catch((err) => {
+    ctx.body = {
+      code: '500',
+      data: err
+    }
+  })
+})
+
 module.exports = router

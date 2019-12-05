@@ -33,26 +33,32 @@ export default {
     }
   },
   methods: {
+    login() {
+      this.$router.push({path: '/StarLogin'})
+    },
     register () {
-      if ( this.nickname.trim() === ''|| this.username.trim() === '' || this.userpwd.trim() === ''){
-        this.$toast('昵称、账号和密码不能为空')
+      if (this.nickname.trim() === '' || this.username.trim() === '' || this.userpwd.trim() === '') {
+        this.$toast('昵称、账号或密码不能为空')
       }
       this.$http({
         method: 'post',
-        url: 'http://localhost/users/userRegister',
+        url: 'http://localhost:3000/users/userRegister',
         data: {
           nickname: this.nickname.trim(),
           username: this.username.trim(),
           userpwd: this.userpwd.trim()
-        },
-      }).then( res =>{
-
+        }
       })
-    },
-    login () {
-      
+      .then(res => {
+        console.log(res)
+        if (res.data.code === '200') {
+          this.$router.push({path:'/StarLogin'})
+        } else {
+          this.$toast(res.data.mess)
+        }
+      })
     }
-  },
+  }
 };
 </script>
 
