@@ -37,10 +37,6 @@ let getAllUsers = function () {
   let _sql = `select * from users`
   return allServies.query(_sql)
 }
-let getNotes = function () {
-  let _sql = `select * from note`
-  return allServies.query(_sql)
-}
 // 用户登录
 let userLogin = function (username, userpwd) {
   let _sql = `select * from users where username="${username}" and userpwd="${userpwd}";`
@@ -62,11 +58,17 @@ let findNoteListByType = function (note_type) {
   let _sql = `select * from note where note_type="${note_type}";`
   return allServies.query(_sql)
 }
+
+// 根据id查找笔记详情
+let findNoteDetailById = function (id) {
+  let _sql = `select * from note where id ="${id};"`
+  return allServies.query(_sql)
+}
 module.exports = {
   getAllUsers,
   userLogin,
   findUser,
   insertUser,
   findNoteListByType,
-  getNotes
+  findNoteDetailById
 }

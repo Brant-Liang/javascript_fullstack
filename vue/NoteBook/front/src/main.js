@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import {Swipe, SwipeItem,Icon, Field, ActionSheet, Toast, Panel, Uploader} from 'vant'
+import {Swipe, SwipeItem, Icon, Field, ActionSheet, Toast, Panel, Uploader} from 'vant'
 import 'vant/lib/index.css'
 import axios from 'axios'
 import 'amfe-flexible'

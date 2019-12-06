@@ -76,7 +76,7 @@ export default {
         },
         {
           img: require("./../../assets/img/raw_1512446234.jpeg"),
-          title: "汽⻋车"
+          title: "汽⻋"
         },
         {
           img: require("./../../assets/img/raw_1512446243.jpeg"),
