@@ -1,5 +1,6 @@
 const router = require('koa-router')()
 const userService = require('../controllers/mySqlConfig')
+const utils = require('./../controllers/utils')
 
 router.prefix('/users') //路由前缀
 
@@ -148,31 +149,69 @@ router.post('/findNoteListBytype', async (ctx, next) => {
     })
 })
 //根据id查找笔记详情
-router.post('/findNoteDetailById', async (ctx, nexy) => {
+router.post('/findNoteDetailById', async (ctx, next) => {
   let id = ctx.request.body.id
   await userService.findNoteDetailById(id).then(async (res) => {
     let r = ''
     if (res.length) {
       r = 'ok',
+        ctx.body = {
+          code: 200,
+          data: res[0],
+          mess: '查找成功'
+        }
+    } else {
+      r = 'error',
+        ctx.body = {
+          code: 404,
+          data: r,
+          mess: '查找失败'
+        }
+    }
+  })
+    .catch((error) => {
       ctx.body = {
-        code: 200,
-        data: res[0],
-        mess: '查找成功'
+        code: 8000,
+        data: error
+      }
+    })
+})
+// 发表笔记
+router.post('/insertNote', async (ctx, next) => {
+  let c_time = utils.getNowFormatDate()
+  let m_time = utils.getNowFormatDate()
+  let note_content = ctx.request.body.note_content
+  let head_img = ctx.request.body.head_img
+  let title = ctx.request.body.title
+  let note_type = ctx.request.body.note_type
+  let useId = ctx.request.body.useId
+  let nickname = ctx.request.body.nickname
+
+  await userService.insertNote([c_time, m_time, note_content, head_img, title, note_type, useId, nickname])
+  .then( async (res) => {
+    let r = ''
+    if (res.affectedRows !== 0) {
+      r = 'ok',
+      ctx.body = {
+        code: "200",
+        data: r,
+        mess: '发布成功'
       }
     } else {
       r = 'error',
       ctx.body = {
-        code: 404,
+        code: '80000',
         data: r,
-        mess: '查找失败'
+        mess: '发布失败'
       }
     }
   })
-  .catch((error) => {
-    ctx.body = {
-      code: 8000,
-      data: error
-    }
+  .catch( err => {
+      ctx.body = {
+        code: '500',
+        data: err,
+        mess: '服务器错误'
+      }
   })
 })
 module.exports = router
