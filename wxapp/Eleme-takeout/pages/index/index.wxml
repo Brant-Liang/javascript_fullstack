@@ -62,7 +62,7 @@
             <image src="../../images/star.png" />
             <image src="../../images/star.png" />
             <image src="../../images/half_star.png" />
-            <text class="rate">4.7</text>
+            <text class="rate">{{item.star}}</text>
             <text>月销售{{item.mouthSale}}单</text>
           </view>
           <view class="cost-distance-time">
@@ -78,11 +78,21 @@
         </view>
       </view>
       <view class="nums">{{item.nums}}个活动</view>
-      <view class="activities" wx:for="{{item.actList}}" wx:key="{{index5}}" wx:for-item="acts">
+      <!-- <view class="activities" wx:for="{{item.actList}}" wx:key="{{index5}}" wx:for-item="acts">
         <view class="decAct">
           <image src="{{acts[index5].url}}" />
         </view>
+      </view> -->
+    <view class="merchant-images">
+      <view class="detail" wx:for="{{item.foodList}}" wx:key="{{index5}}" wx:for-item="{{item5}}">
+        <view class="food-item">
+          <image src="{{item5.foodImg}}" />
+          <view class="food-title">
+            <text>{{item5.title}}</text>
+          </view>
+        </view>
       </view>
+    </view>
     </view>
   </view>
 </view>

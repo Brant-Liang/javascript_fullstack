@@ -224,3 +224,7 @@ swiper-item image{
    font-size: 24rpx;
    color: #666666;
 }
+.merchant-images {
+  width: 100%;
+  height: 150rpx;
+}

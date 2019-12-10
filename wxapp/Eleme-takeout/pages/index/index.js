@@ -64,17 +64,17 @@ Page({
           {
             title:'香辣鸡腿堡(汉堡)ST',
             foodImg: './images/hanbao.jepg.jpeg',
-            price: '19'
+            price: 19
           },
           {
             title: '二块新奥尔良烤翅T',
             foodImg: './images/jichi.jpeg',
-            price: '12.5'
+            price: 12.5
           },
           {
             title: '双味双杯热拿铁T',
             foodImg: './images/coffee.jpeg',
-            price: '33'
+            price: 33
           }
         ]
       }
