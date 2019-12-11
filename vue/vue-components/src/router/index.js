@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import A from '@/components/pages/a'
+import show from '@/components/form/show'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'A',
-      component: A
+      name: 'show',
+      component: show
     }
   ]
 })
