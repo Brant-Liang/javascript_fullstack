@@ -10,6 +10,7 @@
       <i-button size="default" ref="confirm">确认</i-button>
     </div> -->
     <i-button size="default" ref="confirm" @click.native="oConfirm" @message="message">确认</i-button>
+    <button @click="showToast">toast</button>
   </div>
 </template>
 
@@ -40,6 +41,11 @@ export default {
     message(e) {
       console.log(e);
       
+    },
+    showToast(e){
+      console.log(this);
+      
+      this.$toast('网络异常')
     }
   },
 }

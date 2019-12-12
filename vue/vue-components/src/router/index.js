@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import show from '@/components/form/show'
-
+import HelloWorld from '@/components/HelloWorld'
+import Display from '@/components/Display'
 Vue.use(Router)
 
 export default new Router({
@@ -9,7 +9,7 @@ export default new Router({
     {
       path: '/',
       name: 'show',
-      component: show
+      component: Display
     }
   ]
 })
