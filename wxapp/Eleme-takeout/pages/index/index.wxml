@@ -27,8 +27,8 @@
   </swiper>
   <swiper class="menu" indicator-dots="{{true}}" duration="500" indicator-active-color="#aaaaaa" indicator-color="#dddddd">
     <block wx:for="{{menu}}" wx:key="{{index2}}" wx:for-item="oneBlock">
-      <swiper-item class="menu-list" bindtap="goToDetail">
-        <block c wx:for="{{oneBlock.list}}" wx:key="{{index3}}" wx:for-item="oneItem">
+      <swiper-item class="menu-list">
+        <block wx:for="{{oneBlock.list}}" wx:key="{{index3}}" wx:for-item="oneItem">
           <view class="oneMenu">
             <image src="{{oneItem.iconUrl}}" />
             <view class="menu-names">
@@ -50,7 +50,7 @@
       </view>
     </view>
     <view class="merchant-list" wx:for="{{merchant}}" wx:key="{{index4}}">
-      <view class="main">
+      <view class="main" bindtap="goToDetail">
         <view class="headImg">
           <image src="{{item.headImg}}" />
         </view>
@@ -77,19 +77,28 @@
           </view>
         </view>
       </view>
-      <view class="nums">{{item.nums}}个活动</view>
-      <!-- <view class="activities" wx:for="{{item.actList}}" wx:key="{{index5}}" wx:for-item="acts">
-        <view class="decAct">
-          <image src="{{acts[index5].url}}" />
+      <view class="acts" bindtouchstart="showMore">
+        <view class="acts-arrow {{show ? 'on' :''}}"></view>
+        <view class="nums">{{item.nums}}个活动</view>
+      </view>
+      <view class="activities">
+        <view class="decAct" wx:for="{{item.actList}}" wx:key="{{index5}}"  wx:for-item="acts" wx:if="{{acts.id <= showAll}}">
+          <image src="{{acts.url}}" />
+          <view wx:for="{{acts.decList}}" wx:key="{{index6}}" wx:for-item="aActs">
+            <text class="oneAct" wx:if="{{acts.decList}}">满{{aActs.money}}减{{aActs.dec}}</text>
+          </view>
+          <text class="oneAct" wx:if="{{acts.money}}">特价商品{{acts.money}}元起</text>
+          <text class="oneAct" wx:if="{{acts.firstBuy}}">新用户立减{{acts.firstBuy}}元</text>
+          <text class="oneAct" wx:if="{{acts.full}}">购满{{acts.full}}元赠{{acts.disc}}元店铺优惠券</text>
         </view>
-      </view> -->
-    <view class="merchant-images">
-      <view class="detail" wx:for="{{item.foodList}}" wx:key="{{index5}}" wx:for-item="{{item5}}">
+      </view>
+    <view class="merchant-images" bindtap="goToDetail">
+      <view class="detail" wx:for="{{item.foodList}}" wx:key="{{index7}}" wx:for-item="item5">
         <view class="food-item">
           <image src="{{item5.foodImg}}" />
-          <view class="food-title">
-            <text>{{item5.title}}</text>
-          </view>
+            <text class="food-title">{{item5.title}}</text>
+            <text class="food-price">￥{{item5.price}}</text>
+            <text class="food-prePrice">{{item5.prePrice}}</text>
         </view>
       </view>
     </view>

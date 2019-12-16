@@ -1,7 +1,7 @@
 /* pages/index/index.wxss */
 .page{
    background-color: #eeeeee;
-   color: #888888
+   color: #888888;
 }
 .navigation{
    width: 100%;
@@ -12,6 +12,7 @@
    font-size: 32rpx;
    text-align: center;
    padding-top: 36rpx;
+   z-index: 2;
 }
 .nav-name{
    margin-top: 35rpx;
@@ -21,13 +22,14 @@
    font: bold;
 }
 .header{
-   position: relative;
+   position: fixed;
    top: 120rpx;
    text-align: center;
    width: 100%;
    height: 140rpx;
    background-color: #0097ff;
    padding: 20rpx;
+   z-index: 2;
 }
 .location{
    display: flex;
@@ -84,7 +86,7 @@
 swiper{
    background-color: #fff;
    position: relative;
-   top:120rpx;
+   top: 300rpx;
    width: 100%;
    height: 240rpx;
 }
@@ -112,7 +114,7 @@ swiper-item image{
    color: #aaaaaa;
 }
 .merchant{
-   margin-top: 130rpx;
+   margin-top: 320rpx;
    background-color: #fff;
 }
 .merchant-header{
@@ -139,16 +141,17 @@ swiper-item image{
 .merchant-header .screen{
    flex: 1;
    text-align: right;
-   align-items: center;
 }
-
 .merchant-header .screen image{
    width: 28rpx;
    height: 28rpx;
+   position: relative;
+   top: 4rpx;
 }
 .merchant-list{
    border-bottom: 1px solid #d9dde1;
    padding: 30rpx 30rpx 0 30rpx;
+   box-sizing: border-box;
 }
 .merchant-list .main{
    display: flex;
@@ -224,7 +227,72 @@ swiper-item image{
    font-size: 24rpx;
    color: #666666;
 }
+.merchant-list .acts-arrow{
+  width: 0;
+  height: 0;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  float: right;
+  border: 10rpx solid;
+  border-color: #666666 transparent transparent;
+  transition: 0.3s;
+}
+.merchant-list .acts-arrow.on{
+  width: 0;
+  height: 0;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  float: right;
+  border: 10rpx solid;
+  border-color: #666666 transparent transparent;
+  transform-origin: 50% 25%;
+  transform: rotate(180deg);
+  transition: 0.3s;
+}
+.merchant-list .activities {
+  width: 100%;
+}
+.merchant-list .activities .decAct{
+  display: flex;
+  align-items: center;
+  margin: 14rpx 0;
+}
+.merchant-list .activities .decAct .oneAct{
+  font-size: 24rpx;
+  margin-left: 14rpx;
+}
+.merchant-list .activities .decAct image{
+  width: 26rpx;
+  height: 26rpx;
+}
 .merchant-images {
   width: 100%;
-  height: 150rpx;
+  display: flex;
+}
+.merchant-images .detail {
+  box-sizing: border-box;
+  padding-right: 30rpx; 
+  width: 230rpx;
+}
+.merchant-images .detail .food-item image{
+  width: 230rpx;
+  height: 230rpx;
+}
+.merchant-images .detail .food-item .food-title {
+  display: block;
+  width: 220rpx;
+  font-size: 26rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.merchant-images .detail .food-item .food-price {
+  color: red;
+  
+}
+.merchant-images .detail .food-item .food-prePrice {
+  font-size: 22rpx;
+  margin-left: 14rpx;
+  color: #aaaaaa;
+  text-decoration: line-through;
 }
