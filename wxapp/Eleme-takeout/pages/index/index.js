@@ -8,9 +8,6 @@ Page({
     show: false,
     showAll: 2,
     imgUrl: [
-      '../../images/image1.jpg',
-      '../../images/image2.jpg',
-      '../../images/image3.jpg'
     ],
     menu: [
       {
@@ -35,63 +32,6 @@ Page({
       }
     ],
     merchant: [
-      {
-        nums: 4,
-        headImg: './images/KFC.jpeg',
-        name: '肯德基宅急送(经开店)',
-        star: 4.6,
-        mouthSale: 684,
-        upToSend: 15,
-        shippingFee: 9,
-        distance: 2.4,
-        time: 30,
-        actList:[
-          {
-            id: 1,
-            url: '../../images/decrease_3@2x.png',
-            decList:[
-              {money: 59, dec:8},
-              {money: 85, dec:15}
-            ]
-          },
-          {
-            id: 2,
-            url:'../../images/special_3@2x.png',
-            money: 8
-          },
-          {
-            id: 3,
-            url: '../../images/guarantee_3@2x.png',
-            firstBuy: 17
-          },
-          {
-            id: 4,
-            url: '../../images/invoice_3@2x.png',
-            full: 10,
-            disc: 2
-          }
-        ],
-        foodList:[
-          {
-            title:'香辣鸡腿堡(汉堡)ST',
-            foodImg: './images/hanbao.jepg.jpeg',
-            price: 19,
-            prePrice: 24
-          },
-          {
-            title: '二块新奥尔良烤翅T',
-            foodImg: './images/jichi.jpeg',
-            price: 12.5,
-            prePrice: 16
-          },
-          {
-            title: '双味双杯热拿铁T',
-            foodImg: './images/coffee.jpeg',
-            price: 33,
-            prePrice: 38
-          }
-        ]
-      }
     ],
   },
   goToDetail() {
@@ -118,11 +58,32 @@ Page({
       })
     }
   },
+  requestCart() {
+    wx.request({
+      url: 'http://localhost:3000/data',
+      data: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (result) => {
+        const imgUrl = result.data.imgUrl
+        const merchant = result.data.merchant
+        this.setData({
+          imgUrl,
+          merchant
+        })
+      },
+      fail: () => {},
+      complete: () => {}
+    });
+      
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.requestCart();
   },
 
   /**
