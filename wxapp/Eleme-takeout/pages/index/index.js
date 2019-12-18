@@ -66,6 +66,7 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: (result) => {
+        console.log(result);
         const imgUrl = result.data.imgUrl
         const merchant = result.data.merchant
         this.setData({
