@@ -10,29 +10,9 @@ Page({
     imgUrl: [
     ],
     menu: [
-      {
-        id: 'first',
-        list: [
-          { name: '美食', iconUrl: '../../images/meishi.png' },
-          { name: '商超便利', iconUrl: '../../images/chaoshi.png' },
-          { name: '水果', iconUrl: '../../images/shuiguo.png' },
-          { name: '全球美食', iconUrl: '../../images/quanqiumeishi.png' },
-          { name: '地方小吃', iconUrl: '../../images/difangxiaochi.png' },
-          { name: '速食简餐', iconUrl: '../../images/sushijiancan.png' },
-          { name: '大牌惠吃', iconUrl: '../../images/dapaihuichi.png' },
-          { name: '汉堡披萨', iconUrl: '../../images/hanbaopisha.png' }
-        ]
-      },
-      {
-        id: 'second',
-        list: [
-          { name: '包子粥店', iconUrl: '../../images/baozizhoudian.png' },
-          { name: '米粉面馆', iconUrl: '../../images/mifenmianguan.png' }
-        ]
-      }
     ],
     merchant: [
-    ],
+    ]
   },
   goToDetail() {
     wx.navigateTo({
@@ -44,7 +24,8 @@ Page({
       url: '../chooseAdress/chooseAdress'
     })
   },
-  showMore(){
+  showMore(e){
+    console.log(e);
     this.setData({
       show: !this.data.show
     })
@@ -63,15 +44,18 @@ Page({
       url: 'http://localhost:3000/data',
       data: {},
       method: 'GET',
+      header: {'content-type':'application/json'},
       dataType: 'json',
       responseType: 'text',
       success: (result) => {
         console.log(result);
         const imgUrl = result.data.imgUrl
         const merchant = result.data.merchant
+        const menu = result.data.menu
         this.setData({
           imgUrl,
-          merchant
+          merchant,
+          menu
         })
       },
       fail: () => {},

@@ -30,7 +30,7 @@
         <text>135487484411</text>
       </view>
     </view>
-    <view class="bottom">
+    <view class="bottom" bind:tap="toAddAd">
       <i class="iconfont icon-add"></i>
       新增地址
       </view>

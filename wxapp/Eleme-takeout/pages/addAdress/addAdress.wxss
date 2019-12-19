@@ -1,0 +1,36 @@
+/* pages/addAdress/addAdress.wxss */
+.page{
+  width: 100%;
+  height: 100vh;
+}
+.navigation{
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  top: 0;
+  background-color: #0097ff;
+  font-size: 32rpx;
+  text-align: left;
+  padding-top: 36rpx;
+  display: flex;
+  align-items: center;
+  padding-left: 20rpx;
+}
+.navigation .arrow{
+  width: 20rpx;
+  height: 20rpx;
+  border: 4rpx solid #fff;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(45deg);
+}
+.navigation .nav-name{
+  flex: 1;
+  color: #ffffff;
+  font: bold;
+}
+.form {
+  position: absolute;
+  top: 136rpx;
+  background-color: #fff;
+  width: 100%;
+}

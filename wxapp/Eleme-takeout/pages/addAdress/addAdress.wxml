@@ -1,0 +1,27 @@
+<!-- pages/addAdress/addAdress.wxml -->
+<view class="page">
+  <view class="navigation">
+    <view class="arrow"></view>
+    <view class="nav-name">新增地址</view>
+  </view>
+  <view class="form">
+    <form action="" bindsubmit="">
+      <label for="username">
+        联系人
+        <input type="text" placeholder="姓名" name="username" />
+      </label>
+      <label for="tel">
+        电话
+        <input type="number" placeholder="电话" name="tel" />
+      </label>
+      <label for="address">
+        地址
+        <input type="text" placeholder="选择收货地址" name="address" />
+      </label>
+      <label for="detail">
+        补充说明
+        <input type="text" placeholder="详细地址（如门牌号等）" name="detail" />
+      </label>
+    </form>
+  </view>
+</view>

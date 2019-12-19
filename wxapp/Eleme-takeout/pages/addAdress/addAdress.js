@@ -1,34 +1,11 @@
-// pages/chooseAdress/chooseAdress.js
+// pages/addAdress/addAdress.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    nowAddress: '',
-    lon: '',
-    lat: ''
-  },
-  back() {
-    wx.navigateBack({
-      
-    })
-  },
-  toAddAd(){
-    wx.navigateTo({
-      url: './../addAdress/addAdress'
-    });
-      
-  },
-  reLocation () {
-    wx.getLocation({
-      type: 'wgs84',
-      success (res) {
-        console.log(res);
-        lon = res.longitude,
-        lat = res.latitude
-      }
-     })
+
   },
 
   /**
