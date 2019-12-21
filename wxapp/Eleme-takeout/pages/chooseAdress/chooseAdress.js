@@ -11,7 +11,6 @@ Page({
   },
   back() {
     wx.navigateBack({
-      
     })
   },
   toAddAd(){

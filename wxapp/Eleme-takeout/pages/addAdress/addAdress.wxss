@@ -28,9 +28,50 @@
   color: #ffffff;
   font: bold;
 }
-.form {
+form {
   position: absolute;
   top: 136rpx;
   background-color: #fff;
   width: 100%;
+  padding: 20rpx;
+  font-size: 32rpx;
+}
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+label {
+  width: 140rpx;
+}
+form .first {
+  border: none;
+}
+.title {
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.username {
+  border-bottom: 1px solid #eee;
+}
+form input {
+  margin-left: 36rpx;
+  height: 60rpx;
+  padding: 10rpx 0;
+}
+.sexButton {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #eee;
+  padding-left: 174rpx;
+}
+.sex {
+  border: 1px solid #cccccc;
+  color: #888888;
+  font-size: 30rpx;
+  width: 150rpx;
+  height: 54rpx;
+  text-align: center;
+  line-height: 54rpx;
+  margin: 14rpx 20rpx 14rpx 0;
 }
