@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,20 +8,33 @@
   <script src="../vue.js"></script>
   <title>Document</title>
 </head>
+
 <body>
   <div id="app">
-   <input type="checkbox" name="" id="license"> 同意协议
+    <!-- <label for="license">
+      <input type="checkbox" name="" id="license" v-model="isAgree"> 同意协议
+    </label>
+    <h2>你选择的是：{{isAgree}}</h2>
+    <button :disabled="!isAgree">下一步</button> -->
+    <input type="checkbox" value="篮球" v-model="hobbys">篮球
+    <input type="checkbox" value="足球" v-model="hobbys">足球
+    <input type="checkbox" value="排球" v-model="hobbys">排球
+    <input type="checkbox" value="网球" v-model="hobbys">网球
+    <h2>爱好是：{{hobbys}}</h2>
   </div>
   <script>
-  var app = new Vue({
-    el: '#app',
-    data() {
-      return {
-        message: "你好啊",
-        sex: '男'
-      }
-    },
-  })
+    var app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          message: "你好啊",
+          sex: '男',
+          isAgree: false,
+          hobbys: []
+        }
+      },
+    })
   </script>
 </body>
+
 </html>
