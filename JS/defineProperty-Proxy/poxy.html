@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let data = {
+      name: 'name'
+    }  
+    let proxyData = new Proxy(data, {
+      set(target, key, val, receiver) {
+        console.log('对象改变了');
+        console.log(target);
+        console.log(receiver);
+        return Reflect.set(target, key, val, receiver)
+      }
+    })
+    proxyData.name = 456
+    console.log(proxyData.name);
+    proxyData.age = 18
+    delete proxyData.age;
+    delete data.name;
+    console.log(name in data);
+    
+  </script>
+</body>
+</html>
