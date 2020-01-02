@@ -56,7 +56,7 @@ class Stack<T extends Params> {
   }
 
   public pop() {
-    this.arr.pop()
+    this.arr.pop()  
   }
 }
 const stack1 = new Stack<number>()
