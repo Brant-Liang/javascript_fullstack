@@ -409,39 +409,53 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__js_mathUntils_js__ = __webpack_require__(3);
 
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_mathUntils_js__["a" /* default */].add(20, 30));
-console.log(__WEBPACK_IMPORTED_MODULE_0__js_mathUntils_js__["a" /* default */].mul(20, 30));
 
+var _mathUntils = __webpack_require__(3);
+
+var _mathUntils2 = _interopRequireDefault(_mathUntils);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log(_mathUntils2.default.add(20, 30));
+console.log(_mathUntils2.default.mul(20, 30));
+console.log(_mathUntils.age);
+console.log(_mathUntils.name);
 
 // 依赖css文件
-__webpack_require__(4)
+__webpack_require__(4);
 
 // 依赖less文件
-__webpack_require__(8)
+__webpack_require__(8);
 
-document.writeln(`<h2>你好啊</h2>`)
+document.writeln('<h2>\u4F60\u597D\u554A</h2>');
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 function add(num1, num2) {
-    return num1 + num2
+    return num1 + num2;
 }
 function mul(num1, num2) {
-    return num1 * num2
+    return num1 * num2;
 }
-/* harmony default export */ __webpack_exports__["a"] = ({
-   add,
-   mul
-});
+
+var age = exports.age = 18;
+var name = exports.name = 'lc';
+exports.default = {
+    add: add,
+    mul: mul
+};
 
 /***/ }),
 /* 4 */
