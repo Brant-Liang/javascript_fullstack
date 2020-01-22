@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/main.js',
   watch: true,
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../dist'),
     // publicPath: 'dist/',
     filename: "bundle.js",
     chunkFilename: '[name].js'
@@ -15,11 +15,6 @@ module.exports = {
     new webpack.BannerPlugin('版权归我所有'),
     new htmlWabpackPlugin({
       template: 'index.html'
-    }),
-    new uglifyjsWebpackPlugin()
+    })
   ],
-  devServer: {
-    contentBase: './dist',
-    inline: true
-  }
 }
