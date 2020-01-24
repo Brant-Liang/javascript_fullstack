@@ -11,3 +11,5 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+
+// template -> ast -> render -> virtual dom -> ui

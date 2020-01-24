@@ -1,7 +1,7 @@
 {
-  "name": "cli2-test",
+  "name": "vue-cli2-runtimeonly",
   "version": "1.0.0",
-  "description": "test vue-cli2",
+  "description": "A Vue.js project",
   "author": "Brant-Liang <1351805238@qq.com>",
   "private": true,
   "scripts": {

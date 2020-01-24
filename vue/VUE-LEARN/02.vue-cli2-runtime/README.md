@@ -1,6 +1,6 @@
-# cli2-test
+# vue-cli2-runtimeonly
 
-> test vue-cli2
+> A Vue.js project
 
 ## Build Setup
 
