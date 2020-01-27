@@ -1,8 +1,9 @@
 // 配置路由相关信息
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from '../components/home'
-import about from '../components/about'
+import Home from '../components/home'
+import About from '../components/about'
+import User from '../components/user'
 // 1.通过Vue.use(插件) 安装插件
 Vue.use(Router)
 
@@ -14,12 +15,15 @@ const routes = [
   },
   {
     path: '/home',
-    component: home,
-
+    component: Home,
   },
   {
     path: '/about',
-    component: about
+    component: About
+  },
+  {
+    path: '/user/:userid',
+    component: User
   }
 ]
 
