@@ -7,6 +7,8 @@
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
     <router-link :to="'/user/username=' + userId">用户</router-link>
+    <!-- <router-link to="/profile">档案</router-link> -->
+    <router-link :to="{path: '/profile', query: {name: 'lc', age: 18}}">档案</router-link>
     <router-view></router-view>
   </div>
 </template>
