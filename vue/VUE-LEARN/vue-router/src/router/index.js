@@ -1,6 +1,6 @@
 // 配置路由相关信息
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 // import Home from '../components/home'
 // import About from '../components/about'
 // import User from '../components/user'
@@ -12,7 +12,8 @@ const About = () => import('../components/about.vue')
 const User = () => import('../components/user.vue')
 const Profile = () => import('../components/Profile.vue')
 // 1.通过Vue.use(插件) 安装插件
-Vue.use(Router)
+Vue.use(VueRouter)
+// 执行VueRouter.install
 
 // 2、创建路由对象
 const routes = [
@@ -52,7 +53,7 @@ const routes = [
   }
 ]
 
-const router = new Router({
+const router = new VueRouter({
   // 配置路由和组件之间的关系
   routes,
   mode: 'history',
