@@ -9,7 +9,16 @@
 
 <script>
 export default {
+  name: "home",
+  created() {
+    /* console.log('created'); */
+  },
+  mounted() {
 
+  },
+  updated() {
+
+  }
 }
 </script>
 

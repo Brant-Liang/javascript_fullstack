@@ -8,6 +8,9 @@
 </template>
 <script>
 export default {
+  created() {
+    // console.log('created');
+  },
   computed: {
     userId() {
       return this.$route.params.userid
