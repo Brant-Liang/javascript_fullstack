@@ -11,14 +11,17 @@
 export default {
   name: "home",
   created() {
-    /* console.log('created'); */
+    console.log('home created');
   },
-  mounted() {
+  destroyed() {
+    console.log('home destroyed');
+  }
+ /*  mounted() {
 
   },
   updated() {
 
-  }
+  } */
 }
 </script>
 
