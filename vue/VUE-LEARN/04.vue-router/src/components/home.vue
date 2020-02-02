@@ -12,6 +12,7 @@ export default {
   name: "home",
   created() {
     console.log('home created');
+    console.log(this.$route.path.indexOf('/home'));
   },
   destroyed() {
     console.log('home destroyed');
