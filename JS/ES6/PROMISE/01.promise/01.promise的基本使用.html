@@ -15,38 +15,24 @@
   // 参数 -> 函数(reslove, reject)
   // relove reject 也是函数
   // 链式编程
-  new Promise((reslove, reject) => {
+  new Promise((resolve, reject) => {
     // 第一次网络请求代码
     setTimeout(() => {
-      reslove()
+      // 网络请求成功的时候
+      // resolve('hello world')
+      // 请求失败的时候
+      reject('error message')
     }, 1000)
-  }).then(() => {
-    // 第一次拿到结果处理代码
-    console.log('hello world');
-    console.log('hello world');
-    console.log('hello world');
-
-    return new Promise((resolve, reject) => {
-      // 第二次网咯请求代码
-      setTimeout(() => {
-        resolve()
-      }, 1000)
-    }).then(() => {
-      console.log('hello world');
-      console.log('hello world');
-      console.log('hello world');
-      setTimeout(() => {
-        reslove();
-      }, 1000)
-    }).then(() => {
-      console.log('hello world');
-      console.log('hello world');
-      console.log('hello world');
-      setTimeout(() => {
-        
-      }, 1000)
-    })
   })
+    .then((data) => {
+      // 第一次拿到结果处理代码
+      console.log(data);
+      console.log(data);
+      console.log(data);
+      })
+    .catch(err => {
+      console.log(err);
+    })
 </script>
 
 </html>
