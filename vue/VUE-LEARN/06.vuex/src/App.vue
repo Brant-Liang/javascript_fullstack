@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <h2>info中的内容</h2>
+    <p>{{$store.state.info}}</p>
+    <button @click="updataInfo">更新</button>
     <h2>--------app内容--------</h2>
     <h2>{{message}}</h2>
     <h2>{{$store.state.count}}</h2>
@@ -50,6 +53,9 @@ export default {
     addStudent() {
       const std = {id: 114, name: 'Ariel', age: 21}
       this.$store.commit('addStudent', std)
+    },
+    updataInfo() {
+      this.$store.commit('updateInfo')
     }
   }
 };

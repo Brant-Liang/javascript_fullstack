@@ -13,7 +13,12 @@ const store = new Vuex.Store({
       {id: 110, name: 'kobe', age: 42},
       {id: 110, name: 'james', age: 35},
       {id: 110, name: 'curry', age: 10}
-    ]
+    ],
+    info: {
+      name: 'kobe',
+      age: 41,
+      height: 1.98
+    }
   },
   mutations: {
     //方法
@@ -30,6 +35,13 @@ const store = new Vuex.Store({
     },
     addStudent(state, std) {
       state.students.push(std)
+    },
+    updateInfo(state) {
+      // state.info.name = 'Brant'
+      //state.info['address'] = 'Los Angeles'
+
+      Vue.set(state.info, 'address', 'Los Angeles')
+      Vue.delete(state.info, 'age')
     }
   },
   actions: {
