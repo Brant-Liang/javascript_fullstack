@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
+    <h2>{{$store.getters.powerCount}}</h2>
     <h2>{{$store.state.count}}</h2>
+    <h2>{{$store.getters.more20stds}}</h2>
   </div>
 </template>
 
