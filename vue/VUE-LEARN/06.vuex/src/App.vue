@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <h2>--------moduleA的内容-------</h2>
+    <p>{{$store.state.a.name}}</p>
+    <button @click="updateModuleA">更新</button>
     <h2>info中的内容</h2>
     <p>{{$store.state.info}}</p>
     <button @click="updataInfo">更新</button>
@@ -24,6 +27,8 @@
 
 <script>
 import HelloVuex from "./components/HelloVuex";
+import { mapMutations, mapActions } from "vuex";
+import * as types from "./store/mutations-types";
 export default {
   name: "App",
   components: {
@@ -35,27 +40,42 @@ export default {
     };
   },
   methods: {
-    add() {
-      this.$store.commit("increment");
-    },
-    minus() {
-      this.$store.commit("decrement");
-    },
+    // add() {
+    //   this.$store.commit(types.INCREMENT);
+    // },
+    ...mapMutations({
+      add: types.INCREMENT,
+      minus: "decrement",
+      updateModuleA: "changeA"
+    }),
+    // minus() {
+    //   this.$store.commit("decrement");
+    // },
     addCount(count) {
       // 普通提交风格
       // this.$store.commit('incrementCount', count)
       // 特殊提交风格
       this.$store.commit({
-        type: 'incrementCount',
+        type: "incrementCount",
         count
-      })
+      });
     },
     addStudent() {
-      const std = {id: 114, name: 'Ariel', age: 21}
-      this.$store.commit('addStudent', std)
+      const std = { id: 114, name: "Ariel", age: 21 };
+      this.$store.commit("addStudent", std);
     },
     updataInfo() {
-      this.$store.commit('updateInfo')
+      // this.$store.commit('updateInfo')
+      // this.$store.dispatch('aUpdateInfo',{
+      //   message: '我是携带的信息',
+      //   success: () =>{
+      //     console.log('里面已经完成了');
+      //   }
+      // })
+      this.$store.dispatch("aUpdateInfo", "我是携带的信息").then(res => {
+        console.log("里面完成了提交");
+        console.log(res);
+      });
     }
   }
 };
