@@ -1,5 +1,5 @@
 {
-  "name": "vuex",
+  "name": "07.learn-axios",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "Brant-Liang <1351805238@qq.com>",
@@ -11,9 +11,7 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.1.2"
+    "vue": "^2.5.2"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

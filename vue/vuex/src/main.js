@@ -5,7 +5,7 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'
 Vue.config.productionTip = false
-
+import axios from 'axios'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
