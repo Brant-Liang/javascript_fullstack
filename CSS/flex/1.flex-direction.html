@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 500px;
+      height: 400px;
+      background-color: blueviolet;
+      display: flex;
+      /* flex-direction: row;  默认值 沿主轴从左到右*/
+      /* flex-direction: row-reverse; */
+      /* flex-direction: column; 从上到下 */
+      /* flex-direction: column-reverse; */
+      /* justify-content: space-evenly; */
+      /* align-item: stretch */
+      /* flex-wrap: wrap; */
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+
+      align-content: flex-start;
+    }
+    .item {
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+    }
+    .item1 {
+      background-color: #000;
+    }
+    .item2 {
+      background-color: #aaa;
+    }
+    .item3 {
+      background-color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+  </div>
+</body>
+</html>
