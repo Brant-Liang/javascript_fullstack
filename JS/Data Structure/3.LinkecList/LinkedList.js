@@ -74,6 +74,57 @@ function Linkedlist () {
     }
     return current.data
   }
+  //4、indexOf
+  Linkedlist.prototype.indexOf = function(data) {
+    //1、定义current
+    var current = this.head
+    var index = 0
+    while(current) {
+      //找到则返回索引
+      if(data === current.data) {
+        return index
+      }
+      current = current.next
+      index++
+    }
+    return -1
+  }
+  //5、update
+  Linkedlist.prototype.update = function(position, newData) {
+    var current = this.head
+    for (let i = 0; i < position; i++) {
+      current = current.next
+    }
+    current.data = newData
+  }
+  //6、removeAt
+  Linkedlist.prototype.removeAt = function(position) {
+    if(position < 0 || position >= this.length) return false
+    //判断是否删除第一个节点
+    if(position === 0) {
+      this.head = this.head.next
+    } 
+    else {
+      var current = this.head
+      var previous = null
+      for (let i = 0; i < position; i++) {
+          previous = current
+          current = current.next
+      }
+      //前一个的next指向current.next即可
+      previous.next = current.next
+    }
+    this.length -= 1
+  }
+  //7、remove
+  Linkedlist.prototype.remove = function(data) {
+    var position = this.indexOf(data)
+    return this.removeAt(position)
+  }
+  //8、isEmpty
+  Linkedlist.prototype.isEmpty = function() {
+    return this.length === 0
+  }
   //9、toString
   Linkedlist.prototype.toString = function() {
     //1、定义当前遍历位置的变量
@@ -93,9 +144,15 @@ function Linkedlist () {
 //1、创建链表实例
 var myLinkedList = new Linkedlist()
 
+console.log(myLinkedList.isEmpty());
 myLinkedList.append(11)
 myLinkedList.append(22)
 myLinkedList.insert(1, 15)
 myLinkedList.insert(0, 5)
+myLinkedList.update(3, 7)
+// myLinkedList.removeAt(0)
+myLinkedList.remove(15)
+console.log(myLinkedList.isEmpty());
+console.log(myLinkedList.length);
 console.log(myLinkedList.toString());
-console.log(myLinkedList.get(3))
+console.log(myLinkedList.indexOf(11));
