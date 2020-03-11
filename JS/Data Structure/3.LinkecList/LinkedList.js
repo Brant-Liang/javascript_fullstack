@@ -144,15 +144,35 @@ function Linkedlist () {
 //1、创建链表实例
 var myLinkedList = new Linkedlist()
 
-console.log(myLinkedList.isEmpty());
-myLinkedList.append(11)
-myLinkedList.append(22)
-myLinkedList.insert(1, 15)
-myLinkedList.insert(0, 5)
-myLinkedList.update(3, 7)
-// myLinkedList.removeAt(0)
-myLinkedList.remove(15)
-console.log(myLinkedList.isEmpty());
-console.log(myLinkedList.length);
-console.log(myLinkedList.toString());
-console.log(myLinkedList.indexOf(11));
+console.log(myLinkedList.isEmpty()) //true
+myLinkedList.append('Ariel') 
+myLinkedList.append('Brant')
+console.log(myLinkedList.length) //2
+console.log(myLinkedList.toString()) //Ariel Brant
+
+myLinkedList.insert(1, 'love')
+myLinkedList.insert(0, 'Lovely')
+console.log(myLinkedList.length) //4
+console.log(myLinkedList.toString()) //Lovely Ariel love Brant
+
+console.log(myLinkedList.get(2)) //love
+console.log(myLinkedList.get(5)) //null
+
+console.log(myLinkedList.indexOf('love')) //2
+console.log(myLinkedList.indexOf('like')) //-1
+
+myLinkedList.update(0, 'Beautiful')
+myLinkedList.update(2, 'like')
+console.log(myLinkedList.toString()) //Beautiful Ariel love Brant
+console.log(myLinkedList.indexOf('Ariel')) //1
+console.log(myLinkedList.indexOf('test'))  //-1
+
+myLinkedList.removeAt(0) 
+console.log(myLinkedList.length) //3
+console.log(myLinkedList.toString()) //Ariel like Brant
+
+myLinkedList.remove('like')
+console.log(myLinkedList.length) //2
+console.log(myLinkedList.toString()) //Ariel Brant
+
+console.log(myLinkedList.isEmpty()) //false
