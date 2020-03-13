@@ -14,7 +14,8 @@ module.exports = {
   ],
   module: { //第三方模块配置
     rules: [ 
-      { test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/ } //千万别忘记添加exclude
+      { test: /\.js|jsx$/, use: 'babel-loader', exclude: /node_modules/ }, //千万别忘记添加exclude
+      { test: /\.css$/, use:['style-loader', 'css-loader']} //打包处理css样式表
     ]
   },
   resolve: {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CmtItem from '@/components/CmtItem'
-
+import cssobj from '@/css/cmtList.css'
 export default class CmtList extends Component {
   constructor() {
     super()
@@ -15,7 +15,7 @@ export default class CmtList extends Component {
   }
   render() {
     return <div>
-      <h1 style={{color: 'red', fontSize: '35px', fontWeight: 200, textAlign: "center"}}>这是评论列表</h1>
+      <h1 className="title">这是评论列表</h1>
       {this.state.CommendList.map(item => 
         <CmtItem key={item.id} {...item}></CmtItem>)
         }
