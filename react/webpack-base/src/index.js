@@ -1,7 +1,9 @@
 //1、导入包
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './5.class'
+import CmtList  from './components/CmtList'
+//定义父组件
+
 ReactDOM.render(<div>
-  {/* 直接把组件名称写成标签即可 */}
+  <CmtList></CmtList>
 </div>, document.getElementById('app'))
