@@ -16,6 +16,8 @@ export default class BindEvent extends React.Component {
         {/* <button onClick= {this.show}>按钮</button> */}
         
         {/* 点击按钮修改msg */}
+        <input type="text" style={{width: '500px'}} value={this.state.msg} 
+            onChange={() => this.changeMsg()} ref="input"/>
         <button onClick = {() => this.show('狗')}>按钮</button>
         <h2>{this.state.msg}</h2>
       </div>
@@ -37,5 +39,11 @@ export default class BindEvent extends React.Component {
     //console.log(this.state.msg);
 
     //如果要在调用完this.setState之后 要立即获取this.state中的值，可以用this.setState({},callback)
+  }
+  changeMsg = () => {
+    console.log(this.refs.input);
+    this.setState({
+      msg: this.refs.input.value
+    })
   }
 }
