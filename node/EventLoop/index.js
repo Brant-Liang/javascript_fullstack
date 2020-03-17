@@ -1,10 +1,14 @@
-// setTimeout(() => {
-//   console.log(1)
-//   Promise.resolve(3).then(data => console.log(data))
-// }, 0) 
-// setTimeout(() => {
-//   console.log(2);
-// }, 0)
+setTimeout(() => {
+  console.log('setTimeout 1');
+}, 0)
 
-Promise.resolve('123').then(data => console.log(123))
-process.nextTick(() => console.log('nextTick'))
+setTimeout(() => {
+  console.log('setTimeout 2')
+  Promise.resolve().then(() => console.log('Promise'))
+}, 0) 
+setTimeout(() => {
+  console.log('setTimeout 3');
+}, 0)
+
+// Promise.resolve('123').then(data => console.log(123))
+// process.nextTick(() => console.log('nextTick'))
