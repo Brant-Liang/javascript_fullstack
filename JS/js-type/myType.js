@@ -17,7 +17,7 @@ function add(a, b){
    return a + b;
 }
 function add5(b){
-   return add(5, b); 
+   return add(5, b); }
 //能把所有函数的第一个参数 固定住
 console.log(isType('String', '123'));
 console.log(isType('String', '456'));
@@ -25,4 +25,5 @@ console.log(isType('String', '48468464'));
 console.log(isType('Function', () =>{}));
 
 // 函数式编程 过程抽象
+
 // 面向对象  数据抽象
