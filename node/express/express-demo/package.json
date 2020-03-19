@@ -1,5 +1,5 @@
 {
-  "name": "express",
+  "name": "express-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "art-template": "^4.13.2",
-    "express": "^4.17.1"
+    "express": "^4.16.2"
   }
 }

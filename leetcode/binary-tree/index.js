@@ -38,8 +38,8 @@ function inOrder (Obj) {
 }
 function postOrder (Obj) {
   if(obj) {
-    inOrder(Obj.left)
-    inOrder(Obj.right)
+    postOrder(Obj.left)
+    postOrder(Obj.right)
     console.log(Obj.value);
   }
 }
