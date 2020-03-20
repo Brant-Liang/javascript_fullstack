@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: 'Kobe'
+    }
+    let temp = null
+    Object.defineProperty(obj, 'name', {
+      //数据描述符 writable value
+      value: "Jack",
+      writable: true, //默认不可写
+
+      //存取描述符
+      //get() 返回值将设置成为属性值
+      // get() {
+      //   return temp
+      // },
+      //set 当该属性值发生改变时，新值将作为参数并执行set函数
+      // set(val) {
+      //   temp = val
+      // },
+      //configurable 描述属性是否配置，以及可否删除 默认false
+      configurable: true
+      //enumerable 描述属性是否会出现在for in 或者 Object.keys()的遍历中 默认false
+    })
+
+
+    console.log(obj.name);
+    obj.name = "Rose" 
+    // 等价于
+    Object.defineProperty(obj, "name", {
+      value: "Rose",
+      writable: true,
+      configurable: true,
+      enumerable: true
+    })
+    // delete obj.name
+    console.log(obj.name);
+  </script>
+</body>
+</html>
