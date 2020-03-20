@@ -21,7 +21,7 @@ app.use('/static/', express.static('./static/'))
 //   </html>`)
 // })
 app.get('/', function(req, res) {
-  res.send('/ page')
+  res.render('index.html')
 })
 app.get('/post', function(req, res) {
   res.send('post page')
