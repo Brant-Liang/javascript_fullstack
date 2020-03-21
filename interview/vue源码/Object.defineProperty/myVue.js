@@ -25,6 +25,7 @@ class myVue {
   defineReactive(obj, key, val){
 
     this.observe(val) //递归解决数据嵌套
+    
     const dep = new Dep()
     Object.defineProperty(obj, key, {
       get() {
@@ -52,7 +53,7 @@ class Dep {
   addDep(dep) {
     this.deps.push(dep)
   }
-
+  //发通知
   notify() {
     this.deps.forEach(dep => dep.update())
   }
