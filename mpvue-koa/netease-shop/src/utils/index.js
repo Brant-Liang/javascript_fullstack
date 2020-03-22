@@ -18,41 +18,47 @@ export function formatTime (date) {
   return `${t1} ${t2}`
 }
 
-// 封装请求
-export const host = "http://localhost:6060/lc"
 
-function request(url, method, data, header = {}) {
+// ------------------------请求的封装
+
+const host = "http://localhost:6060/lc"
+export { host };
+
+// 请求封装
+function request (url, method, data, header = {}) {
   wx.showLoading({
     title: "加载中"
-  })
+  });
   return new Promise((resolve, reject) => {
     wx.request({
       url: host + url,
-      method,
-      data,
+      method: method,
+      data: data,
       header: {
         "content-type": "application/json"
       },
-      success: (res) => {
-        wx.hideLoading()
+      success (res) {
+        wx.hideLoading();
         resolve(res.data)
       },
-      fail: (err) => {
-        wx.hideLoading()
-        reject(err)
+      fail (error) {
+        wx.hideLoading();
+        reject(false)
       },
-      complete: () => {
-        wx.hideLoading()
+      complete () {
+        wx.hideLoading();
       }
     })
   })
 }
-export function get(url, data) {
+
+export function get (url, data) {
   return request(url, 'GET', data)
 }
-export function post(url, data) {
+export function post (url, data) {
   return request(url, 'POST', data)
 }
+
 export default {
   formatNumber,
   formatTime

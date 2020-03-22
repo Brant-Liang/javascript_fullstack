@@ -7,7 +7,7 @@ Vue.use(Vuex)
 //创建对象
 const store = new Vuex.Store({
   state: {
-    cityName: '定位中'
+    cityName: '定位中..'
   },
   mutations: {
     choiceAddress(state, payLoad) {
