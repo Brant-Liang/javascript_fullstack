@@ -8,15 +8,26 @@
          <span class="icon"></span>
        </div>
      </div>
+     <div class="swiper">
+       <swiper class="swiper-comtainer" interval="3000" circular="true" duration="500" indicator-dots="true" autoplay="true">
+         <block v-for="(item, index) in banner" :key="index">
+           <swiper-item class="swiper-item">
+             <image class="slide-image" :src="item.image_url"/>
+           </swiper-item>
+         </block>
+       </swiper>
+     </div>
    </div>
 </template>
 
 <script>
 import amapFile from '@/utils/amap-wx'
 import { mapState, mapMutations } from 'vuex'
+import { get } from '@/utils/index'
 export default {
   data() {
     return {
+      banner: []
     }
   },
   computed: {
@@ -69,6 +80,10 @@ export default {
           _this.choiceAddress('北京')
         }
       })
+    },
+    async getData() {
+      const data = await get('/index/index')
+      console.log(data);
     }
   }
 }
