@@ -3,7 +3,7 @@
      <!-- 头部搜搜 -->
      <div class="search">
        <div @click="toMappage">{{cityName}}</div>
-       <div>
+       <div @click="toSearch">
          <input type="text" placeholder="搜索商品">
          <span class="icon"></span>
        </div>
@@ -150,6 +150,11 @@ export default {
   },
   methods: {
     ...mapMutations(['choiceAddress']),
+    toSearch() {
+      wx.navigateTo({
+        url: '/pages/search/main'
+      })
+    },
     toMappage() {
       //通过wx.getSetting先查询用户是否授权 "scoped.record"
       wx.getSetting({
