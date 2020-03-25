@@ -14,8 +14,8 @@ async function indexAction(ctx) {
   }).limit(10).select()
   ctx.body = {
     'defaultKeyword': defaultKeyword[0],
-    'hotKeywordList': hotKeywordList,
-    'historyData': historyData
+    hotKeywordList,
+    historyData
   }
 }
 
