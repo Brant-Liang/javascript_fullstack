@@ -16,4 +16,9 @@ router.get('/goods/detailaction', controllers.goods.index.detailAction)
 
 //收藏
 router.post('/collect/addcollect', controllers.collect.index.addCollect)
+
+//订单相关
+router.post('/order/submitAction', controllers.order.index.submitAction)
+router.get('/order/detailAction', controllers.order.index.detailAction)
+
 module.exports = router

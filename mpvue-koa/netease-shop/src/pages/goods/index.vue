@@ -138,7 +138,7 @@ export default {
       collectFlag: false,
       goodsId: '',
       allnumber: 0,
-      allPrice: ''
+      allprice: 0
     }
   },
   components: {
@@ -175,7 +175,7 @@ export default {
       this.goodsId = data.info.id
       this.collectFlag = data.collected
       this.allnumber = data.allnumber
-      this.allPrice = data.info.retail_price
+      this.allprice = data.info.retail_price
     },
     showType () {
       this.showpop = !this.showpop
@@ -217,7 +217,7 @@ export default {
         const data = await post('/order/submitAction', {
           goodsId: this.goodsId,
           openId: this.openId,
-          allPrice: this.allPrice
+          allprice: this.allprice
         })
         if (data) {
           wx.navigateTo({
