@@ -29,4 +29,28 @@ function add(str1, str2) {
   return res
 }
 
+function _10to36_(num) {
+  let res = "";
+  if (num === 0) {
+    return "0";
+  }
+  while(num > 0) {
+    res = chars[num % 36] + res;
+    num = Math.floor(num / 36)
+  }
+  return res
+ }
+
+function _36to10_(res) {
+  let num = 0;
+  res = res.split("")
+  let n = res.length
+  for (let i = 0; i < n; i++) {
+    //最后一位 
+    num += chars.indexOf(res[i]) * Math.pow(36, n - i - 1)
+  }
+  return num
+}
+console.log(_10to36_(48));
+console.log(_36to10_('1C'));
 console.log(add('11X', '2B') === add1('11X', '2B'));
