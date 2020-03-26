@@ -13,4 +13,7 @@ router.get('/search/helperaction', controllers.search.index.helperAction) // 搜
 
 //详情页接口
 router.get('/goods/detailaction', controllers.goods.index.detailAction)
+
+//收藏
+router.post('/collect/addcollect', controllers.collect.index.addCollect)
 module.exports = router

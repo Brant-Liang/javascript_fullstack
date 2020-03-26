@@ -18,10 +18,18 @@ async function detailAction(ctx) {
   .where({
     'nideshop_goods_attribute.goods_id': goodsId
   }).select()
+  //常见问题
+  const issue = await mysql('nideshop_goods_issue').select()
+  const productList = await mysql('nideshop_goods').where({
+    'category_id': info[0].category_id
+  }).select()
+  
   ctx.body = {
     info: info[0] || [],
     gallery,
-    attribute
+    attribute,
+    issue,
+    productList
   }
 }
 
