@@ -5,7 +5,6 @@ function crossSort(arr) {
   }
   let line = arr[0].length
   let element = []
-  // if(arr.length % 2 === 0 && )
   for (let i = 0; i < arr.length ; i++) {
     for (let j = 0; j < arr[i].length; j++) {
       if(i === j || i === line - 1 - j )

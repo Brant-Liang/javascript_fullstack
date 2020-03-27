@@ -9,6 +9,8 @@ RFC (Request For Comments)规定 HTTP状态码为三位数
 # 3XX 表示重定向状态，资源位置发生变动，需要重新请求
   301 Moved Permanently 即永久重定向， 之前的网站再也不用了 浏览器会做缓存优化
   302 Found 临时重定向 浏览器不会做缓存优化
+  303 See Other 表示请求对应的资源存在另一个URL，因使用GET方法获取请求资源
+  304 Not Modified 服务端资源未改变，可以直接使用客户端未过期的资源
 # 4XX 请求报文有误
   400 Bad Request 请求报文中存在语法错误
   403 Forbidden 服务器禁止访问

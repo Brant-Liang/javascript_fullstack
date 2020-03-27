@@ -1,0 +1,4 @@
+computed 也是一个watcher是具备缓存的，只有当依赖的属性发生变化是时才会更新  
+computed是具备缓存的 有一个dirty变量实现了缓存机制（默认true） 当数据没发生改变,其中的属性dirty为true时,不会再对它进行渲染
+
+而数据发生改变时 dirty设置为false,页面对它进行渲染
