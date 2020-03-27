@@ -1,8 +1,8 @@
-.index {
+.index{
   width: 100%;
   overflow: hidden;
   position: relative;
-  .search {
+  .search{
     width: 100%;
     box-sizing: border-box;
     padding: 0 25rpx 0 10rpx;
@@ -12,33 +12,35 @@
     height: 80rpx;
     display: flex;
     align-items: center;
-    background-color: #fff;
+    background: #fff;
+
     div:nth-child(1) {
       width: 115rpx;
       text-align: center;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
-      font-size: 20ropx;
+      font-size: 20rpx;
       padding-right: 15rpx;
     }
+
     div:nth-child(2) {
       flex: 1;
       position: relative;
 
-      input {
+      input{
         width: 100%;
         height: 56rpx;
         border-radius: 8rpx;
-        background-color: #ededed;
+        background: #ededed;
         box-sizing: border-box;
         padding-left: 40rpx;
       }
-      .icon {
+      .icon{
         position: absolute;
         top: 15rpx;
         left: 10rpx;
-        background: url('../../../static/images/search.png') center no-repeat ;
+        background: url('http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png') center no-repeat;
         background-size: 100%;
         width: 28rpx;
         height: 28rpx;
@@ -46,85 +48,86 @@
       }
     }
   }
-  .swiper {
+  .swiper{
     width: 100%;
     height: 417rpx;
     margin-top: 80rpx;
-    &-container {
+    &-container{
       width: 100%;
       height: 100%;
-      .swiper-item {
+      .swiper-item{
         width: 100%;
         height: 100%;
-        .slide-image {
+        .slide-image{
           width: 100%;
         }
       }
     }
   }
-  .channel {
+  .channel{
     display: flex;
     padding: 20rpx 0;
     background-color: #fff;
-    div {
+    div{
       flex: 1;
       text-align: center;
-      img {
+      img{
         height: 58rpx;
         width: 58rpx;
         display: inline-block;
       }
     }
   }
-  .brand {
+  .brand{
     width: 100%;
     margin-top: 20rpx;
-    background-color: #fff;
-    .head {
+    background: #ffffff;
+    .head{
       text-align: center;
       padding: 40rpx 0;
     }
-    .content {
+    .content{
       width: 730rpx;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      div {
+      div{
         width: 360rpx;
         height: 235rpx;
         margin-bottom: 10rpx;
         position: relative;
-        div {
+        div{
           position: absolute;
           top: 0;
           left: 0;
           padding: 10rpx;
-          p:nth-child(2) {
+
+          .price{
             font-size: 24rpx;
           }
         }
-        img {
+        img{
           width: 100%;
           height: 100%;
         }
       }
     }
   }
-  .newgoods {
+  .newgoods{
     width: 100%;
-    &-top {
+    &-top{
       margin-top: 20rpx;
       height: 260rpx;
       width: 100%;
-      background: url(../../../static/images/bgnew.png) no-repeat;
+      background: url('../../../static/images/bgnew.png') no-repeat;
       background-size: 100% 100%;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      .top {
-        p {
+      .top{
+        p{
           color: #8c9bae;
           font-size: 32rpx;
         }
@@ -134,30 +137,30 @@
           line-height: 50rpx;
           margin: 27rpx auto 0 auto;
           font-size: 22rpx;
-          background-color: #d8e4f0;
+          background: #d8e4f0;
         }
       }
     }
-    .list {
+    .list{
       margin-top: 20rpx;
       background-color: #fff;
       padding-bottom: 10rpx;
-      ul {
-        .scroll-view {
+      ul{
+        .scroll-view{
           width: 100%;
           white-space: nowrap;
 
-          li {
+          li{
             width: 280rpx;
             height: 416rpx;
             margin: 5rpx 0 5rpx 25rpx;
             display: inline-block;
 
-            img {
+            img{
               width: 280rpx;
               height: 280rpx;
             }
-            p {
+            p{
               width: 94%;
               overflow: hidden;
               white-space: nowrap;
@@ -182,17 +185,18 @@
       }
     }
   }
-  .hotgoods {
-    .newgoods-top {
+  .hotgoods{
+    .newgoods-top{
       background: url('../../../static/images/bgtopic.png') no-repeat;
       background-size: 100% 100%;
-      .top {
+      .top{
         p{
-          color: #bea279;
+          color: #b1a279;
+          font-size: 32rpx;
           vertical-align: middle;
         }
         p:nth-child(1) {
-          span {
+          span{
             width: 4rpx;
             height: 4rpx;
             font-size: 14rpx;
@@ -202,19 +206,20 @@
           }
         }
         p:nth-child(2) {
-          background-color: #f4e9cb;
+          background: #f4e9cb;
+          font-size: 22rpx;
         }
       }
     }
   }
-  .topicList {
+  .topicList{
     margin-top: 20rpx;
     background-color: #fff;
-    &-top {
+    &-top{
       text-align: center;
       padding: 36rpx;
       vertical-align: middle;
-      .icon {
+      .icon{
         display: inline-block;
         width: 32rpx;
         height: 32rpx;
@@ -224,27 +229,28 @@
         vertical-align: middle;
       }
     }
-    .list {
-      .scroll-view {
+    .list{
+      .scroll-view{
         white-space: nowrap;
-        li {
+
+        li{
           display: inline-block;
           width: 575rpx;
           margin-left: 25rpx;
-          img {
+          img{
             display: block;
             width: 575rpx;
             height: 325rpx;
             border-radius: 10rpx;
           }
-          .bottom {
+          .btom{
             display: flex;
             justify-content: space-between;
             margin-top: 42rpx;
             width: 100%;
             div:nth-child(1) {
               width: 90%;
-              p {
+              p{
                 margin-top: 8rpx;
               }
               p:nth-child(1) {
@@ -267,7 +273,7 @@
             }
           }
         }
-        li:last-child {
+        li:last-child{
           margin-right: 25rpx;
         }
       }
@@ -348,6 +354,7 @@
           margin-top: 60rpx;
         }
       }
+
       div:nth-child(2n) {
         margin-left: 10rpx;
       }

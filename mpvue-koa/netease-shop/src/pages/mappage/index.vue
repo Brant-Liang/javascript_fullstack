@@ -3,24 +3,24 @@
     <div class="section">
       <input type="text" placeholder="搜索" focus="true" v-model="keywords" @input="bindInput">
     </div>
-    <scroll-view :scroll-y="true" class="addCont" style="height: 500rpx">
-      <div class="result" v-for="(item, index) in tips" :key="index" @touchstart="confirmAddress(item.name)">
+    <scroll-view :scroll-y="true" class="addcont" style="height: 500rpx;">
+      <div class="result" @touchstart="bindSearch(item.name)" v-for="(item, index) in tips" :key="index">
         {{item.name}}
       </div>
     </scroll-view>
-    <div class="map-container">
-      <div class="title">显示当前位置</div>
-      <map class="map" id="map" scale="16" 
-      :longitude="longitude" :latitude="latitude"
-      :markers="markers"></map>
+
+    <div class="map_container">
+      <div class="title">显示当前位置:</div>
+      <map class="map" id="map" scale="16" :longitude="longitude" :latitude="latitude" :markers="markers"></map>
     </div>
   </div>
 </template>
 
 <script>
-import amapFile from '@/utils/amap-wx'
+import amapFile from '../../utils/amap-wx'
+import { mapMutations } from 'vuex'
 export default {
-  data() {
+  data () {
     return {
       tips: [],
       longitude: 0,
@@ -30,20 +30,19 @@ export default {
     }
   },
   mounted() {
-    this.getMapAddress()
+    this.getMapaddress()
   },
   methods: {
-    getMapAddress() {
+    ...mapMutations(['update']),
+    getMapaddress () {
       let _this = this
-      var myAmapFun = new amapFile.AMapWX({
-        'key': 'fbcf5878a19e1bf2c09b12b6b4376645'
-      })
+      var myAmapFun = new amapFile.AMapWX({key:'256d94ac927c73a25e9177d789a1d060'})
       myAmapFun.getRegeo({
-        iconPath: '/static/images/marker.png',
+        iconPath: "/static/images/marker.png",
         iconWidth: 22,
         iconHeight: 32,
-        success: function(data) {
-          console.log(data);
+        success(data) {
+          console.log(data)
           let marker = [
             {
               id: data[0].id,
@@ -57,36 +56,37 @@ export default {
           _this.longitude = data[0].longitude
           _this.latitude = data[0].latitude
         },
-        fail: function(info) {
-          console.log(info);
+        fail (info) {
+          console.log(info)
         }
       })
     },
-    bindInput() {
+    bindInput(e) {
+      // console.log(e)
       let _this = this
       let keywords = _this.keywords
-      var myAmapFun = new amapFile.AMapWX({'key': 'fbcf5878a19e1bf2c09b12b6b4376645'})
+      var myAmapFun = new amapFile.AMapWX({key:'256d94ac927c73a25e9177d789a1d060'})
       myAmapFun.getInputtips({
-        keywords,
+        keywords: keywords,
         location: '',
         success: function(data) {
-          // console.log(data);
-          if(data && data.tips) {
+          // console.log(data)
+          if (data && data.tips) {
             _this.tips = data.tips
           }
         }
       })
     },
-    confirmAddress(cityName) {
-      this.$store.commit('choiceAddress', cityName)
+    bindSearch (cityName) {
+      this.update({cityName: cityName})
       wx.navigateBack({
         delta: 1
-      })
+      });
     }
-  },
+  }
 }
 </script>
 
 <style lang="less" scoped>
-@import './style';
+@import "./style.less";
 </style>
