@@ -9,26 +9,41 @@
 
 <body>
   <script>
+
+    function Fn() {
+      this.test1 = function() {
+        console.log('test1()');
+      }
+    }
+    console.log(Fn);
+    Fn.prototype.test2 = function () {
+      console.log('test2()');
+    }
+    var fn = new Fn()
+    fn.test1()
+    fn.test2()
+    console.log(fn.toString());
+    fn.test3()
     //构造函数
-    var F = function () {
-    }
-    Object.prototype.a = function () {
-      console.log('aa');
-      this.a = 'a'
-    }
-    Function.prototype.b = function () {
-      console.log('bb');
-      this.b = 'b'
-    }
+    // var F = function () {
+    // }
+    // Object.prototype.a = function () {
+    //   console.log('aa');
+    //   this.a = 'a'
+    // }
+    // Function.prototype.b = function () {
+    //   console.log('bb');
+    //   this.b = 'b'
+    // }
 
-    var f = new F()
-    F.a()  //aa
-    F.b() //bb
-    console.log(F.prototype === f.__proto__);
-    console.log(f);
+    // var f = new F()
+    // F.a()  //aa
+    // F.b() //bb
+    // console.log(F.prototype === f.__proto__);
+    // console.log(f);
 
-    f.a() //aa
-    f.b()
+    // f.a() //aa
+    // f.b()
   </script>
 </body>
 

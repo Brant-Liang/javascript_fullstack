@@ -16,7 +16,9 @@ class Header extends Component {
             <NavItem className="left active">首页</NavItem>
             <NavItem className="left">下载App</NavItem>
             <NavItem className="right">登录</NavItem>
-            <NavItem className="right">注册</NavItem>
+            <NavItem className="right">
+              <i className="iconfont icon-fangdajing"></i>
+            </NavItem>
             <NavSearch></NavSearch>
           </Nav>
           <Addition>
