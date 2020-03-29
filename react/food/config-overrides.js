@@ -13,7 +13,8 @@ module.exports = override(
        style: 'css' // change importing css to less
   }),
   addWebpackAlias({
-    assets: path.resolve(__dirname, "./src/assets/")
+    assets: path.resolve(__dirname, "./src/assets"),
+    "@":  path.resolve(__dirname, "./src/components")
   })
 
 )

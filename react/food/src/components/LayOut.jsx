@@ -10,8 +10,9 @@ import mapActive from 'assets/map-active.png'
 import mine from 'assets/mine.png'
 import mineActive from 'assets/mine-active.png'
 
-
-export default class Tab extends Component {
+import Home from '../pages/home/Home'
+import Category from '../pages/category/category'
+export default class LayOut extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,6 +81,7 @@ export default class Tab extends Component {
               });
             }}
           >
+            <Home/>
           </TabBar.Item>
           <TabBar.Item
             icon={<div style={{
@@ -103,6 +105,7 @@ export default class Tab extends Component {
               });
             }}
           >
+            <Category/>
           </TabBar.Item>
           <TabBar.Item
             icon={<div style={{
