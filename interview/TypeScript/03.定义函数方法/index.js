@@ -20,7 +20,7 @@ var getInfo2 = function (name, age) {
 function run2() {
     console.log('no return');
 }
-// ts中实参和形参必须一样 如果要可进行可选参数
+// ts中实参和形参必须一样 如果要可进行可选参数 可选参数必须放到最后
 function getInfo3(name, age) {
     return name + "---" + age;
 }
@@ -47,6 +47,14 @@ var sum2 = function () {
     return sum;
 };
 console.log(sum2(1, 2, 3, 4));
-
-
-//函数的重载
+function getInfo4(str) {
+    if (typeof str === 'string') {
+        return '我是' + str;
+    }
+    else {
+        return '我' + str + '岁';
+    }
+}
+;
+console.log(getInfo4('Brant'));
+console.log(getInfo4(18));
