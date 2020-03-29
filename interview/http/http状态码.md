@@ -16,7 +16,6 @@ RFC (Request For Comments)规定 HTTP状态码为三位数
   403 Forbidden 服务器禁止访问
   404 Not Found 服务器上没有找到相应的资源
   405 Method Not Allowed 请求方法不被服务器允许
-  406 
 # 5XX 服务器端发送错误
   500 Internal Server Error 服务器出错
   501 Not Implemented: 表示客户端请求的功能还不支持
