@@ -7,6 +7,7 @@ import {
   ShopOutlined,
   AreaChartOutlined
 } from '@ant-design/icons';
+import Notices from "../pages/admin/notices";
 export const mainRoutes = [{
   path: '/login',
   component: Login
@@ -33,6 +34,11 @@ export const adminRoutes = [{
   path: '/admin/products/edit/:id?',
   isShow: false,
   component: Edit
+},
+{
+  path: '/admin/notices',
+  isShow: false,
+  component: Notices
 },
 
 

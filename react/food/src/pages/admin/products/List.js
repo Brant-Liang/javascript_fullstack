@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Card, Table,Button, Popconfirm } from 'antd'
-
+// import { listApi } from '../../../services/products'
 const dataSource = [
   {
     id: '1',
@@ -51,13 +51,15 @@ const columns = [
   },
 ];
 export default class List extends Component {
+ 
+
   render() {
     return (
       <Card title="商品列表" extra={<Button type="primary" onClick={
         () =>  this.props.history.push('/admin/products/edit')
       }>
       新增</Button>}>
-        <Table columns={columns} bordered dataSource={dataSource}></Table>
+        <Table rowKey="id" columns={columns} bordered dataSource={dataSource}></Table>
       </Card>
     )
   }
