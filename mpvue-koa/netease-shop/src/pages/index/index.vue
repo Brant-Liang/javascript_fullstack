@@ -184,6 +184,7 @@ export default {
         success: function (data) {
           // 成功回调
           console.log(data)
+          this.$store.commit(choiceAddress,data[0].name)
           // ........
         },
         fail: function (info) {
