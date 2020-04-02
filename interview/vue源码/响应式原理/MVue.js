@@ -19,17 +19,23 @@ class Compile {
       if(this.isElementNode(child)) {
         // 是元素节点
         //编译元素节点
-        console.log('元素节点', child);
+        this.compileElement(child)
       }else {
         // 文本节点
         // 编译
-        console.log('文本节点', child);
+        this.compileText(child)
       }
 
       if(child.childNodes && child.childNodes.length) {
         this.compile(child)
       }
     })
+  }
+  compileElement(node) {
+
+  }
+  compileText(node) {
+
   }
   node2Fragment(el) {
     //创建文档碎片

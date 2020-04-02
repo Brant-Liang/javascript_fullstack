@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function fun(a, b) {
+      console.log('a--', a);
+      console.log('b--', b); 
+    }
+    /* call() 和 apply() 都会调用函数
+        当对函数调用call()和apply()可以将一个对象指向第一个参数
+        此时这个对象会成为函数执行的this
+
+        区别
+          call() 可以将实参在对象之后依次传递
+          apply 实参要封装成数组
+          
+        */
+   var obj1 = {
+     name: 'obj1',
+     sayName() {
+       console.log(this.name);
+     }
+    }
+    var obj2 = {name: 'obj2'}
+    // obj1.sayName.apply(obj2)
+    // fun.apply(obj1)
+    fun.call(obj2, 2, 3)
+    fun.apply(obj1,[2, 3])
+  </script>
+</body>
+</html>
