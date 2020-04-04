@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+const HelloWorld = () => import('@/components/HelloWorld')
 import Login from '@/components/Login'
 import Mine from '@/components/mine'
 import Detail from '@/components/Detail'
@@ -9,6 +9,7 @@ import Mine2 from '@/components/mine2'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'hash',
   routes: [
     {
       path: '/',

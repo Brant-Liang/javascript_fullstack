@@ -1,7 +1,7 @@
-function myNew(func) {
-  var res = {} //实例对象
-  res.__proto__ == func.prototype
-  console.log(arguments);
+function myNew(constructor, args) {
+  var obj = {} //实例对象
+  obj.__proto__ == constructor.prototype
+  constructor.call(obj, ...args)
   
 }
 myNew(1,'2')
