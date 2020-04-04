@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <!-- <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script> -->
+  <script src="./Observer.js"></script>
   <script src="./MVue.js"></script>
 </head>
 <body>
@@ -18,22 +19,30 @@
     </ul>
     <h3>{{msg}}</h3>
     <div v-text="msg"></div>
+    <div v-text="person.fav"></div>
+    <div v-html="html"></div>
     <input type="text" v-model="msg">
+    <button v-on:click="handleClick">按钮</button>
+    <button @click="handleClick">按钮</button>
   </div>
 </body>
 <script>
   let vm = new MVue({
     el: '#app',
-    data() {
-      return {
+    data: {
         person: {
           name: "梁聪",
           age: 18,
           fav: '女'
         },
-        msg: '学习MVVM原理'
-      }
+        msg: '学习MVVM原理',
+        html: '<p>你们学的怎么样</p>'
     },
+    methods: {
+      handleClick() {
+        console.log(this);
+      } 
+    }
   })
 </script>
 </html>

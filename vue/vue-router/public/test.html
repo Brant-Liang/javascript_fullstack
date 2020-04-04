@@ -16,14 +16,14 @@
   <a onclick="go('/about')">关于</a>
   <div id="html"></div>
   <script>
-    /* hash的原理 */
+    /* hash的原理 */  //不会刷新页面
     /* window.addEventListener('load', () => {
       html.innerHTML = location.hash.slice(1)
     })
     window.addEventListener('hashchange', () => {
       html.innerHTML = location.hash.slice(1)
     }) */
-    /* history api */
+    /* history api */  //
     function go(pathname) {
       history.pushState({}, 'title', pathname)
       html.innerHTML = pathname
