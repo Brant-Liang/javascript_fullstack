@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>单例模式</title>
+</head>
+<body>
+  <script>
+    function Tool () {}
+    var t1 = new Tool()
+    var t2 = new Tool()
+    var t3 = new Tool()
+    var t4 = new Tool()
+    console.log(t1 === t2); //false
+    console.log(t2 === t3); //false
+    console.log(t1 === t4); //false
+
+  </script>
+  <script>
+/*     var instance = null;
+    function Tool() {
+      // 判断
+      if(instance) {
+        return instance
+      }
+      //指向
+      instance = this;
+      this.name = '梁冲冲';
+      this.intro = '喜欢敲代码'
+    }
+    var t1 = new Tool()
+    var t2 = new Tool()
+    var t3 = new Tool()
+    var t4 = new Tool()
+    console.log(t1 === t2) //true */
+  </script>
+  <script>
+    (function(w) {
+      var instance = null;
+      function Tool() {
+        // 判断
+        if(instance) {
+          return instance
+        }
+        //指向
+        instance = this;
+        this.name = '梁冲冲';
+        this.intro = '喜欢敲代码'
+      }
+      w.Tool = Tool
+    })(window)
+    var t1 = new Tool()
+    var t2 = new Tool()
+    var t3 = new Tool()
+    var t4 = new Tool()
+    console.log(t1 === t2); //false
+    console.log(t2 === t3); //false
+    console.log(t1 === t4); //false
+  </script>
+</body>
+</html>
