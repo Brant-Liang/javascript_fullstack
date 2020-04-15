@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ///1、创建Main函数
@@ -22,33 +23,86 @@ class MyApp extends StatelessWidget {
               child: Text("我是标题"),
             ),
           ),
-          body: ContentWidget()
+          body: ContentWidget(),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.add),
+            onPressed: () {
+
+            },
+          ) ,
       ),
 
     );
   }
 }
-class ContentWidget extends StatelessWidget {
+class ContentWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return ContentWidgetState();
+  }
+}
+
+class ContentWidgetState extends State<ContentWidget> {
+  int counter = 0;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Center(
-      child: TextWidget(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              RaisedButton(
+                onPressed: () {
+                  print("监听 $counter");
+                  setState(() {
+                    counter++;
+                  });
+                },
+                child: Text("计数+1"),
+              ),
+              RaisedButton(
+                onPressed: () {
+                  print("监听 $counter");
+                  setState(() {
+                    counter--;
+                  });
+                },
+                child: Text("计数-1"),
+              )
+            ],
+          ),
+          Text("当前计数：$counter", style: TextStyle(fontSize: 25),),
+        ],
+      ),
 
     );
   }
 }
 
-class TextWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return Text("Hello world",
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-        fontSize: 30,
-        color: Colors.orange
-        ),
-    );
-  }
-}
+///不能实现
+//class ContentWidget1 extends StatelessWidget {
+//  final int counter = 0;
+//  @override
+//  Widget build(BuildContext context) {
+//    // TODO: implement build
+//    return Center(
+//      child: Column(
+//        mainAxisAlignment: MainAxisAlignment.center,
+//        children: <Widget>[
+//          RaisedButton(
+//            onPressed: () {
+//              counter++;
+//            },
+//            child: Text("计数+1"),
+//          ),
+//          Text("当前计数：$counter", style: TextStyle(fontSize: 25),),
+//        ],
+//      ),
+//
+//    );
+//  }
+//}
