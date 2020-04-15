@@ -82,27 +82,3 @@ class ContentWidgetState extends State<ContentWidget> {
     );
   }
 }
-
-///不能实现
-//class ContentWidget1 extends StatelessWidget {
-//  final int counter = 0;
-//  @override
-//  Widget build(BuildContext context) {
-//    // TODO: implement build
-//    return Center(
-//      child: Column(
-//        mainAxisAlignment: MainAxisAlignment.center,
-//        children: <Widget>[
-//          RaisedButton(
-//            onPressed: () {
-//              counter++;
-//            },
-//            child: Text("计数+1"),
-//          ),
-//          Text("当前计数：$counter", style: TextStyle(fontSize: 25),),
-//        ],
-//      ),
-//
-//    );
-//  }
-//}
