@@ -42,3 +42,40 @@
 */
 let res = "abcd";
 console.log(Object.prototype.toString.call(res).slice(8, -1));
+//定义检测类型的功能函数
+function checkedType(target) {
+  return Object.prototype.toString.call(target).slice(8, -1)
+}
+console.log(checkedType(res));
+
+//深度克隆
+function deepClone(target) {
+  // 判断拷贝的数据类型
+  // 初始化变量result为最终克隆的数据
+  let result, targetType = checkedType(target);
+  if(targetType === "Object") {
+    result = {}
+  }else if (targetType === "Array") {
+    result = []
+  } else {
+    return result;
+  }
+  // 遍历 target
+  for (let i in target) {
+    //获取每一项值
+    let value = target[i];
+    // 判断每一项值是否存在对象或数组
+    if(checkedType(value) === "Object" || checkedType(value) === "Array") {
+      //继续遍历获取到的value
+      result[i] = deepClone(value);
+    } else {
+      result[i] = value;
+    }
+  }
+  return result;
+}
+
+let arr = [1, 2, {username: "kobe", age: 18}];
+let arr2 = deepClone(arr);
+arr2[2].username = "梁聪";
+console.log(arr, arr2);
