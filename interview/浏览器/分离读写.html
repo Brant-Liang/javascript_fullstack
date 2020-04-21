@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>分离读写</title>
+</head>
+<style>
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border: 1px solid green;
+  }
+</style>
+<body>
+  <div id="box">
+
+  </div>
+  <script>
+    let box = document.getElementById('box');
+    box.style.width = '200px';
+    box.style.height = '200px';
+    box.style.margin = '10px';
+    console.log(box.clientHeight);
+    //一次回流
+  </script>
+</body>
+</html>
