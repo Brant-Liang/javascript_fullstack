@@ -1,7 +1,7 @@
 function findMostWord(article) {
   if(!article) return
 
-  article = article.replace(/\s+/g,"").toLowerCase()
+  article = article.replace(/\s/g,"").toLowerCase()
   console.log(article);
   
   let wordList = article.match(/[a-z]/g)
