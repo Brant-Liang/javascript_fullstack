@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    function a() {
+      console.log(this.name);
+    }
+   // a(); //undefine
+    var name = 1;
+    //a(); //1
+    a.prototype.name = 2;
+     // a(); //1
+    function b() {
+      this.value = this.name;
+    }
+    b() 
+    let c = {name: 3}
+    c.say = a;
+    let d = c.say;
+    c.say() //3
+    d();// 1
+
+    async function test() {
+      return 1;
+    }
+    async function call() {
+      const a = test();
+      const b = await test();
+      console.log(a,b); // Promise 
+    }
+    call()
+  </script>
+</body>
+</html>

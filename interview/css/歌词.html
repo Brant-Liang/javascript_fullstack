@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="http://www.softwhy.com/" />
+<title>蚂蚁部落</title>
+<style>
+ body {
+    margin: 0;
+    padding: 0;
+    width: 320px;
+  }
+  .container {
+    position: relative;
+    width: 320px;
+  }
+.antzone1{
+  display:inline-block;
+  font-size:80px;
+  line-height:80px;
+  position: relative;
+  overflow:hidden;
+}
+.antzone2{
+  font-size:80px;
+  line-height:80px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color:#f00;
+  z-index: -1;
+  white-space: pre;
+  display:block;
+  overflow:hidden;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <span class="antzone1" data-content="蚂蚁部落">蚂蚁部落</span>
+    <span class="antzone2" data-content="蚂蚁部落">蚂蚁部落</span>
+  </div>
+  <script>
+    let antzoneSpan2 = document.querySelector(".antzone2");
+    console.log(antzoneSpan2.style);
+    let width = 0;
+    let timer = setInterval(() => {
+      width += 0.2;
+      antzoneSpan2.style.width = width + '%';
+      if(antzoneSpan2.style.zIndex = -1) {
+        antzoneSpan2.style.zIndex = 10;
+      }
+      console.log(antzoneSpan2.style.width);
+      if(width > 100) {
+        clearInterval(timer);
+        antzoneSpan2.style.width = 0;
+      }
+    }, 10);
+  </script>
+</body>
+</html>

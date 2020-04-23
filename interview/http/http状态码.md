@@ -13,6 +13,7 @@ RFC (Request For Comments)规定 HTTP状态码为三位数
   304 Not Modified 服务端资源未改变，可以直接使用客户端未过期的资源
 # 4XX 请求报文有误
   400 Bad Request 请求报文中存在语法错误
+  401 需要身份验证
   403 Forbidden 服务器禁止访问
   404 Not Found 服务器上没有找到相应的资源
   405 Method Not Allowed 请求方法不被服务器允许
