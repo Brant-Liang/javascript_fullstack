@@ -13,6 +13,16 @@ function insertionSort (arr) {
     //将j位置的数据，放置temp即可
     arr[j] = temp
   }
-  return arr
+
+  // for(let i = 1; i < n; i++) {
+  //   var temp = arr[i];
+  //   var j = i;
+  //   while(arr[j-1] > temp&& j > 0) {
+  //     arr[j] = arr[j - 1];
+  //     j--;
+  //   }
+  //   arr[j] = temp;
+  // }
+  // return arr
 }
 console.log(insertionSort([6,7,5,12,34,3,5]));

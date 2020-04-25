@@ -25,7 +25,7 @@ class Events {
       this.listener[key] = [];
     }
     this.listener[key].push(fn);
-
+    console.log(this.listener);
     //this.listener.push(fn);
   }
   emit(key) {
