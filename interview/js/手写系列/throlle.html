@@ -10,20 +10,21 @@
 <body>
   <script>
     function throttle(fn, delay) {
-      var prevTime = Date.now();
-      return function () {
-        var curTime = Date.now();
-        if (curTime - prevTime > delay) {
-          fn.apply(this, arguments);
-          prevTime = curTime;
-        }
+      let flag = true;
+      return (...args) => {
+        if(!flag) return;
+        flag = false;
+        setTimeout(() => {
+          fn.apply(this, ...args);
+          flag = true
+        }, delay)
       }
     }
-
-    var throttleScroll = throttle(function () {
-      console.log(throttle);
-    }, 1000)
-    window.onscroll = throttleScroll;
+    let fn1 = () => {
+      console.log('1');
+    }
+    let fn = throttle(fn1,3000)
+    setInterval(fn, 1000)
   </script>
 </body>
 
