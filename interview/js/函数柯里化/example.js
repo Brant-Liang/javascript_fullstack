@@ -1,18 +1,18 @@
-// console.log(add(1)(2)(3,4).value()); 
+console.log(add(1)(2)(3,4).value()); 
 
-// function add(...nums) {
-//   console.log(nums);
-//   let curry = function(...out) {
-//     console.log(out);
-//     return add.apply(this, [...nums,...out])
-//   }
-//   curry.value = function () {
-//     return nums.reduce((pre, cur) => {
-//       return pre+cur;
-//     })
-//   }
-//   return curry
-// }
+function add(...nums) {
+  console.log(nums);
+  let curry = function(...out) {
+    console.log(out);
+    return add.apply(this, [...nums,...out])
+  }
+  curry.value = function () {
+    return nums.reduce((pre, cur) => {
+      return pre+cur;
+    })
+  }
+  return curry
+}
 
 var q = new Queue()
 q.task(1000, function () {

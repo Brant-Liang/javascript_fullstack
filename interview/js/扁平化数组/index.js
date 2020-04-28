@@ -1,5 +1,5 @@
 function flattenDeep(arr) {
- return  arr.reduce((pre,cur) => {
+  return arr.reduce((pre,cur) => {
     return pre.concat(Array.isArray(cur) ? flattenDeep(cur) : cur);
   }, [])
 }
