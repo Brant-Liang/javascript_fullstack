@@ -6,7 +6,7 @@ var binarySearch = function(nums, target) {
       return mid;
     } else if(target < nums[mid]) {
       right = mid - 1;
-    } else {
+    } else {  
       left = mid + 1;
     }
   }
