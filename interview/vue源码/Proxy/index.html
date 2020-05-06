@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const data = {
+      name: "张三",
+      age: 20
+    }
+
+    const proxyData = new Proxy(data, {
+      get(target, key, receiver) {
+        const result = Reflect.get(target, key, receiver)
+        console.log('result', result);
+        console.log('get', key);
+        return result;
+      },
+      set(target, key, val, receiver) {
+        const result = Reflect.set(target, key, val, receiver)
+        console.log('set', key, val);
+        console.log('result', result);
+        return result;
+      },
+      deleteProperty(target, key) {
+        const result = Reflect.deleteProperty(target, key);
+        console.log('delete property', key);
+        console.log('result', result);
+        return result;
+      }
+    })
+
+  </script>
+</body>
+</html>
