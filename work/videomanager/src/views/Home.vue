@@ -1,18 +1,31 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <el-button type="primary" icon="el-icon-circle-plus-outline" @click="addClass">添加</el-button>
+    <v-table></v-table>
+    <v-form></v-form>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import vTable from '../components/Table'
+import vForm from '../components/form'
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    vTable,
+    vForm
+  },
+  methods: {
+    addClass () {
+    }
   }
 }
 </script>
+
+<style scoped>
+  el-button {
+    position: absolute;
+    right: 0;
+  }
+</style>
