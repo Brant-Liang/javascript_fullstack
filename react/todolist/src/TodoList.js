@@ -7,6 +7,7 @@ export default class TodoList extends Component {
   constructor(props) {
     //调用父类的构造函数
     super(props);
+    // 当组件的state或者props发生改变的时候，render函数就会重新执行
     this.state = {
       inputValue: '',
       list: []
@@ -16,6 +17,7 @@ export default class TodoList extends Component {
     this.handleItemDelete = this.handleItemDelete.bind(this);
   }
   render() {
+    console.log('render');
     return (
       <Fragment>
         <label htmlFor="insertArea">输入内容</label>
@@ -25,10 +27,13 @@ export default class TodoList extends Component {
             className='input'
             value={this.state.inputValue}
             onChange={this.handleInputChange}
+            ref={(input) => {this.input = input}}
           />
           <button onClick={this.handleBtnClick}>提交</button>
         </div>
-        <ul>
+        <ul ref={(ul) => {
+          this.ul = ul
+        }}>
           {this.getTodoItem()}
         </ul>
       </Fragment>
@@ -47,8 +52,8 @@ export default class TodoList extends Component {
     })
   }
 
-  handleInputChange(e) {
-    const value = e.target.value;
+  handleInputChange() {
+    const value = this.input.value;
     this.setState(() => ({
         inputValue: value
       })
@@ -62,6 +67,7 @@ export default class TodoList extends Component {
       list: [...prevState.list, prevState.inputValue],
       inputValue: ''
     }))
+    console.log(this.ul);
   }
   handleItemDelete(index) {
     // immutable
