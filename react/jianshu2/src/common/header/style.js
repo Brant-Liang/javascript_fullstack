@@ -19,7 +19,7 @@ export const Logo = styled.a.attrs({
   border-bottom: 1px solid #f0f0f0;
 `;
 export const Nav = styled.div`
-  width: 960px;
+  width: 80%;
   height: 100%;
   margin: 0 auto;
   padding-right: 70px;
@@ -43,7 +43,7 @@ export const NavItem = styled.div`
 export const SearchWrapper = styled.div`
   float: left;
   position: relative;
-  .iconfont {
+  .zoom {
     position: absolute;
     right: 5px;
     bottom: 5px;
@@ -91,6 +91,48 @@ export const NavSearch = styled.input.attrs({
   &.focused {
     width: 240px;
   }
+`;
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 58px;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+`;
+export const SearchInfoTitle = styled.div`
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+  .spin {
+    display: block;
+    float: left;
+    font-size: 12px;
+    margin-right: 2px;
+    transition: all .3s ease-in;
+  }
+`;
+export const SearchInfoSwitch = styled.div`
+  float: right;
+  font-size: 13px;
+  cursor: pointer;
+`;
+export const SearchInfoList = styled.div`
+  overflow: hidden;
+`;
+export const SearchInfoItem = styled.div`
+  float: left;
+  display: block;
+  line-height: 12px;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  padding: 5px 5px;
+  border: 1px solid #ddd;
+  color: #787878;
+  border-radius: 3px;
 `;
 
 export const Addtion = styled.div`
