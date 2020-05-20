@@ -29,7 +29,7 @@ class Writer extends PureComponent {
             <img src="https://upload.jianshu.io/users/upload_avatars/2587459/9f4cfc0f-88b8-420c-b36e-9741e1191644.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp" alt="" />
             <span className="follow">关注</span>
             <span className="name">穿着prada挤地铁</span> 
-            <p>写了342.6k字 · 5.6k喜欢</p>
+            <p>写了342.6k字 · 5.6k喜欢 </p>
           </WritterListItem>
         </WritterList>
       </WriterWrapper>
