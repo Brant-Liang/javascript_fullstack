@@ -17,15 +17,16 @@ import {
   Button
 } from './style';
 import { actionCreators } from './store';
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   getListArea() {
     const { focused, searchList, page, totalPage, mouseIn, handleMouseEnter, handleMouseLeave, handleChangePage } = this.props;
     const jsSearchList = searchList.toJS();
     const pageList = [];
-    if(jsSearchList.length) {
+    if (jsSearchList.length) {
       for (let i = (page - 1) * 10; i < page * 10; i++) {
-        if(jsSearchList[i]) {
+        if (jsSearchList[i]) {
           pageList.push(
             <SearchInfoItem key={jsSearchList[i]}>{jsSearchList[i]}</SearchInfoItem>
           )
@@ -40,7 +41,7 @@ class Header extends Component {
           <SearchInfoSwitch onClick={() => {
               handleChangePage(page, totalPage, this.spinIcon)
             }}>
-            <i ref={(icon) => {this.spinIcon = icon}} className="iconfont spin">&#xe851;</i>
+              <i ref={(icon) => { this.spinIcon = icon }} className="iconfont spin">&#xe851;</i>
               换一批
           </SearchInfoSwitch>
           </SearchInfoTitle>
@@ -57,7 +58,9 @@ class Header extends Component {
     const { focused, mouseIn, handleInputBlur, handleInputFocus, searchList } = this.props;
     return (
       <HeaderWrapper>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <Nav>
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
@@ -121,12 +124,12 @@ const mapDispathToProps = (dispatch) => {
     handleChangePage(page, totalPage, spin) {
       let originAngle = spin.style.transform.replace(/[^0-9]/ig, "");
       console.log(originAngle);
-      if(originAngle) {
+      if (originAngle) {
         originAngle = parseInt(originAngle, 10);
       } else {
         originAngle = 0;
       }
-      spin.style.transform = 'rotate('+ (originAngle + 360)+'deg)';
+      spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       if (page < totalPage) {
         dispatch(actionCreators.changePage(page + 1))
       }
