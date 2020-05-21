@@ -17,6 +17,7 @@ import {
   Button
 } from './style';
 import { actionCreators } from './store';
+import { actionCreator as loginActionCreators } from '../../pages/login/store';
 import { Link } from 'react-router-dom'
 
 class Header extends Component {
@@ -55,7 +56,7 @@ class Header extends Component {
     }
   }
   render() {
-    const { focused, mouseIn, handleInputBlur, handleInputFocus, searchList } = this.props;
+    const { focused, mouseIn, handleInputBlur, handleInputFocus, searchList, login, logout } = this.props;
     return (
       <HeaderWrapper>
         <Link to="/">
@@ -64,7 +65,8 @@ class Header extends Component {
         <Nav>
           <NavItem className="left active">首页</NavItem>
           <NavItem className="left">下载App</NavItem>
-          <NavItem className="right">登录</NavItem>
+          {login ? <NavItem className="right" onClick={logout}>退出</NavItem> : <NavItem className="right">登录</NavItem>}
+
           <NavItem className="right">
             <i className="iconfont">&#xe602;</i>
           </NavItem>
@@ -87,11 +89,15 @@ class Header extends Component {
           </SearchWrapper>
         </Nav>
         <Addtion>
-          <Button className="writting">
-            <i className="iconfont">&#xe611;</i>
-          写文章
-        </Button>
-          <Button className="reg">注册</Button>
+          <Link to="/write">  
+            <Button className="writting">
+              <i className="iconfont">&#xe611;</i>
+              写文章
+            </Button>
+          </Link>
+          <Link to="/login">
+            <Button className="reg">注册</Button>
+          </Link>
         </Addtion>
       </HeaderWrapper>
     )
@@ -103,7 +109,8 @@ const mapStateToProps = (state) => {
     mouseIn: state.getIn(['header', 'mouseIn']),
     searchList: state.getIn(['header', 'searchList']),
     page: state.getIn(['header', 'page']),
-    totalPage: state.getIn(['header', 'totalPage'])
+    totalPage: state.getIn(['header', 'totalPage']),
+    login: state.getIn(['login', 'login'])
   }
 }
 const mapDispathToProps = (dispatch) => {
@@ -131,12 +138,15 @@ const mapDispathToProps = (dispatch) => {
       }
       spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       if (page < totalPage) {
-        dispatch(actionCreators.changePage(page + 1))
+        dispatch(actionCreators.changePage(page + 1));
       }
       else {
-        dispatch(actionCreators.changePage(1))
+        dispatch(actionCreators.changePage(1));
       }
+    },
+    logout() {
+      dispatch(loginActionCreators.logout());
     }
   }
 }
-export default connect(mapStateToProps, mapDispathToProps)(Header)
+export default connect(mapStateToProps, mapDispathToProps)(Header);
