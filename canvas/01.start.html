@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .main{
+    color:blue
+    }
+    span{
+    color:green
+    }
+    </style>
+</head>
+
+<body>
+  <canvas id="drawing">当前浏览器不支持canvas，请更换浏览器再试</canvas>
+  <div style="color:red !important"
+      class=""main"">
+      <span>123</span>
+      </div>
+  <script>
+
+      
+    var drawing = document.getElementById("drawing");
+    //确定浏览器支持<canvas>元素
+    if (drawing.getContext) {
+      var ctx = drawing.getContext("2d");
+      // ctx.fillStyle = "#ff0000";
+      ctx.strokeStyle = "#ff0000";
+      ctx.fillRect(10, 10, 50, 50);
+      
+      ctx.fillStyle = "rgba(0,0,255,.5)"
+      ctx.fillRect(30, 30, 50, 50);
+      console.log(ctx);
+    }
+    </script>
+    
+</body>
+
+</html>
