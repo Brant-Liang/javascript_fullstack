@@ -19,7 +19,11 @@ export default (state = defaultState, action) => {
       return state.merge({
         articleList: state.get('articleList').concat(action.list),
         articlePage: action.nextPage
-      })
+      });
+    case constants.SHOW_SCROLL_TOP:
+      return state.set("showScroll", true);
+    case constants.HIDE_SCROLL_TOP:
+      return state.set("showScroll", false);
     default:
       return state;
   }

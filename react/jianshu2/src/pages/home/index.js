@@ -33,7 +33,7 @@ class Home extends PureComponent {
     this.bindEvents();
   }
   bindEvents() {
-    window.addEventListener('scroll', this.props.changeScrollTopShow())
+    window.addEventListener('scroll', this.props.changeScrollTopShow)
   }
 }
 const mapState = (state) => ({
@@ -45,7 +45,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(action);
   },
   changeScrollTopShow() {
-    console.log(document.documentElement.scrollTop);
+    if(document.documentElement.scrollTop > 400) {
+      dispatch(actionCreator.showTop());
+    }
+    else {
+      dispatch(actionCreator.hideTop());
+    }
   }
 })
 

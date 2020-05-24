@@ -35,3 +35,11 @@ export const getMoreList = (page) => {
     })
   }
 }
+
+export const showTop = () => ({
+  type: constants.SHOW_SCROLL_TOP
+})
+
+export const hideTop = () => ({
+  type: constants.HIDE_SCROLL_TOP
+})
