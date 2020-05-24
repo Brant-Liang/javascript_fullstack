@@ -12,6 +12,9 @@ export default function Header() {
       <Link to="/useRef">
         <span>useRef </span>
       </Link>
+      <Link to="/useContext">
+        <span>useContext </span>
+      </Link>
     </div>
   )
 }

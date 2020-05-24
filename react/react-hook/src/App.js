@@ -3,6 +3,7 @@ import Header from './header'
 import UseState from './useState'
 import UseEffect from './useEffect'
 import UseRef from './useRef'
+import UseContext from './useContext'
 import { BrowserRouter, Route } from 'react-router-dom'
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/useState" component={UseState} />
         <Route path="/useEffect" exact component={UseEffect} />
         <Route path="/useRef" exact component={UseRef} />
+        <Route path="/useContext" exact component={UseContext} />
       </BrowserRouter>
     </div>
   );
