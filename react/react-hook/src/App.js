@@ -4,6 +4,7 @@ import UseState from './useState'
 import UseEffect from './useEffect'
 import UseRef from './useRef'
 import UseContext from './useContext'
+import UseMemo from './useMeno'
 import { BrowserRouter, Route } from 'react-router-dom'
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/useEffect" exact component={UseEffect} />
         <Route path="/useRef" exact component={UseRef} />
         <Route path="/useContext" exact component={UseContext} />
+        <Route path="/useMemo" exact component={UseMemo} />
       </BrowserRouter>
     </div>
   );

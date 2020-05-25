@@ -15,6 +15,9 @@ export default function Header() {
       <Link to="/useContext">
         <span>useContext </span>
       </Link>
+      <Link to="/useMemo">
+        <span>useMeno </span>
+      </Link>
     </div>
   )
 }
