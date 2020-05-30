@@ -40,13 +40,14 @@
   1、typeof 返回数据类型 String Number Boolean Undefined Object Function
   2、Object.prototype.toString.call(Obj)
 */
-let res = "abcd";
-console.log(Object.prototype.toString.call(res).slice(8, -1));
 //定义检测类型的功能函数
 function checkedType(target) {
   return Object.prototype.toString.call(target).slice(8, -1)
 }
-console.log(checkedType(res));
+console.log(checkedType(new Date('2017-8-9')));
+const F = function () {}
+console.log(checkedType(F));
+
 
 //深度克隆
 function deepClone(target) {
@@ -75,7 +76,7 @@ function deepClone(target) {
   return result;
 }
 
-let arr = [1, 2, {username: "kobe", age: 18}];
+let arr = [1, 2, {username: "kobe", age: 18}, F];
 let arr2 = deepClone(arr);
 arr2[2].username = "梁聪";
 console.log(arr, arr2);

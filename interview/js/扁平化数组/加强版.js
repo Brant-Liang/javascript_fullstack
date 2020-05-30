@@ -6,6 +6,7 @@ function getArray(arr) {
       cur = Number(cur);
       return pre.concat(Array.isArray(cur) ? getArray(cur) : cur)
     }
+    
     else if(Object.prototype.toString.call(cur).slice(8, -1) === 'Object') {
       return pre;
     }
