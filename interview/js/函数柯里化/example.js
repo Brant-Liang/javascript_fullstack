@@ -1,9 +1,9 @@
 console.log(add(1)(2)(3,4).value()); 
 
 function add(...nums) {
-  console.log(nums);
+  console.log("nums:" + nums);
   let curry = function(...out) {
-    console.log(out);
+    console.log("out：" + out);
     return add.apply(this, [...nums,...out])
   }
   curry.value = function () {
@@ -14,19 +14,20 @@ function add(...nums) {
   return curry
 }
 
-var q = new Queue()
+/* var q = new Queue()
 q.task(1000, function () {
   console.log(1);
 }).task(2000, function () {
   console.log(2);
-}).start()
+}).start()   
 
 function Queue() {
   this.queue = [];
   this.task = (time, fn) => {
     this.queue.push({fn, time})
-    return this
+    return this;
   },
+  1
   this.start = () => {
     let defer = 0;
     this.queue.forEach((item) => {
@@ -34,4 +35,4 @@ function Queue() {
       setTimeout(item.fn, defer)
     })
   }
-}
+} */

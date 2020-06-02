@@ -21,7 +21,7 @@ function ArrayList() {
 
     //将center换到right-1的位置
     this.swap(mid, right - 1)
-    return mid
+    return this.array[right- 1];
   }
   //快速排序
   ArrayList.prototype.quickSort = function() {

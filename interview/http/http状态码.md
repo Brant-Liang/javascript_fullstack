@@ -20,5 +20,6 @@ RFC (Request For Comments)规定 HTTP状态码为三位数
 # 5XX 服务器端发送错误
   500 Internal Server Error 服务器出错
   501 Not Implemented: 表示客户端请求的功能还不支持
-  502 Bad Gateway 服务器正常
+  502 Bad Gateway 错误网关，无效网关
   503 Service Unavailable 服务器繁忙或正在维护
+  504 网关超时(Gateway timeout)
