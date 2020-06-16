@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="root">
+    <div class="container">
+      <section class="sidebar">
+        <ul class="menu"></ul>
+      </section>
+      <section class="main">
+        <article class="post"></article>
+        <p class="copyright"></p>
+      </section>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script>
+    var root = document.childNodes[1];
+    // const res = {}
+    // var DFS = (node) => {
+    //   if (node && node.nodeType === 1) {
+    //     if (!res.hasOwnProperty(node.tagName)) {
+    //       res[node.tagName] = 1
+    //     } else {
+    //       res[node.tagName] += 1;
+    //     }
+    //   }
+    //   var childNodes = node.childNodes;
+    //   for (var i = 0; i < childNodes.length; i++) {
+    //     if (childNodes[i].nodeType === 1) {
+    //       DFS(childNodes[i]);
+    //     }
+    //   }
+    // }
+    // DFS(root)
+    // console.log(res);
+
+    var BFS = (node) => {
+      const res = {};
+      let queue = [node];
+      
+      while (queue.length > 0) {
+        var front = queue.shift();
+        if (!res.hasOwnProperty(front.tagName)) {
+          res[front.tagName] = 1
+        } else {
+          res[front.tagName] += 1;
+        }
+        if (front.childNodes.length > 0) {
+          console.log(front.childNodes);
+          for (var i = 0; i < front.childNodes.length ; i++) {
+            if (front.childNodes[i] && front.childNodes[i].nodeType === 1) {
+              queue.push(front.childNodes[i])
+            }
+          }
+        }
+      }
+      return res;
+    }
+    console.log(BFS(root));
+
+  </script>
+</body>
+
+</html>
