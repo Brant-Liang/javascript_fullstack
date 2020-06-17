@@ -23,25 +23,29 @@
   </div>
   <script>
     var root = document.childNodes[1];
-    // const res = {}
-    // var DFS = (node) => {
-    //   if (node && node.nodeType === 1) {
-    //     if (!res.hasOwnProperty(node.tagName)) {
-    //       res[node.tagName] = 1
-    //     } else {
-    //       res[node.tagName] += 1;
-    //     }
-    //   }
-    //   var childNodes = node.childNodes;
-    //   for (var i = 0; i < childNodes.length; i++) {
-    //     if (childNodes[i].nodeType === 1) {
-    //       DFS(childNodes[i]);
-    //     }
-    //   }
-    // }
-    // DFS(root)
-    // console.log(res);
 
+    //递归
+    const res = {}
+    var DFS = (node) => {
+      if (node && node.nodeType === 1) {
+        if (!res.hasOwnProperty(node.tagName)) {
+          res[node.tagName] = 1
+        } else {
+          res[node.tagName] += 1;
+        }
+      }
+      var childNodes = node.childNodes;
+      for (var i = 0; i < childNodes.length; i++) {
+        if (childNodes[i].nodeType === 1) {
+          DFS(childNodes[i]);
+        }
+      }
+      return res;
+    }
+    DFS(root)
+    console.log(res);
+
+    //非递归
     var BFS = (node) => {
       const res = {};
       let queue = [node];

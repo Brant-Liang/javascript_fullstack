@@ -13,8 +13,8 @@ function divide(numerator, denominator) {
 }
 
 divide(3, 0)
-  .then(res => console.log("1:"+res))
-  .catch(err => { console.log('2:'+err)})
+.then(res => console.log("1:"+res))
+.catch(err => { console.log('2:'+err)})
   .then(r => console.log(r));
 
 
@@ -22,7 +22,9 @@ function test() {
   var i = 0;
   new Promise((resolve, reject) => {
     resolve(++i);
-  }).then(re => ++i);
+  }).then(re => {++i;
+    console.log(i);
+  });
   console.log(i); //1
 }
 test();
