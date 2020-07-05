@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    #box {
+      width: 200px;
+      height: 100px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin: 0 auto;
+    }
+    #box:hover {
+      background-color:orange;
+      height: 100px;
+    }
+    #box::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      border: 1px solid;
+      border-color: #000 #000 transparent transparent;
+      transform: rotate(45deg);
+      position: absolute;
+      top: 20px;
+      left: 188.5px;
+      /* border: solid 40px;
+      border-color: transparent transparent transparent #f8ac09;
+      font-size: 0; */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+
+  </div>
+</body>
+
+</html>

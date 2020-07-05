@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .right {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="uname"> <span id="username1">请输入用户名</span>
+  <script>
+    const reg = /^[a-zA-Z0-9_-]{6,16}$/;
+    const uname = document.getElementById('uname');
+    const un = document.getElementById('username1');
+    uname.addEventListener('blur', (e) => {
+      if(reg.test(e.target.value)) {
+        un.className = 'right';
+        un.innerHTML = '输入正确';
+      }
+      else {
+        un.className = 'wrong';
+        un.innerHTML = '输入错误';
+      }
+    })
+
+  </script>
+</body>
+</html>
