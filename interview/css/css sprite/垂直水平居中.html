@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .out {
+      width: 200px;
+      height: 200px;
+      background-color: #91df91;
+    }
+    .in {
+      width: 75px;
+      height: 75px;
+      background-color: #145;
+    }
+    .o1 {
+      display: flex;
+      /* 法1 */
+      /* justify-content: center; */
+      /* align-items: center; */
+    }
+    .i1 {
+      /* 法2 */
+      margin: auto;
+    }
+    .o2 {
+      position: relative;
+    }
+    .i2 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .o3 {
+      text-align: center;
+      line-height: 75px;
+    }
+    .i3 {
+      display: inline-block;
+    }
+    .o3 {
+      position: relative;
+    }
+    .i3 {
+      position: absolute;
+      margin-left: -37.5px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container clearfix">
+    <div class="out o1">
+      <div class="in i1"></div>
+    </div>
+    <div class="out o2">
+      <div class="in i2"></div>
+    </div>
+    <div class="out o3">
+      <div class="in i3"></div>
+    </div>
+    <div class="out o4">
+      <div class="in i4"></div>
+    </div>
+  </div>
+</body>
+
+</html>
