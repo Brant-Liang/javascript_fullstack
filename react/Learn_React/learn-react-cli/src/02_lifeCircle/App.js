@@ -50,5 +50,7 @@ export default class App extends Component {
   componentDidMount() {
     console.log("执行了组件的componentDidMount方法");
   }
-
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log("执行了组件的componentDidUpdate方法");
+  }
 }
