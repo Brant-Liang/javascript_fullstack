@@ -8,3 +8,14 @@ setState设计为异步，可以显著提升性能
 获取多个更新 并进行批量更新
 
 如果是同步的话 更新state但没有执行render函数 那么state和props不同步
+
+this.state = {
+  message: '你好啊',
+  name: 'Brant'
+}
+
+this.setState({
+  message: 'Hello world'
+})
+
+Object.assign({}, this.state, {message: 'Hello world'})

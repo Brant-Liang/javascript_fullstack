@@ -4,7 +4,7 @@ function solution(arr) {
   const result = [];
   let start = arr[0];
   for (let i = 0; i < arr.length - 1; i++) {
-    if (arr[i] + 1 === arr[i + 1]) {0
+    if (arr[i] + 1 === arr[i + 1]) {
       if(arr[i + 1] + 1 !== arr[i + 2])
         result.push(start + "-" + arr[i + 1])
     } else {
