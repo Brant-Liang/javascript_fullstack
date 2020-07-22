@@ -16,4 +16,4 @@ git branch 查看分支
 git branch 分支名   创建分支
 git checkout 分支名 切换分支
 git merge 来源分支 合并分支
-git branch -d 分支名称 删除分支(分支合并后才允许删除) -D 强制删除
+git branch -d 分支名称 删除分支(分支合并后才允许删除) -D 强制删除 
