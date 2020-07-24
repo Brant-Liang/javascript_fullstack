@@ -6,6 +6,10 @@ import ReactDOM from 'react-dom'
 // import App from './06_跨组件通信/App'
 // import App from './07_setState的使用/App'
 // import App from './08_React性能优化/03_PureComponent'
-import App from './08_React性能优化/04_memo的使用'
+// import App from './08_React性能优化/04_memo的使用'
+// import App from './08_React性能优化/05_setState不可变数据的力量'
+// import App from './08_React性能优化/06_全局事件传递'
+// import App from './09_受控和非受控组件/01_refs的使用'
+import App from './09_受控和非受控组件/03_非受控组件的使用'
 
 ReactDOM.render(<App />, document.getElementById('root'))
