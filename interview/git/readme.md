@@ -8,7 +8,7 @@ git checkout 文件名
 git rm --cached 文件 
 将文件从暂存区中删除
 
-git reset --hard commitID 
+git reset --hard commitID 1
 将仓库中指定的更新记录恢复出来，并且
 
 分支
