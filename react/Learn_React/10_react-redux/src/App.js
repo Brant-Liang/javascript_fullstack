@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from './pages/home4-react-thunk';
+import Home from './pages/home5-redux-saga';
 import About from './pages/about3';
 function App() {
   return (
