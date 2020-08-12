@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 生成器 generator
+    function* foo() {
+      yield "Hello";
+      yield "World";
+      yield "Brant";
+    }
+
+    // iterator: 迭代器
+    // const result = foo();
+    // console.log(result);
+
+    // 使用迭代器
+    // 调用一次next 销毁一次迭代器
+    // const res1 = result.next();
+    // console.log(res1);
+    // const res2 = result.next();
+    // console.log(res2);
+    // const res3 = result.next();
+    // console.log(res3);
+    // const res4 = result.next();
+    // console.log(res4);
+
+    // generator 和 promise一起来使用
+    function* bar() {
+      console.log(111);
+      const result = yield new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("hello generator");
+        }, 3000)
+      });
+      console.log(result);
+    }
+    const it = bar();
+    it.next().value.then(res => {
+      it.next(res);
+    });
+  </script>
+</body>
+</html>
