@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { createContext } from 'react'
 // import CounterClass from './01_体验hooks/01_counter-class'
 // import CounterHook from './01_体验hooks/02_counter-hook';
 // import CounterHook from './01_体验hooks/03_counter-hook';
@@ -9,7 +9,15 @@ import React, { useState, createContext } from 'react'
 // import EffectHookCancel from './03_useEffect的使用/03_useEffect模拟订阅和取消';
 // import MultEffectDemo from './03_useEffect的使用/04_多个useEffect一起使用'
 
-import ContextHookDemo from './04_useContext的使用/01_useContext的使用';
+// import ContextHookDemo from './04_useContext的使用/01_useContext的使用';
+
+// import Home from './05_useReducer的使用/home';
+
+// import CallbackDemo from './06_useCallback的使用/01_useCallback不能进行的性能优化'
+// import CallbackDemo from './06_useCallback的使用/02_useCallback的性能优化'
+
+// import MemoHookDemo1 from './07_useMemo的使用/01_useMemo复杂'
+import MemoHookDemo2 from './07_useMemo的使用/02_useMemo传入子组件引用类型'
 
 export const UserContext = createContext()
 export const ThemeContext = createContext()
@@ -34,11 +42,19 @@ export default function App() {
       {/* <MultEffectDemo /> */}
 
       {/* useContext */}
-      <UserContext.Provider value={{name: "Brant", age: 18}}>
+      {/* <UserContext.Provider value={{name: "Brant", age: 18}}>
         <ThemeContext.Provider value={{fontSize: "18px"}}>
           <ContextHookDemo />
         </ThemeContext.Provider>
-      </UserContext.Provider>
+      </UserContext.Provider> */}
+      {/* <Home /> */}
+
+      {/* useCallback */}
+      {/* <CallbackDemo /> */}
+
+      {/* useMemo */}
+      {/* <MemoHookDemo1/> */}
+      <MemoHookDemo2 />
     </div>
   )
 }
