@@ -17,7 +17,13 @@ import React, { createContext } from 'react'
 // import CallbackDemo from './06_useCallback的使用/02_useCallback的性能优化'
 
 // import MemoHookDemo1 from './07_useMemo的使用/01_useMemo复杂'
-import MemoHookDemo2 from './07_useMemo的使用/02_useMemo传入子组件引用类型'
+// import MemoHookDemo2 from './07_useMemo的使用/02_useMemo传入子组件引用类型'
+
+// import RefHookDemo1 from './08_useRef的使用/01_useRef获取DOM'
+// import RefHookDemo1 from './08_useRef的使用/02_useRef引用其他数据';
+
+// import EffectCounterDemo from './10_useLayoutEffect/01_useEffect修改count'
+import EffectCounterDemo from './10_useLayoutEffect/02_useLayoutEffect'
 
 export const UserContext = createContext()
 export const ThemeContext = createContext()
@@ -52,9 +58,15 @@ export default function App() {
       {/* useCallback */}
       {/* <CallbackDemo /> */}
 
-      {/* useMemo */}
+      {/* 7 useMemo */}
       {/* <MemoHookDemo1/> */}
-      <MemoHookDemo2 />
+      {/* <MemoHookDemo2 /> */}
+
+      {/* 8 useRef */}
+      {/* <RefHookDemo1 /> */}
+
+      {/* 10 useLayoutEffect */}
+      <EffectCounterDemo />
     </div>
   )
 }
