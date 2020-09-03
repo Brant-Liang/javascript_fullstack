@@ -1,21 +1,12 @@
-import React, { memo, useEffect } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import React, { memo } from 'react';
 
-import { getTopBannersAction } from './store/actionCreators';
+import BLTopBanners from './c-cpns/top-banners';
+import { RecommendWraper } from './style'
 function BLRecommend(props) {
-  // 组件redux关联： 获取数据和进行操作
-  const recommend = useSelector(state => ({
-    topBanners: state.recommend.topBanners
-  }), shallowEqual)
-  const dispatch = useDispatch();
-  // 发送网络请求
-  useEffect(() => {
-    dispatch(getTopBannersAction())
-  }, [dispatch])
   return (
-    <div>
-      <h2>recommend: {recommend.topBanners.length}</h2>
-    </div>
+    <RecommendWraper>
+      <BLTopBanners />
+    </RecommendWraper>
   )
 }
 
