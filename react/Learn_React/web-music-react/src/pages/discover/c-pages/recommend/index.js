@@ -1,11 +1,28 @@
 import React, { memo } from 'react';
 
 import BLTopBanners from './c-cpns/top-banners';
-import { RecommendWraper } from './style'
+import BLHotRecommend from './c-cpns/hot-recommend';
+import BLNewAlbum from './c-cpns/new-album';
+import BLRCMRanking from './c-cpns/ranking';
+import {
+  RecommendWraper,
+  Content,
+  RecommendLeft,
+  RecommendRight
+} from './style';
+
 function BLRecommend(props) {
   return (
     <RecommendWraper>
-      <BLTopBanners />
+      <BLTopBanners/>
+      <Content className="wrap-v2">
+        <RecommendLeft>
+          <BLHotRecommend/>
+          <BLNewAlbum/>
+          <BLRCMRanking/>
+        </RecommendLeft>
+        <RecommendRight></RecommendRight>
+      </Content>
     </RecommendWraper>
   )
 }
