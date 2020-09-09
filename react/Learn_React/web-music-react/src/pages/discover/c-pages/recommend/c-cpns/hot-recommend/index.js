@@ -22,19 +22,17 @@ export default memo(function BLHotRecommend() {
     dispatch(getHotRecommendAction(HOT_RECOMMEND_LIMIT));
   }, [dispatch])
   return (
-    <div>
-      <HotRecommendWrapper>
-        <BLThemeHeaderRCM title="热门推荐" keywords={['华语', '流行', '摇滚', '民谣', '电子']} />
-        <div className="recommend-list">
-          {
-            hotRecommends.map((item, index) => {
-              return (
-                <BLSongsCover key={item.id} info={item}/>
-              )
-            })
-          }
-        </div>
-      </HotRecommendWrapper>
-    </div>
+    <HotRecommendWrapper>
+      <BLThemeHeaderRCM title="热门推荐" keywords={['华语', '流行', '摇滚', '民谣', '电子']} />
+      <div className="recommend-list">
+        {
+          hotRecommends.map((item, index) => {
+            return (
+              <BLSongsCover key={item.id} info={item} />
+            )
+          })
+        }
+      </div>
+    </HotRecommendWrapper>
   )
 })

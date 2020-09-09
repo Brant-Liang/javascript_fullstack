@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import BLTopBanners from './c-cpns/top-banners';
 import BLHotRecommend from './c-cpns/hot-recommend';
 import BLNewAlbum from './c-cpns/new-album';
-import BLRCMRanking from './c-cpns/ranking';
+import BLRankingList from './c-cpns/ranking-list';
 import {
   RecommendWraper,
   Content,
@@ -19,7 +19,7 @@ function BLRecommend(props) {
         <RecommendLeft>
           <BLHotRecommend/>
           <BLNewAlbum/>
-          <BLRCMRanking/>
+          <BLRankingList/>
         </RecommendLeft>
         <RecommendRight></RecommendRight>
       </Content>
