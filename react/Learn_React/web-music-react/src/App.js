@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, Suspense } from 'react'
 
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
@@ -14,7 +14,9 @@ export default memo(function App() {
     <Provider store={store}>
       <HashRouter>
         <BLAppHeader />
-        {renderRoutes(routes)}
+        <Suspense fallback={<div>loading</div>}>
+          {renderRoutes(routes)}
+        </Suspense>
         <BLAppFooter />
       </HashRouter>
     </Provider>
