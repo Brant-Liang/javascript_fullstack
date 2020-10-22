@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // ReferenceError: 引用的变量不存在
+    try {
+      console.log(a);
+    } catch(error) {
+      // 错误信息
+      console.log(error.message);
+      // 错误类型 + 信息 + 错误代码位置
+      console.log(error.stack);
+    }
+    // TypeError: 变量错误
+    // let b = null;
+    // b.xxx cannot read property 'xxx' is undefined
+
+    // RangeError: 数据值不在其所属范围内
+
+    // SyntaxError: 语法错误
+    function something() {
+      if(Date.now() % 2 === 1) {
+        console.log(Date.now(), '当前时间为奇数，可以执行任务')
+      } else {
+        throw new Error('当前时间为偶数,无法执行')
+      }
+    }
+
+    try {
+      something();
+    } catch (error) {
+      alert(error);
+    }
+  </script>
+</body>
+</html>

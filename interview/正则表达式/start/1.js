@@ -1,5 +1,5 @@
 
-// var reg = new RegExp(/123/);
+var reg = new RegExp(/123/);
 
 var reg2 = /123/;
 console.log(reg2);
