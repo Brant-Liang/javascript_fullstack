@@ -18,3 +18,5 @@ SessionStorage， LocalStorage， Cookie 这三者都可以被用来在浏览器
           cookie 设置的 cookie 过期时间之前一直有效，即使窗口或浏览器关闭。 
 # 作用域： 
           sessionStorage 只在同源的同窗口（或标签页）中共享数据，也就是只在当前会话中共享。 localStorage 在所有同源窗口中都是共享的。 cookie 在所有同源窗口中都是共享的。
+
+# session 
