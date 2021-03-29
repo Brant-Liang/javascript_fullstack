@@ -1,4 +1,4 @@
-function throttle(fn) {
+function throttle(fn, time) {
   let flag = true;
   return function () {
     if (!flag) {
@@ -8,6 +8,6 @@ function throttle(fn) {
     setTimeout(() => {
       fn.apply(this, arguments);
       flag = true;
-    }, 1600)
+    }, time)
   }
 }

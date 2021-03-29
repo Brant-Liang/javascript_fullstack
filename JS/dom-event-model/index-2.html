@@ -6,6 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+    .wrapper {
+      background-color: red;
+      width: 100px;
+      height: 100px;
+    }
+    .inner {
+      background-color: blue;
+      width: 50px;
+      height: 50px;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,10 +26,27 @@
     <li>2</li>
     <li>3</li>
   </ul>
+  <div class="wrapper">
+    <div class="inner">
+
+    </div>
+  </div>
   <script>
     //点击Li 输出 li 对应的内容  
     const lis = document.querySelector('li');
-    const ul = document.querySelector('ul')
+    const ul = document.querySelector('ul');
+    const wrapper = document.querySelector('.wrapper');
+    console.log(wrapper);
+    const inner = document.getElementsByClassName('inner')[0];
+    wrapper.addEventListener('click', (e) => {
+      alert('外 冒泡')
+    }, false);
+    wrapper.addEventListener('click', (e) => {
+      alert('外 捕获')
+    }, true);
+    inner.addEventListener('click', (e) => {
+      alert('内')
+    }, false);
     // for (let el of lis) {
     // el.addEventListener('click', function () {
     //   console.log(el.innerHTML);
@@ -30,7 +59,7 @@
       if(e.target.nodeName == 'LI'){
         console.log(e.target.innerHTML);
       }
-    })
+    }, true)
   </script>
 </body>
 

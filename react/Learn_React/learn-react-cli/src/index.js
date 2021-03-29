@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-// import App from './03_组件间的通信/App'
+import App from './03_组件间的通信/App'
 // import App from './04_组件通信的案例/App'
 // import App from './05_react中使用插槽/App'
 // import App from './06_跨组件通信/App'
@@ -12,6 +12,6 @@ import ReactDOM from 'react-dom'
 // import App from './09_受控和非受控组件/01_refs的使用'
 // import App from './09_受控和非受控组件/03_非受控组件的使用'
 // import App from './10_高阶组件的使用/01_高阶组件的定义方式'
-import App from './10_高阶组件的使用/03_高阶组件应用-登录鉴权操作'
+// import App from './10_高阶组件的使用/03_高阶组件应用-登录鉴权操作'
 
 ReactDOM.render(<App name="Brant"/>, document.getElementById('root'))

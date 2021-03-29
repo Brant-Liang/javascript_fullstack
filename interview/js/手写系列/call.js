@@ -12,6 +12,7 @@ Function.prototype._call = function(context) {
   // this的指向是当前函数 func(func.call)
   context.func = this; //this指向的是当前的函数（Function的实例）
   let rest = [...arguments].slice(1);
+  console.log('rest', rest)
   let res = context.func(...rest);
   delete context.func;
   return res;
@@ -27,3 +28,4 @@ function bar(job, age) {
 }
 bar._call(foo, 'progremmer', 20);
 bar._call(null, 'progremmer', 20)
+console.log(global);
