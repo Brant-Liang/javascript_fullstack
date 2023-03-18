@@ -5,8 +5,8 @@ function A() {
   return 'A';
 }
 
-const obj = {};
 const obj2 = {};
+const obj = {};
 var B = function () {
   return obj;
 }

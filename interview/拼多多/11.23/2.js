@@ -2,4 +2,9 @@
 // 按照数组的顺序打印,想打印后面的元素必须先打印前面的元素
 
 function getUrlPrint(urls) {
+  // return new Promise((reslove, reject) => {
+  //   fetch(urls).then(res => res.json())
+  //   .then(data => console.log('data'));
+  //   .cate
+  // })
 }
