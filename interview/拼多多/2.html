@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .add {
+    width: 100px;
+    height: 100px;
+  }
+</style>
+<body>
+  <div>
+    <img src="//i1.hdslb.com/bfs/face/871a715beaa83d58447a9b93bfc339694e3fd813.jpg@120w_120h_1c" />
+    <div>
+      <img src="//i1.hdslb.com/bfs/face/871a715beaa83d58447a9b93bfc339694e3fd813.jpg@120w_120h_1c" />
+      <div>
+        <img src="//i1.hdslb.com/bfs/face/871a715beaa83d58447a9b93bfc339694e3fd813.jpg@120w_120h_1c" />
+        <span>
+          <img src="//i1.hdslb.com/bfs/face/871a715beaa83d58447a9b93bfc339694e3fd813.jpg@120w_120h_1c" />
+          <img src="//i1.hdslb.com/bfs/face/871a715beaa83d58447a9b93bfc339694e3fd813.jpg@120w_120h_1c" />
+        </span>
+      </div>
+    </div>
+  </div>
+  <script>
+    // function find(data, target, k) {
+    //   let res = [];
+    //   const dfs = (d, k) => {
+    //     if (k === 0) {
+    //       const t = d.querySelectorAll('img');
+    //       for(let item of t) {
+    //         item.setAttribute('class', `${target}`);
+    //       }
+    //     } else {
+    //       if (d.children.length) {
+    //         for (let i = 0; i < d.children.length; i++) {
+    //           dfs(d.children[i], k - 1);
+    //         }
+    //       }
+    //     }
+    //   }
+    //   dfs(data, k);
+    //   return res;
+    // }
+    // const divElement = document.querySelectorAll('div');
+    // console.log(divElement);
+    // for (let i = 0; i < divElement.length; i++) {
+    //   console.log(find(divElement[i], 'add', 3));
+    // }
+    const imgElements = document.querySelectorAll('img');
+    for (const img of imgElements) {
+      if (getImgParentNodeIsDiv(img)) {
+        img.setAttribute('class', 'add');
+      }
+    }
+    function getImgParentNodeIsDiv(node) {
+      let parent = node.parentNode;
+      for(let i = 1; i < 4; i++) {
+        parent = parent?.parentNode;
+      }
+      if (parent.tagName === 'DIV') {
+        return true;
+      }
+      return false;
+    }
+  </script>
+</body>
+</html>

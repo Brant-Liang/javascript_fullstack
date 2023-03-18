@@ -32,5 +32,6 @@ test();
 // After validating type...
 // After validating non-zero denominator...
 // 1
+// 2
 // 2:Error: Cannot divide by 0!
 // undefined

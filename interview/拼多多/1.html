@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="./a.js" defer="defer"></script>
+    <script src="./b.js" async></script>
+    <script>
+      console.log('script start');
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOMContentLoaded')
+      })
+      window.addEventListener('load', () => {
+        console.log('loaded');
+      })
+    </script>
+  </head>
+  <body>
+    <div>
+      <script>
+        let i = 0;
+        while (i < 1000) {
+          i++;
+        }
+        console.log('compute finished');
+      </script>
+    </div>
+  </body>
+</html>
+
+// 1  b.js
+// 2 script start
+// 3 compute finished
+// 4 a.js
+// 5 DOMContentLoaded
+// 6 loaded

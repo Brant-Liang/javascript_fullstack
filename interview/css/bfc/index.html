@@ -7,17 +7,22 @@
   <style>
     .wrapper {
       /* width: 300px; */
+      border: 1px solid #000000;
     }
     .a {
       width: 100px;
       height: 100px;
+      /* display: inline-block;
+      overflow: auto; */
       float: left;
       background-color: red;
+      margin-bottom: 10px;
     }
     .b {
       width: 100px;
       float: left;
       height: 100px;
+      margin-top: 20px;
       background-color: blue;
     }
     .c {
@@ -26,6 +31,18 @@
       float: left;
       background-color: green;
     }
+    .d {
+      clear: both;
+    }
+    .left {
+      float: left;
+      width: 200px;
+    }
+
+    .right {
+      margin-left: 200px; /* 左栏宽度 */
+    }
+
   </style>
 </head>
 <body>
@@ -33,6 +50,11 @@
     <div class="a"></div>
     <div class="b"></div>
     <div class="c"></div>
+    <div class="d"></div>
+  </div>
+  <div class="wrapper1">
+    <div class="left">左</div>
+    <div class="right">右</div>
   </div>
 </body>
 </html>

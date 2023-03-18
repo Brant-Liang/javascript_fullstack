@@ -11,7 +11,7 @@ console.log(Object instanceof Object); //true
 console.log(Function instanceof Function); //true
 console.log(Function instanceof Object); //true
 
-console.log(Object instanceof Foo);
+console.log(Object instanceof Foo); //false
 
 function myInstance(left, right){
   var proto = left.__proto__;
@@ -22,7 +22,15 @@ function myInstance(left, right){
     proto = proto.__proto__;
   }
 }
-console.log(myInstance(Function, Object));
+console.log(myInstance(Function, Object)); // true
 
-
+function Instance(left, right) {
+  let proto = left.__proto__;
+  let protptype = right.prototype;
+  while(true) {
+    if(proto === null) return false;
+    if(proto === protptype) return true;
+    proto = proto.__proto__;
+  }
+}
 

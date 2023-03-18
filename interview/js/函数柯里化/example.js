@@ -27,7 +27,7 @@ function Queue() {
     this.queue.push({fn, time})
     return this;
   },
-  1
+  
   this.start = () => {
     let defer = 0;
     this.queue.forEach((item) => {

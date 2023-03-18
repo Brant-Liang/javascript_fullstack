@@ -1,7 +1,7 @@
 根元素或包含根元素的元素
 浮动元素 float ＝ left | right 或 inherit（≠ none）
 绝对定位元素 position ＝ absolute 或 fixed
-display ＝ inline-block | flex | inline-flex | table-cell 或 table-caption
+display ＝ inline-block | table-cell 或 table-caption
 overflow ＝ hidden | auto 或 scroll (≠ visible)
 
 

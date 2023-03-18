@@ -1,5 +1,4 @@
 // new 实现原理
-
 /* 
   1、创建一个空对象，构造函数中的this指向这个空对象
   2、这个对象的__proto__属性指向构造函数的prototype属性
@@ -11,7 +10,7 @@ function myNew(constructor, args) {
   let obj = {} //实例对象
   obj.__proto__ = constructor.prototype;
   let res = constructor.call(obj, args);
-  console.log(res);
+  console.log(res, obj);
   if(res&&(typeof (res) === 'object' || typeof (res) === 'function')) {
     return res;
   }

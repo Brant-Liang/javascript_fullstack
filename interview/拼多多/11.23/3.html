@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div><span><span></div>
+  <div></div>
+  <br/>
+  <div>
+    <h1>标题</h1>
+    <p>段落</p>
+    <ul>
+      <li>列表项1</li>
+      <li>列表项2</li>
+    </ul>
+  </div>
+
+  <script>
+    const domArr = document.getElementsByTagName('*');
+    const tagNames = [];
+    for(let i = 0; i < domArr.length; i++) {
+      if(tagNames.indexOf(domArr[i].tagName) === -1) {
+        tagNames.push(domArr[i].tagName)
+      }
+    }
+    console.log(tagNames);
+  </script>
+</body>
+</html>
